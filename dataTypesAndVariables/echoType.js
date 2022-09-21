@@ -12,4 +12,4 @@ function echoType(parameter) {
 
 
 }
-echoType(null)
+echoType('Hello, JavaScript!')
