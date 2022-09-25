@@ -3,14 +3,13 @@ function gladiator(lostFights, helmetPrice, swordPrice, shieldPrice, armorPrice)
     let shieldBrake = 0;
 
     for (let currentFight = 1; currentFight <= lostFights; currentFight++) {
+
         if (currentFight % 2 == 0) {
             gladiatorExpenses += helmetPrice;
         }
-
         if (currentFight % 3 == 0) {
             gladiatorExpenses += swordPrice
         }
-
         if (currentFight % 2 == 0 && currentFight % 3 == 0) {
             gladiatorExpenses += shieldPrice
             shieldBrake++
@@ -18,7 +17,6 @@ function gladiator(lostFights, helmetPrice, swordPrice, shieldPrice, armorPrice)
                 gladiatorExpenses += armorPrice
             }
         }
-
     }
     console.log(`Gladiator expenses: ${gladiatorExpenses.toFixed(2)} aureus`);
 
