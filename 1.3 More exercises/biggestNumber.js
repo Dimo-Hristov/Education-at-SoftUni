@@ -22,8 +22,4 @@ function biggestNum(num1, num2, num3) {
 
     console.log(biggestNum);
 }
-biggestNum(43,
-
-    43.2,
-
-    43.1)
+biggestNum(43, 43.2, 43.1)
