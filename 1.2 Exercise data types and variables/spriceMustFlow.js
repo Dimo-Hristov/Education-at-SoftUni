@@ -4,15 +4,9 @@ function price(yield) {
     let days = 0;
 
     while (yield >= 100) {
-        totalExtract += yield;
+        totalExtract += (yield - workersConsumePerDay);
         yield -= 10;
         days++
-        if (totalExtract >= workersConsumePerDay) {
-            totalExtract -= workersConsumePerDay
-        } else {
-            break;
-        }
-
     }
     totalExtract -= workersConsumePerDay /// abandonation fee
     if (totalExtract < 0) {
