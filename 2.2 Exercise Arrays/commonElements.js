@@ -1,4 +1,5 @@
 function elements(arr1, arr2) {
+    // easy way 
     for (array1Elements of arr1) {
         if (arr2.includes(array1Elements)) {
             console.log(array1Elements);
