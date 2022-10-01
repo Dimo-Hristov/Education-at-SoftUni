@@ -7,7 +7,7 @@ function arrayRotation(array, rotations) {
     //        }
     //            array[array.length -1] = firstNum
     //   }
-
+    // easy way
     for (let i = 0; i < rotations; i++) {
         arrayToRotate = array[0];
         array.shift()
