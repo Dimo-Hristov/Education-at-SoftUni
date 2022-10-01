@@ -2,7 +2,6 @@ function equalSums(array) {
     let output = 'no';
 
     for (let i = 0; i < array.length; i++) {
-        let currentNumber = array[i];
         let rightSum = 0;
         let leftSum = 0;
         for (let j = 0; j < i; j++) {
