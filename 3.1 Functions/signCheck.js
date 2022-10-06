@@ -20,6 +20,4 @@ function result(num1, num2, num3) {
         }
     }
 }
-
-
 result(-5, 1, 1)
