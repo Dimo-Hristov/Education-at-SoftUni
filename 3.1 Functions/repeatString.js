@@ -7,4 +7,4 @@ function repeatString(string, repeatTimes) {
 
     return result;
 }
-repeatString("abc", 3);
+repeatString("abc", 3)
