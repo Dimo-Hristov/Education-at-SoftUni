@@ -1,5 +1,5 @@
 function MathPower(x, y) {
     let result = x ** y
-    console.log(result);
+    return result
 }
 MathPower(2, 8)
