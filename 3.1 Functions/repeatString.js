@@ -1,10 +1,10 @@
 function repeatString(string, repeatTimes) {
-    let result = '';
+    let result = "";
 
     for (let i = 0; i < repeatTimes; i++) {
-        result += string
+        result += string;
     }
 
-    return result
+    return result;
 }
-repeatString("abc", 3)
+repeatString("abc", 3);
