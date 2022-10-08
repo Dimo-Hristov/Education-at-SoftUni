@@ -5,7 +5,7 @@ function palindromeIntegers(array) {
         let currentNumbers = array[i];
         let reversedNumbers = array[i] + ''
         reversedNumbers = Number(reversedNumbers.split('').reverse().join(''))
-        currentNumbers == reversedNumbers ? console.log('True') : console.log('False');
+        currentNumbers == reversedNumbers ? console.log('true') : console.log('false');
     }
 
 }
