@@ -1,17 +1,14 @@
 function nXnMatrix(number) {
 
-    let currentLane = ''
+    let output = ''
 
     for (let i = 1; i <= number * number; i++) {
-        currentLane += number + ' '
+        output += number + ' '
 
         if (i % number == 0) {
-            currentLane += '\n'
+            output += '\n'
         }
     }
-    console.log(currentLane);
-
-
-
+    console.log(output);
 }
 nXnMatrix(7)
