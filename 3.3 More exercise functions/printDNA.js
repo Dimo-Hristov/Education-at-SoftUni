@@ -6,11 +6,6 @@ function printDNA(number) {
     let counter = 0;
     let rowCounter = 1
     let index = 0
-    // let firstRow = `**${char1}${char2}**`;
-    // let secondRow = `*${char1}--${char2}*`;
-    // let thirdRow = `${char1}----${char2}`;
-    // let lastRow = `*${char1}--${char2}*`;
-
 
     while (counter < number) {
         if (index >= sequenceLength) {
@@ -34,6 +29,5 @@ function printDNA(number) {
         }
         counter++
     }
-
 }
 printDNA(10)
