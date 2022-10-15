@@ -19,7 +19,6 @@ function manipulations(arr) {
                 insert(currentCommand);
                 break;
         }
-
     }
 
     function add(currentCommand) {
@@ -53,5 +52,3 @@ manipulations([
 
     "Insert 6 2",
 ]);
-
-    'Insert 6 2'])
