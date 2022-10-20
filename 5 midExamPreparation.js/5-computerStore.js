@@ -22,13 +22,13 @@ function computerStore(input) {
     }
 
     if (finalPriceWithTaxes == 0) {
-        console.log('Invalid order');
+        console.log('Invalid order!');
     } else {
         console.log(`Congratulations you\'ve just bought a new computer!
 Price without taxes: ${totalSum.toFixed(2)}$
 Taxes: ${taxes.toFixed(2)}$
 -----------
-Total price: ${finalPriceWithTaxes.toFixed(2)}}$
+Total price: ${finalPriceWithTaxes.toFixed(2)}$
 `);
     }
 }
