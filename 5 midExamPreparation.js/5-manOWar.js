@@ -1,59 +1,27 @@
 function manOWar(input) {
-    let pirateShipStatus = input.shift().split('>').map(Number);
-    let warShipStatus = input.shift().split('>').map(Number);
+    let pirateShipStatus = input.shift().split(">").map(Number);
+    let warShipStatus = input.shift().split(">").map(Number);
     let maxHealthPerSelection = Number(input.shift());
-    let currentLane = input.shift().split(' ')
+    let currentLane = input.shift().split(" ");
     let isPiratesWin = false;
-    let isWarShipDetroyedPirates = false
+    let isWarShipDetroyedPirates = false;
 
-    while (currentLane[0] != 'Retire') {
+    while (currentLane[0] != "Retire") {
         let command = currentLane[0];
 
         switch (command) {
-            case 'Fire':
-                let index = Number(currentLane[1]);
-                let piratesDamage = Number(currentLane[2]);
-                if (warShipStatus[index]) {
-                    warShipStatus[index] -= piratesDamage
-                    if (warShipStatus[index] <= 0) {
-                        console.log('You won! The enemy ship has sunken.');
-                        isPiratesWin = true;
-                    }
-                }
+            case "Fire":
+                fire(currentLane);
                 break;
-            case 'Defend':
-                let startIndex = Number(currentLane[1]);
-                let endIndex = Number(currentLane[2]);
-                let warShipDamage = Number(currentLane[3]);
-
-                if (pirateShipStatus[startIndex] && pirateShipStatus[endIndex]) {
-                    for (let i = startIndex; i <= endIndex; i++) {
-                        pirateShipStatus[i] -= warShipDamage
-                        if (pirateShipStatus[i] <= 0) {
-                            console.log('You lost! The pirate ship has sunken.');
-                            isWarShipDetroyedPirates = true;
-                            break;
-                        }
-                    }
-                }
+            case "Defend":
+                defend(currentLane);
                 break;
-            case 'Repair':
-                let indexToRepair = Number(currentLane[1]);
-                let healthToAdd = Number(currentLane[2]);
-                if (pirateShipStatus[indexToRepair]) {
-                    pirateShipStatus[indexToRepair] += healthToAdd;
-                    if (pirateShipStatus[indexToRepair] > maxHealthPerSelection) {
-                        pirateShipStatus[indexToRepair] = maxHealthPerSelection
-                    }
-                }
+            case "Repair":
+                repair(currentLane);
                 break;
-            case 'Status':
-                let healthBorder = (maxHealthPerSelection / 100) * 20
-
-                let selectionToRepair = pirateShipStatus.filter(x => x < healthBorder)
-                console.log(`${selectionToRepair.length} sections need repair.`);
+            case "Status":
+                status(currentLane);
                 break;
-
         }
 
         if (isPiratesWin) {
@@ -63,17 +31,70 @@ function manOWar(input) {
             break;
         }
 
-        currentLane = input.shift().split(' ')
+        currentLane = input.shift().split(" ");
     }
 
     if (!isPiratesWin && !isWarShipDetroyedPirates) {
-        let pirateShipSum = pirateShipStatus.reduce((total, arg) => total + arg, 0)
-        let warShipSum = warShipStatus.reduce((total, arg) => total + arg, 0)
+        let pirateShipSum = pirateShipStatus.reduce((total, arg) => total + arg, 0);
+        let warShipSum = warShipStatus.reduce((total, arg) => total + arg, 0);
         console.log(`Pirate ship status: ${pirateShipSum}`);
         console.log(`Warship status: ${warShipSum}`);
     }
+
+    function defend(arr) {
+        let startIndex = Number(currentLane[1]);
+        let endIndex = Number(currentLane[2]);
+        let warShipDamage = Number(currentLane[3]);
+
+        if (pirateShipStatus[startIndex] && pirateShipStatus[endIndex]) {
+            for (let i = startIndex; i <= endIndex; i++) {
+                pirateShipStatus[i] -= warShipDamage;
+                if (pirateShipStatus[i] <= 0) {
+                    console.log("You lost! The pirate ship has sunken.");
+                    isWarShipDetroyedPirates = true;
+                    break;
+                }
+            }
+        }
+    }
+    function repair(arr) {
+        let indexToRepair = Number(currentLane[1]);
+        let healthToAdd = Number(currentLane[2]);
+        if (pirateShipStatus[indexToRepair]) {
+            pirateShipStatus[indexToRepair] += healthToAdd;
+            if (pirateShipStatus[indexToRepair] > maxHealthPerSelection) {
+                pirateShipStatus[indexToRepair] = maxHealthPerSelection;
+            }
+        }
+    }
+    function status(arr) {
+        let healthBorder = (maxHealthPerSelection / 100) * 20;
+
+        let selectionToRepair = pirateShipStatus.filter((x) => x < healthBorder);
+        console.log(`${selectionToRepair.length} sections need repair.`);
+    }
+    function fire(arr) {
+        let index = Number(currentLane[1]);
+        let piratesDamage = Number(currentLane[2]);
+        if (warShipStatus[index]) {
+            warShipStatus[index] -= piratesDamage;
+            if (warShipStatus[index] <= 0) {
+                console.log("You won! The enemy ship has sunken.");
+                isPiratesWin = true;
+            }
+        }
+    }
 }
-manOWar((["2>3>4>5>2", "6>7>8>9>10>11", "20", "Status", "Fire 2 3", "Defend 0 4 11", "Repair 3 18", "Retire"]))
+manOWar([
+    "2>3>4>5>2",
+    "6>7>8>9>10>11",
+    "20",
+    "Status",
+    "Fire 2 3",
+    "Defend 0 4 11",
+    "Repair 3 18",
+    "Retire",
+]);
 
 // The pirates encounter a huge Man-O-War at sea.
 // Create a program that tracks the battle and either chooses a winner or prints a stalemate. On the first line, you will receive the status of the pirate ship, which is a string representing integer sections separated by ">". On the second line, you will receive the same type of status, but for the warship:
