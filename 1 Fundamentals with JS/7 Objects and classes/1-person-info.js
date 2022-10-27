@@ -1,11 +1,11 @@
 function personInfo(name, lastName, age) {
     let personInfo = {
-        name: name,
+        firstName: name,
         lastName: lastName,
         age: age,
     }
 
-    console.log(personInfo.name);
+    return personInfo
 }
 personInfo("Peter",
 
