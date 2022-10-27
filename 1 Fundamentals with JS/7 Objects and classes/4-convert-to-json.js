@@ -1,6 +1,6 @@
 function objectToJson(firstName, lastName, hairColor) {
     let obj = {
-        Name: firstName,
+        name: firstName,
         lastName: lastName,
         hairColor: hairColor
     }
