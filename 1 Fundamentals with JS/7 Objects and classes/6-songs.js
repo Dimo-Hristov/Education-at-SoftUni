@@ -23,14 +23,11 @@ function songs(input) {
     }
 
     if (typeToPrint == 'all') {
-        songs.forEach(i => console.log(i.type))
+        songs.forEach(i => console.log(i.name))
     } else {
         let filtered = songs.filter(i => i.type == typeToPrint)
         filtered.forEach(i => console.log(i.name))
     }
-
-
-
 }
 songs([3,
 
