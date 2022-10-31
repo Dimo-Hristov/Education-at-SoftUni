@@ -1,14 +1,44 @@
 function flightSchedule(input) {
     let flights = input[0]
-    let obj = {};
+    let flightsInfo = [];
 
     flights.forEach(row => {
-        let array = row.split(' ')
+        // let array = row.split(' ')
+        // let flightNumber = array[0];
+        // let destination = array[1];
+        let [flightNumber, destination] = row.split(' ')
+        let obj = {
+            flightNumber,
+            destination,
+            status: 'Ready to fly'
+        }
+        flightsInfo.push(obj)
 
     });
 
+    let changeStatus = input[1]
+
+    changeStatus.forEach(row => {
+        let array = row.split(' ')
+        let number = array[0]; // take the flight number who have changes
+        let changedStatus = array[1]; // take the changed status
+        flightsInfo.forEach(search => {
+            if (search.flightNumber == number) { // we search for the flight
+                search.status = changedStatus // then we found it we change the status
+            }
+        })
+    })
+
+    let whatToPrint = input[2]
+
+    flightsInfo.forEach(flight => {
+        if (flight.status == whatToPrint) {
+            console.log(`{ Destination: '${flight.destination}', Status: '${flight.status}' }`);
+        }
+    })
+
 }
-flightSchedule([['WN269 Delaware',
+flightSchedule([['WN269 Dela ware',
     'FL2269 Oregon',
     'WN498 Las Vegas',
     'WN3145 Ohio',
