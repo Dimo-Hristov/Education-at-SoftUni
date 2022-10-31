@@ -5,8 +5,7 @@ function createClass() {
             this.model = model;
             this.parts = parts;
             this.fuel = fuel;
-            let quality = this.parts.engine * this.parts.power;
-            this.parts.quality = quality;
+            this.parts.quality = parts.engine * parts.power
         }
         drive(loss) {
             this.fuel -= loss;
