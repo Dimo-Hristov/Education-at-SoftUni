@@ -3,10 +3,9 @@ function flightSchedule(input) {
     let flightsInfo = [];
 
     flights.forEach(row => {
-        // let array = row.split(' ')
-        // let flightNumber = array[0];
-        // let destination = array[1];
-        let [flightNumber, destination] = row.split(' ')
+        let array = row.split(' ')
+        let flightNumber = array.shift();
+        let destination = array.join(' '); // if the town name is not one word i find this solution 
         let obj = {
             flightNumber,
             destination,
@@ -38,7 +37,7 @@ function flightSchedule(input) {
     })
 
 }
-flightSchedule([['WN269 Dela ware',
+flightSchedule([['WN269 New York',
     'FL2269 Oregon',
     'WN498 Las Vegas',
     'WN3145 Ohio',
