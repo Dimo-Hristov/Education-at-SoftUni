@@ -2,14 +2,14 @@ function wordOccurencies(input) {
     let list = {};
 
     for (const entry of input) { // take every single word
-        if (list[entry]) { // if the word exist in the list,add 1 to the counter( use the key for counter);
+        if (list[entry]) { // if the word exist in the list,add 1 to the counter( use the value for counter);
             list[entry]++
             continue;
         }
-        list[entry] = 1 // if doesnt exist add the word to the list with key 1(use key for counter);
+        list[entry] = 1 // if doesnt exist add the word to the list with value 1(use value for counter);
     }
 
-    // sort the the words by repeated times counter, in descending order.
+    // sort the the words by value, in descending order.
     let kvpArray = Object.entries(list);
     kvpArray.sort(([wordA, countA], [wordB, countB]) => countB - countA);
 
