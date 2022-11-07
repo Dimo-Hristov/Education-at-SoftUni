@@ -1,14 +1,14 @@
 function cardGame(input) {
     let personsAndDecksList = {};
-
+    // make list with persons and the decks they have.
     for (const line of input) {
         let arrayToOperate = line.split(': ')
         let name = arrayToOperate.shift();
         let deck = arrayToOperate.join('').split(', ')
         let deckAfterFilter = [];
-
+        //check if person exist. If exist, check for repeatable cards and remove them. 
+        // after this add them to his deck.
         if (personsAndDecksList[name]) {
-
             deck.forEach(card => {
                 if (!deckAfterFilter.includes(card) && !personsAndDecksList[name].includes(card)) {
                     deckAfterFilter.push(card);
@@ -17,6 +17,7 @@ function cardGame(input) {
             personsAndDecksList[name] = personsAndDecksList[name].concat(deckAfterFilter);
 
         } else {
+            // if person doesent exist, add him to the list with his deck(check for repeatable cards)
             deck.forEach(card => {
                 if (!deckAfterFilter.includes(card)) {
                     deckAfterFilter.push(card);
@@ -25,6 +26,7 @@ function cardGame(input) {
             personsAndDecksList[name] = deckAfterFilter
         }
     }
+    // print every person with the calculated points from his deck.
     pointsPrinter(personsAndDecksList);
 
 
@@ -100,3 +102,15 @@ cardGame([
     'John: JD, JD, JD, JD'
 
 ])
+
+// You are given a sequence of people and for every person what cards he draws from the deck. The input will be an array of strings. Each string will be in the format:
+
+// {personName}: {PT, PT, PT,… PT}
+
+// Where P (2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A) is the power of the card and T (S, H, D, C) is the type. The name can contain any ASCII symbol except ':'. The input will always be valid and in the format described, there is no need to check it.
+
+// A single person cannot have more than one card with the same power and type, if he draws such a card he discards it. The people are playing with multiple decks. Each card has a value that is calculated by the power multiplied by the type. Powers 2 to 10 have the same value and J to A are 11 to 14. Types are mapped to multipliers the following way (S -> 4, H-> 3, D -> 2, C -> 1).
+
+// Finally print out the total value each player has in his hand in the format:
+
+// {personName}: {value}
