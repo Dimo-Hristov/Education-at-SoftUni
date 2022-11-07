@@ -35,8 +35,6 @@ function partyTime(input) {
     console.log(missingGuest);
     console.log(guestList['vip'].join('\n'));
     console.log(guestList['regular'].join('\n'));
-
-
 }
 partyTime(['7IK9Yo0h', '9NoBUajQ', 'Ce8vwPmE', 'SVQXQCbc',
-    'tSzE5t0p', 'PARTY', 'Ce8vwPmE', 'SVQXQCbc'])
+    'tSzE5t0p', 'PARTY', '9NoBUajQ', 'Ce8vwPmE', 'SVQXQCbc'])
