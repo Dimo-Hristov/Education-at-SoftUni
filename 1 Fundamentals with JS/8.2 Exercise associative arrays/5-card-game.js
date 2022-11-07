@@ -6,7 +6,8 @@ function cardGame(input) {
         let name = arrayToOperate.shift();
         let deck = arrayToOperate.join('').split(', ')
         let deckAfterFilter = [];
-        //check if person exist. If exist, check for repeatable cards and remove them. 
+        //check if person exist. If exist, check for repeatable cards
+        //in current deck + in his deck , if card is repeated discard it
         // after this add them to his deck.
         if (personsAndDecksList[name]) {
             deck.forEach(card => {
