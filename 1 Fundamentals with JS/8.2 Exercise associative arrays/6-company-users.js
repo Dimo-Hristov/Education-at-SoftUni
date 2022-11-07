@@ -3,15 +3,18 @@ function companyUsers(input) {
 
     input.forEach(info => {
         const [company, employeeId] = info.split(' -> ')
+        // if the company doesen't exist, add the company and add employee's ID in array
         if (!companyEmployesList[company]) {
             companyEmployesList[company] = [employeeId];
         } else {
+            // if company exist
+            // check if employee's ID exist, if doesen't add it.
             if (!companyEmployesList[company].includes(employeeId)) {
                 companyEmployesList[company].push(employeeId);
             }
         }
     });
-
+    // make kvp array to sort companies by name in ascending order and print them.
     let kvpArray =
         Object.entries(companyEmployesList)
             .sort(([companyA], [companyB]) => companyA.localeCompare(companyB));
