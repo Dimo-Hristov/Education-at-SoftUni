@@ -40,9 +40,7 @@ function softuniStudents(input) {
     // sort the courses by the count of students in descending 
     let sortedByCapacity = Object.values(coursesList).sort((a, b) => Object.keys(Object.values(a).length) - Object.keys(Object.values(b).length))
 
-    for (const kur of sortedByCapacity) {
-        console.log(kur);
-    }
+    // not ready
 
 
 
