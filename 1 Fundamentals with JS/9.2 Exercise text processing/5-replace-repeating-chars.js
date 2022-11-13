@@ -1,8 +1,8 @@
 function replaceChars(text) {
-    let result = '';
+    let result = text[0]
 
     for (let index = 1; index < text.length; index++) {
-        let charA = text[index + 1];
+        let charA = text[index - 1];
         let charB = text[index]
 
         if (charA != charB) {
