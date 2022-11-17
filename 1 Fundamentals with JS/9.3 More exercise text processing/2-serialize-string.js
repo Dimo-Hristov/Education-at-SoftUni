@@ -1,5 +1,5 @@
 function serializeString(input) {
-    let str = input.toString();
+    let str = input[0];
     let charList = {};
     let strLength = str.length;
 
