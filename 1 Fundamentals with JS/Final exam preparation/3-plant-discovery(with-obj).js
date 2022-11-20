@@ -1,49 +1,33 @@
 function plantDiscovery(input) {
     let plantList = {};
-    // key is the name of the plant, value is array. 0 index = rarity and 1 index = rating.
-    let plantsQty = Number(input.shift());
+    let totalPlants = Number(input.shift());
 
-    for (let i = 0; i < plantsQty; i++) {
-        let [plant, rarity] = input.shift().split('<->');
-        rarity = Number(rarity);
-        if (!plantList[plant]) {
-            plantList[plant] = [rarity];
-        } else {
-            // if plant exist just update the rarity who is at index 0 of value array.
-            plantList[plant][0] = rarity;
-        }
-    }
+    plantGenerator(input, totalPlants);
 
     let data = input.shift();
 
-    while (data != "Exhibition") {
-        data = data.split(': ')
+    while (data !== 'Exhibition') {
+        data = data.split(': ');
         let command = data.shift();
 
         switch (command) {
             case 'Rate':
-                let [ratePlant, rate] = data[0].split(' - ');
-                rate = Number(rate);
-
+                let [ratePlant, rating] = data.shift().split(' - ');
+                rating = Number(rating)
                 if (plantList[ratePlant]) {
-
-                    if (plantList[ratePlant][1] == null) {
-                        // if rate doesent exist create it with current rate
-                        plantList[ratePlant][1] = rate;
+                    if (plantList[ratePlant].rating == 0) {
+                        plantList[ratePlant].rating = rating
                     }
-                    // sum old and new rate, devide it by 2 to get averege rate.
-                    plantList[ratePlant][1] = (plantList[ratePlant][1] + rate) / 2;
+                    plantList[ratePlant].rating = (plantList[ratePlant].rating + rating) / 2
                 } else {
                     console.log('error');
                 }
                 break;
 
             case 'Update':
-                let [updatePlant, newRarity] = data[0].split(' - ');
-                newRarity = Number(newRarity);
-
+                let [updatePlant, newRarity] = data.shift().split(' - ');
                 if (plantList[updatePlant]) {
-                    plantList[updatePlant][0] = newRarity;
+                    plantList[updatePlant].rarity = newRarity;
                 } else {
                     console.log('error');
                 }
@@ -51,8 +35,8 @@ function plantDiscovery(input) {
 
             case 'Reset':
                 let resetPlant = data.shift();
-                if (plantList[resetPlant][1]) {
-                    plantList[resetPlant].splice(1, 1);
+                if (plantList[resetPlant]) {
+                    plantList[resetPlant].rating = 0;
                 } else {
                     console.log('error');
                 }
@@ -61,34 +45,32 @@ function plantDiscovery(input) {
         data = input.shift();
     }
 
+
     console.log('Plants for the exhibition:');
 
     for (const plant in plantList) {
-        if (plantList[plant][1] == undefined) plantList[plant][1] = 0
-        console.log(`- ${plant}; Rarity: ${plantList[plant][0]}; Rating: ${(plantList[plant][1]).toFixed(2)}`);
+        console.log(`- ${plant}; Rarity: ${plantList[plant].rarity}; Rating: ${(plantList[plant].rating).toFixed(2)}`);
+    }
+
+    function plantGenerator(input, totalPlants) {
+
+        for (let i = 0; i < totalPlants; i++) {
+            let [plant, rarity] = input.shift().split('<->');
+            rarity = Number(rarity);
+            let rating = 0;
+            if (!plantList[plant]) {
+                plantList[plant] = { rarity, rating };
+            } else {
+                plantList[plant].rarity = '';
+            }
+
+        }
     }
 }
-plantDiscovery(["3",
+plantDiscovery(["3", "Arnoldii<->4", "Woodii<->7", "Welwitschia<->2", "Rate: Woodii - 10",
+    "Rate: Welwitschia - 7", "Rate: Arnoldii - 3", "Rate: Woodii - 5", "Update: Woodii - 5",
+    "Reset: Arnoldii", "Exhibition"]);
 
-    "Arnoldii<->4",
-
-    "Woodii<->7",
-
-    "Welwitschia<->2",
-
-    "Rate: Woodii - 10",
-
-    "Rate: Welwitschia - 7",
-
-    "Rate: Arnoldii - 3",
-
-    "Rate: Woodii - 5",
-
-    "Update: Woodii - 5",
-
-    "Reset: Arnoldii",
-
-    "Exhibition"])
 
 //     You have now returned from your world tour. On your way, you have discovered some new plants, and you want to gather some information about them and create an exhibition to see which plant is highest rated.
 
