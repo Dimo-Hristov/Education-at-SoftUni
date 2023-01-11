@@ -4,7 +4,7 @@ function demo(input) {
 
     for (let i = 0; i < totalMessages; i++) {
         let currentMessage = input[i];
-        let isValid = currentMessage.match(pattern)
+        let isValid = pattern.exec(currentMessage);
 
         if (isValid) {
             if (isValid !== null) {
