@@ -1,14 +1,8 @@
 function wordsUppercase(input) {
     const pattern = /\w+/gm;
-    const words = input.matchAll(pattern);
-    const output = [];
+    const words = input.match(pattern);
 
-    for (const iterator of words) {
-        const currentWord = iterator[0].toUpperCase()
-        output.push(currentWord);
-    }
-
-    console.log(output.join(', '));
+    console.log(words.join(', ').toUpperCase());
 
 }
 wordsUppercase('Hi, how are you?');
