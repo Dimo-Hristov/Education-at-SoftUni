@@ -1,8 +1,7 @@
 function smallestTwoNumbers(arr) {
-    let smallestNum = arr[0];
-    let secondSmallest = arr[0];
-    arr.forEach(x => x < smallestNum ? smallestNum = x : smallestNum);
-    arr.forEach(x => x < secondSmallest && x > smallestNum ? secondSmallest = x : secondSmallest);
+    arr.sort((a, b) => a - b);
+    const smallestNum = arr.shift();
+    const secondSmallest = arr.shift();
 
     console.log(`${smallestNum} ${secondSmallest}`);
 
