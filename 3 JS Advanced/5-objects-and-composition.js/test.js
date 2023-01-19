@@ -1,18 +1,34 @@
 function solve(input) {
-    const arr = JSON.parse(input);
+    const data = JSON.parse(input);
     const output = [];
-    output.push('<table>');
-    output.push('<tr><th>Name</th><th>Score</th></tr>');
 
-    for (const obj of arr) {
-        output.push(`<tr><th>${obj.Name}</th><th>${obj.Score}</th></tr>`);
+    output.push('<table>');
+    const props = Object.keys(data[0]);
+    output.push(`   <tr>${props.map(p => `<th>${p}</th>`).join('')}</tr>`);
+
+    for (const entry of data) {
+        output.push(`   <tr>${props.map(p => `<td>${entry[p]}</td>`).join('')}</tr>`);
+
     }
 
     output.push('</table>');
 
-    return output.join('\n')
+    console.log(output.join('\n'))
 }
-solve(`[{"Name":"Stamat",
-"Score":5.5},
-{"Name":"Rumen",
-"Score":6}]`)
+solve(`[{"Name":"Pesho",
+
+"Score":4,
+
+" Grade":8},
+
+{"Name":"Gosho",
+
+"Score":5,
+
+" Grade":8},
+
+{"Name":"Angel",
+
+"Score":5.50,
+
+" Grade":10}]`)
