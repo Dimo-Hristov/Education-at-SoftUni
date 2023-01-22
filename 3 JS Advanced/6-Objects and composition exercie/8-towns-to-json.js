@@ -5,8 +5,8 @@ function townsToJson(input) {
 
     for (const element of input) {
         let [town, latitude, longitude] = element.match(pattern);
-        latitude = Number(latitude).toFixed(2).toString();
-        longitude = Number(longitude).toFixed(2).toString();
+        latitude = Number(latitude).toFixed(2)
+        longitude = Number(longitude).toFixed(2)
 
         let obj = {
             Town: town,
