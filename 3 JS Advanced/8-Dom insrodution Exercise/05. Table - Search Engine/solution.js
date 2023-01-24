@@ -6,11 +6,9 @@ function solve() {
       let rows = document.querySelectorAll('tbody tr');
 
       for (const row of rows) {
-         console.log(row.textContent);
+         row.classList.remove('select')
          if (input.value !== '' && row.textContent.includes(input.value)) {
             row.className = 'select'
-         } else {
-            row.className = ''
          }
       }
    }
