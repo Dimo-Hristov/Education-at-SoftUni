@@ -55,7 +55,7 @@ function solve() {
       }
 
       document.querySelector('#bestRestaurant p').textContent =
-         `Name: ${bestRestaurant} Average Salary: ${bestAverageSalary.toFixed(2)} Best Salary: ${restaurantList[bestRestaurant].workers[0][1].toFixed(2)}`
+         `Name: ${bestRestaurant} Average Salary: ${bestAverageSalary.toFixed(2)} Best Salary: ${(restaurantList[bestRestaurant].workers[0][1]).toFixed(2)}`
 
       let outputText = ''
       restaurantList[bestRestaurant].workers.forEach(element => {
