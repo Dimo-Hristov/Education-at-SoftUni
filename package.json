@@ -1,19 +1,24 @@
 {
-  "name": "solution",
+  "name": "education-at-softuni",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha ./*.test.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dimo-Hristov/Education-at-SoftUni.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dimo-Hristov/Education-at-SoftUni/issues"
+  },
+  "homepage": "https://github.com/Dimo-Hristov/Education-at-SoftUni#readme",
   "dependencies": {
     "chai": "^4.3.7",
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
-    "moch": "^0.0.1",
     "mocha": "^10.2.0"
   }
 }

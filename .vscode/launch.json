@@ -22,15 +22,6 @@
             ],
             "type": "node"
         },
-        
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}\\3 JS Advanced\\12-Unit testing and error handling\\2-playing-cards.js"
-        }
+       
     ]
 }

@@ -8,18 +8,19 @@ function subSum(parameters, startIndex, endIndex) {
 
     return parameters.slice(firstIndex, lastIndex + 1).reduce((acc, num) => acc += Number(num), 0)
 }
+module.exports = subSum;
 
-console.log(subSum([10, 20, 30, 40, 50, 60], 3, 300)); // expected 150
-console.log('----------');
-console.log(subSum([1.1, 2.2, 3.3, 4.4, 5.5], -3, 1)); // expected 3.3
-console.log('----------');
-console.log(subSum([10, 'twenty', 30, 40], 0, 2)); // expected NaN
-console.log('----------');
-console.log(subSum([], 1, 2));// expected 0
-console.log('---------');
-console.log(subSum('text', 0, 2));//expected NaN
-console.log('----');
-console.log(subSum(([10, 'twenty', 30, 40], 0, 2))); // expected NaN
+// console.log(subSum([10, 20, 30, 40, 50, 60], 3, 300)); // expected 150
+// console.log('----------');
+// console.log(subSum([1.1, 2.2, 3.3, 4.4, 5.5], -3, 1)); // expected 3.3
+// console.log('----------');
+// console.log(subSum([10, 'twenty', 30, 40], 0, 2)); // expected NaN
+// console.log('----------');
+// console.log(subSum([], 1, 2));// expected 0
+// console.log('---------');
+// console.log(subSum('text', 0, 2));//expected NaN
+// console.log('----');
+// console.log(subSum(([10, 'twenty', 30, 40], 0, 2))); // expected NaN
 
 
 // Write a function to sum a range of numeric elements from an array.
