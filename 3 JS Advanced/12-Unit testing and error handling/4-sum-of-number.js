@@ -10,6 +10,7 @@ function sum(arr) {
 
     return sum;
 }
+module.exports = sum;
 
 //     Write tests to check the functionality of the following code:
 
