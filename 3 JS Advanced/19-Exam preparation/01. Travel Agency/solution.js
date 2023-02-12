@@ -59,7 +59,7 @@ function solution() {
     const reviewInformation = Array.from(document.querySelectorAll('#infoPreview li'));
 
     const fullName = reviewInformation[0].textContent.slice(11);
-    const email = reviewInformation[1].textContent.slice(8);
+    const email = reviewInformation[1].textContent.slice(7);
     const phoneNumber = reviewInformation[2].textContent.slice(14);
     const adress = reviewInformation[3].textContent.slice(8);
     const postalCode = reviewInformation[4].textContent.slice(13);
