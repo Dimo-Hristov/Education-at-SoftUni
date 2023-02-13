@@ -8,7 +8,7 @@ class CarDealership {
 
     addCar(model, horsepower, price, mileage) {
         const isValidModel = model != '' ? true : false;
-        const isValidhorsepower = Number.isInteger(horsepower) >= 0 ? true : false;
+        const isValidhorsepower = Number.isInteger(horsepower) && horsepower >= 0 ? true : false;
         const isValidprice = price >= 0 ? true : false;
         const isValidMileage = mileage >= 0 ? true : false;
 
@@ -96,24 +96,26 @@ class CarDealership {
             this.soldCars
                 .sort((a, b) => a.model.localeCompare(b.model))
                 .forEach(x => {
-                    output.push(`---${x.model} - ${x.horsepower} HP - ${(x.price).toFixed(2)}$`)
+                    output.push(`---${x.model} - ${x.horsepower} HP - ${(x.soldPrice).toFixed(2)}$`)
                 })
 
             return output.join('\n')
         }
+
+        throw new Error('Invalid criteria!')
     }
 }
 
 let dealership = new CarDealership('SoftAuto');
 
-dealership.addCar('Toyota Corolla', 100, 3500, 190000);
+dealership.addCar('Toyota Corolla', 1.53, 3500, 200000);
 
 dealership.addCar('Mercedes C63', 300, 29000, 187000);
 
 dealership.addCar('Audi A3', 120, 4900, 240000);
 
-dealership.sellCar('Toyota Corolla', 230000);
+dealership.sellCar('Toyota Corolla', 159999);
 
-dealership.sellCar('Mercedes C63', 110000);
+dealership.sellCar('Mercedes C63', 160001);
 
 console.log(dealership.salesReport('horsepower'));
