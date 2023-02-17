@@ -76,7 +76,7 @@ describe('Testing the flowerShop', () => {
         })
 
         it('should remove the index (second param) from array and return the new array joined by " / "', () => {
-            expect(flowerShop.sellFlowers(['orchid', 'daisy', 'rose'], 1)).to.equal('orchid / rose')
+            expect(flowerShop.sellFlowers(['orchid', 'daisy', 'rose'], 1)).to.equal('orchid / rose');
         })
 
 
