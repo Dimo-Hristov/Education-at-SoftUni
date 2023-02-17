@@ -31,26 +31,34 @@ function solve() {
         {},
         `Product type for repair: ${repairType.value}`
       );
+      newField.appendChild(typeField)
+
       let clientInfo = createElements(
         "h3",
         {},
         `Client information: ${clientNameValue}, ${phoneValue}`
       );
+      newField.appendChild(clientInfo);
       let descriptionField = createElements(
         "h4",
         {},
         `Description of the problem: ${descriptionValue}`
       );
+      newField.appendChild(descriptionField)
+
       let startBtn = createElements(
         "button",
         { className: "start-btn" },
         "Start repair"
       );
+      newField.appendChild(startBtn)
+
       let finishBtn = createElements(
         "button",
         { className: "finish-btn", disabled: true },
         "Finish repair"
       );
+      newField.appendChild(finishBtn)
 
       function createElements(element, attr, content) {
         let newElement = document.createElement(element);
