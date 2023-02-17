@@ -19,9 +19,9 @@ class VegetableStore {
         const find = this.availableProducts.find((x) => x.type === p.type);
         find
           ? [
-              (find.quantity += p.quantity),
-              find.price < p.price ? (find.price = p.price) : null,
-            ]
+            (find.quantity += p.quantity),
+            find.price < p.price ? (find.price = p.price) : null,
+          ]
           : this.availableProducts.push(p);
       });
     return `Successfully added ${[...types].join(", ")}`;
@@ -37,8 +37,7 @@ class VegetableStore {
         const isExist = this.availableProducts.find((x) => x.type === p.type);
         if (!isExist) {
           throw new Error(
-            `${
-              p.type
+            `${p.type
             } is not available in the store, your current bill is $${totalPrice.toFixed(
               2
             )}.`
@@ -46,8 +45,7 @@ class VegetableStore {
         }
         if (isExist.quantity < p.quantity) {
           throw new Error(
-            `The quantity ${p.quantity} for the vegetable ${
-              p.type
+            `The quantity ${p.quantity} for the vegetable ${p.type
             } is not available in the store, your current bill is $${totalPrice.toFixed(
               2
             )}.`
@@ -79,8 +77,7 @@ class VegetableStore {
 
     return `Available vegetables:\n${products.join(
       "\n"
-    )}\nThe owner of the store is ${this.owner}, and the location is ${
-      this.location
-    }.`;
+    )}\nThe owner of the store is ${this.owner}, and the location is ${this.location
+      }.`;
   }
 }
