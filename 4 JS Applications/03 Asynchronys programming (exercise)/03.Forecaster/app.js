@@ -33,7 +33,7 @@ function attachEvents() {
                         elementCreator('span', sumbol, forecastDiv, 'condition symbol');
                         let conditionSpan = elementCreator('span', '', forecastDiv, 'condition');
                         elementCreator('span', cityName, conditionSpan, 'forecast-data')
-                        let minMaxTemp = `${forecast.high}°/${forecast.low}°`
+                        let minMaxTemp = `${forecast.low}°/${forecast.high}°`
                         elementCreator('span', minMaxTemp, conditionSpan, 'forecast-data');
                         elementCreator('span', condition, conditionSpan, 'forecast-data')
 
@@ -79,7 +79,7 @@ function getFirstDayWeather(firstDayData, forecastDiv) {
     let firstDaySymbol = getConditionSymbol(firstDayCondition);
     elementCreator('span', firstDaySymbol, firstDaySpan, 'symbol');
 
-    let minMaxTemp1 = `${firstDayData.high}°/${firstDayData.low}°`;
+    let minMaxTemp1 = `${firstDayData.low}°/${firstDayData.high}°`;
     elementCreator('span', minMaxTemp1, firstDaySpan, 'forecast-data');
 
     elementCreator('span', firstDayCondition, firstDaySpan, 'forecast-data');
@@ -92,7 +92,7 @@ function getSecondDayWeather(secondDayData, forecastDiv) {
     let secondDaySymbol = getConditionSymbol(secondDayCondition);
     elementCreator('span', secondDaySymbol, secondDaySpan, 'symbol');
 
-    let minMaxTemp2 = `${secondDayData.high}°/${secondDayData.low}°`;
+    let minMaxTemp2 = `${secondDayData.low}°/${secondDayData.high}°`;
     elementCreator('span', minMaxTemp2, secondDaySpan, 'forecast-data');
 
     elementCreator('span', secondDayCondition, secondDaySpan, 'forecast-data');
@@ -105,7 +105,7 @@ function getThirdDayWeather(thirdDayData, forecastDiv) {
     let thirdDaySymbol = getConditionSymbol(thirdDayCondition);
     elementCreator('span', thirdDaySymbol, thirdDaySpan, 'symbol');
 
-    let minMaxTemp3 = `${thirdDayData.high}°/${thirdDayData.low}°`;
+    let minMaxTemp3 = `${thirdDayData.low}°/${thirdDayData.high}°`;
     elementCreator('span', minMaxTemp3, thirdDaySpan, 'forecast-data');
 
     elementCreator('span', thirdDayCondition, thirdDaySpan, 'forecast-data');
