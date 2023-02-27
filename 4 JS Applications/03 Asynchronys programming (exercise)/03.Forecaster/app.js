@@ -4,74 +4,66 @@ function attachEvents() {
     const watherElement = document.getElementById('forecast');
     const currentWatherElement = document.getElementById('current');
     const upcomingWatherElement = document.getElementById('upcoming');
-    let cityCode = []
+    let cityCode = ''
 
     submitButton.addEventListener('click', () => {
-        let previousData = document.querySelector('.forecasts')
-        if (previousData) {
-            previousData.remove()
-        }
-        let previousData2 = document.querySelector('.forecasts-info')
-        if (previousData2) {
-            previousData2.remove()
-        }
 
         fetch('http://localhost:3030/jsonstore/forecaster/locations')
             .then((response) => response.json())
             .then((data) => {
-                let cityDetails = data.find(x => x.name == locationElement.value)
+                let cityDetails = data.find(x => x.name == locationElement.value);
+                console.log('ha');
+                if (cityDetails == undefined) {
+                    console.log('op');
+                    throw new Error()
+                }
                 cityCode = cityDetails.code;
+
+
+                fetch(`http://localhost:3030/jsonstore/forecaster/today/${cityCode}`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        let forecast = data.forecast
+                        let cityName = data.name
+                        let condition = forecast.condition
+                        watherElement.style.display = 'block';
+
+                        let forecastDiv = elementCreator('div', '', currentWatherElement, 'forecasts');
+                        let sumbol = getConditionSymbol(condition);
+                        elementCreator('span', sumbol, forecastDiv, 'condition symbol');
+                        let conditionSpan = elementCreator('span', '', forecastDiv, 'condition');
+                        elementCreator('span', cityName, conditionSpan, 'forecast-data')
+                        let minMaxTemp = `${forecast.high}°/${forecast.low}°`
+                        elementCreator('span', minMaxTemp, conditionSpan, 'forecast-data');
+                        elementCreator('span', condition, conditionSpan, 'forecast-data')
+
+                    })
+
+
+                fetch(`http://localhost:3030/jsonstore/forecaster/upcoming/${cityCode}`)
+                    .then((response) => response.json())
+                    .then((data) => {
+
+                        const firstDayData = data.forecast[0];
+                        const secondDayData = data.forecast[1];
+                        const thirdDayData = data.forecast[2];
+                        let forecastDiv = elementCreator('div', '', upcomingWatherElement, 'forecasts-info');
+
+                        //first day 
+                        getFirstDayWeather(firstDayData, forecastDiv)
+
+                        //second day
+                        getFirstDayWeather(secondDayData, forecastDiv)
+
+                        //third day
+                        getThirdDayWeather(thirdDayData, forecastDiv)
+
+                    })
+                    .catch(error => watherElement.textContent = 'Error')
             })
-            .catch((error) => {
-                elementCreator('h1', 'Error!', locationElement.parentNode)
-            })
-
-        fetch(`http://localhost:3030/jsonstore/forecaster/today/${cityCode}`)
-            .then((response) => response.json())
-            .then((data) => {
-
-                let forecast = data[cityCode].forecast
-                let cityName = data[cityCode].name
-                let condition = forecast.condition
-                watherElement.style.display = 'block';
-
-                let forecastDiv = elementCreator('div', '', currentWatherElement, 'forecasts');
-                let sumbol = getConditionSymbol(condition);
-                elementCreator('span', sumbol, forecastDiv, 'condition symbol');
-                let conditionSpan = elementCreator('span', '', forecastDiv, 'condition');
-                elementCreator('span', cityName, conditionSpan, 'forecast-data')
-                let minMaxTemp = `${forecast.high}°/${forecast.low}°`
-                elementCreator('span', minMaxTemp, conditionSpan, 'forecast-data');
-                elementCreator('span', condition, conditionSpan, 'forecast-data')
-
-            })
-            .catch((error) => {
-                elementCreator('h1', 'Error!', locationElement.parentNode)
-            })
+            .catch(error => watherElement.textContent = 'Error')
 
 
-        fetch(`http://localhost:3030/jsonstore/forecaster/upcoming/${cityCode}`)
-            .then((response) => response.json())
-            .then((data) => {
-
-                const firstDayData = data[cityCode].forecast[0];
-                const secondDayData = data[cityCode].forecast[1];
-                const thirdDayData = data[cityCode].forecast[2];
-                let forecastDiv = elementCreator('div', '', upcomingWatherElement, 'forecasts-info');
-
-                //first day 
-                getFirstDayWeather(firstDayData, forecastDiv)
-
-                //second day
-                getFirstDayWeather(secondDayData, forecastDiv)
-
-                //third day
-                getThirdDayWeather(thirdDayData, forecastDiv)
-
-            })
-            .catch((error) => {
-                elementCreator('h1', 'Error!', locationElement.parentNode)
-            })
 
 
     })
