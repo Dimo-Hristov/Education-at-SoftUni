@@ -76,9 +76,12 @@ function lockedProfile() {
             showButton.addEventListener('click', () => {
                 if (unlocked.checked) {
                     if (hiddenInfoDiv.style.display == 'none') {
-                        hiddenInfoDiv.style.display = 'block'
+                        hiddenInfoDiv.style.display = 'block';
+                        showButton.textContent = 'Hide it';
+
                     } else {
-                        hiddenInfoDiv.style.display = 'none'
+                        hiddenInfoDiv.style.display = 'none';
+                        showButton.textContent = 'Show more';
                     }
 
                 }
