@@ -8,10 +8,11 @@ function attachEvents() {
     viewPostBtn.addEventListener('click', viewPost)
 
 
-    function loadPosts() {
+    async function loadPosts() {
         fetch('http://localhost:3030/jsonstore/blog/posts')
             .then(res => res.json())
             .then(data => {
+                postsElement.innerHTML = ''
                 for (const row in data) {
                     const currentPost = document.createElement('option');
                     currentPost.value = row;
@@ -19,51 +20,61 @@ function attachEvents() {
                     postsElement.appendChild(currentPost)
                 }
             })
+            .catch(e => {
+                throw new Error(console.log(e))
+            })
     }
 
-    function viewPost() {
+    async function viewPost() {
         const selectedPostID = postsElement.options[postsElement.selectedIndex].value;
 
         fetch(`http://localhost:3030/jsonstore/blog/comments`)
             .then(res => res.json())
             .then(data => {
+
                 let currentPostComments = Object.values(data).filter(x => x.postId == selectedPostID)
 
                 fetch(`http://localhost:3030/jsonstore/blog/posts/${selectedPostID}`)
                     .then(res => res.json())
                     .then(post => {
-                        document.getElementById('post-title').remove();
-                        document.getElementById('post-body').remove();
-                        document.querySelector('h2').remove();
-                        document.getElementById('post-comments').remove()
+                        const postTitle = document.getElementById('post-title')
+                        const postBody = document.getElementById('post-body')
+                        const postComments = document.getElementById('post-comments')
+                        postComments.innerHTML = '';
 
-                        const title = document.createElement('h1')
-                        title.textContent = post.title;
-                        title.id = 'post-title';
-                        bodyElement.appendChild(title)
+                        postTitle.innerHTML = post.title
+                        // const title = document.createElement('h1')
+                        // title.textContent = post.title;
+                        // title.id = 'post-title';
+                        // bodyElement.appendChild(title)
+                        postBody.innerHTML = post.body
+                        // const text = document.createElement('p');
+                        // text.id = 'post-body';
+                        // text.textContent = post.body;
+                        // bodyElement.appendChild(text)
 
-                        const text = document.createElement('p');
-                        text.id = 'post-body';
-                        text.textContent = post.body;
-                        bodyElement.appendChild(text)
+                        // const commentsTitle = document.createElement('h2');
+                        // commentsTitle.textContent = 'Comments';
+                        // bodyElement.appendChild(commentsTitle)
 
-                        const commentsTitle = document.createElement('h2');
-                        commentsTitle.textContent = 'Comments';
-                        bodyElement.appendChild(commentsTitle)
-
-                        const commentsList = document.createElement('ul');
-                        commentsList.id = 'post-comments';
+                        // const commentsList = document.createElement('ul');
+                        // commentsList.id = 'post-comments';
 
                         currentPostComments.forEach(x => {
                             const currentPost = document.createElement('li');
                             currentPost.id = x.id;
                             currentPost.textContent = x.text;
 
-                            commentsList.appendChild(currentPost)
+                            postComments.appendChild(currentPost)
                         })
-                        bodyElement.appendChild(commentsList)
 
                     })
+                    .catch(e => {
+                        throw new Error(console.log(e))
+                    })
+            })
+            .catch(e => {
+                throw new Error(console.log(e))
             })
 
     }
