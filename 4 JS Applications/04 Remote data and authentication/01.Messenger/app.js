@@ -8,7 +8,12 @@ function attachEvents() {
         textAreaElement.innerHTML = '';
 
         fetch(url)
-            .then(res => res.json())
+            .then(response => {
+                if (!response.ok) {
+                    alert('Response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 const comments = [];
 
@@ -21,7 +26,36 @@ function attachEvents() {
     })
 
     sendBtn.addEventListener('click', () => {
+        const authorElement = document.querySelector('input[name="author"');
+        const messageElement = document.querySelector('input[name="content"]');
+        const postRequiest = {
+            author: authorElement.value.trim(),
+            content: messageElement.value.trim(),
+        }
 
+        if (authorElement.value == '' || messageElement.value == '')
+            return
+
+        fetch(url, {
+
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(postRequiest)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    alert('Response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => console.log(data))
+            .catch(error => alert(error.message))
+
+        authorElement.value = '';
+        messageElement.value = '';
+        refreshBtn.click()
     })
 }
 
