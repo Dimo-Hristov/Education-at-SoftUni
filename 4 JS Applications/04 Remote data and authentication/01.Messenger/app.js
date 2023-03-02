@@ -33,8 +33,7 @@ function attachEvents() {
             content: messageElement.value.trim(),
         }
 
-        if (authorElement.value == '' || messageElement.value == '')
-            return
+        if (!authorElement.value.trim() || !messageElement.value.trim()) return
 
         fetch(url, {
 
