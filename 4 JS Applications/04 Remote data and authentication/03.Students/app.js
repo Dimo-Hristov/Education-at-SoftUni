@@ -14,23 +14,30 @@ function solve() {
         const facultyElement = document.querySelector('input[name="facultyNumber"]');
         const gradeElement = document.querySelector('input[name="grade"]');
 
-        if (!firstnameElement.value || !lastnameElement.value
-            || !facultyElement.value || !Number(gradeElement.value))
-            return
+        const firstName = firstnameElement.value;
+        const lastName = lastnameElement.value;
+        const facultyNumber = facultyElement.value;
+        const grade = gradeElement.value;
 
-        const newStudent = {
-            firstName: firstnameElement.value,
-            lastName: lastnameElement.value,
-            facultyNumber: facultyElement.value,
-            grade: gradeElement.value,
-        }
+        if (typeof firstName != 'string' || typeof lastName != 'string')
+            throw new Error('Error');
+
+
+        if (!firstName || !lastName || !Number(facultyNumber) || !Number(grade))
+            throw new Error('Error');
+
 
         fetch(url, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(newStudent)
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                facultyNumber,
+                grade,
+            })
         })
             .then(res => {
                 if (!res.ok) throw new Error('Error')
@@ -38,8 +45,23 @@ function solve() {
             .catch(error => {
                 throw new Error(error.message)
             })
-        tableBodyElement.innerHTML = ''
-        loadStudents()
+
+        const tableRowElement = document.createElement('tr');
+
+        const firstNameCell = tableRowElement.insertCell(0);
+        firstNameCell.textContent = firstName;
+
+        const lastnameCell = tableRowElement.insertCell(1);
+        lastnameCell.textContent = lastName;
+
+        const facultyNumberCell = tableRowElement.insertCell(2);
+        facultyNumber.textContent = facultyNumber;
+
+        const gradeCell = tableRowElement.insertCell(3);
+        grade.textContent = grade
+
+        tableBodyElement.appendChild(tableRowElement)
+
     }
 
     function loadStudents() {
