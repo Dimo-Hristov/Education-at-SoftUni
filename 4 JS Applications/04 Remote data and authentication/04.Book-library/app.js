@@ -2,6 +2,8 @@ function solve() {
     const loadBtn = document.getElementById('loadBooks');
     const baseUrl = 'http://localhost:3030/jsonstore/collections/books';
     const tBody = document.querySelector('table tbody');
+    tBody.innerHTML = '';
+    const formElement = document.querySelector('form')
 
     const submitBtn = document.querySelector('form button')
     const titleElement = document.querySelector('input[name="title"]');
@@ -34,7 +36,7 @@ function solve() {
 
                     const editBtn = document.createElement('button');
                     editBtn.textContent = 'Edit';
-                    editBtn.addEventListener('click', e => editMovie(e))
+                    editBtn.addEventListener('click', e => prepareToEdit(e, x[1].author, x[1].title))
                     buttonsTd.appendChild(editBtn);
 
                     const deleteBtn = document.createElement('button')
@@ -92,7 +94,7 @@ function solve() {
 
             const editBtn = document.createElement('button');
             editBtn.textContent = 'Edit';
-            editBtn.addEventListener('click', e => editMovie(e))
+            editBtn.addEventListener('click', e => prepareToEdit(e, authorElement.value, titleElement.value))
             buttonsTd.appendChild(editBtn);
 
             const deleteBtn = document.createElement('button')
@@ -107,9 +109,27 @@ function solve() {
         }
     }
 
-    function editMovie(e) {
+    function prepareToEdit(e, author, title) {
+        e.preventDefault()
         const bookID = e.currentTarget.parentNode.parentNode.id;
 
+        document.querySelector('form h3').textContent = 'Edit FORM';
+
+        titleElement.value = title;
+        authorElement.value = author;
+
+        submitBtn.style.display = 'none'
+
+        const saveBtn = document.createElement('button')
+        saveBtn.textContent = 'Save'
+        saveBtn.id = 'saveBtn'
+        saveBtn.addEventListener('click', e => editMovie(e, bookID))
+
+        formElement.appendChild(saveBtn)
+    }
+
+    function editMovie(e, bookID) {
+        e.preventDefault()
         if (titleElement.value == '' || authorElement.value == '')
             throw new Error('Title and author must be filled!');
 
@@ -133,9 +153,14 @@ function solve() {
 
         const authorCell = e.currentTarget.parentNode.parentNode.querySelectorAll('td')[1];
         authorCell.textContent = authorElement.value;
+
+        document.getElementById('saveBtn').remove()
+
+
+        submitBtn.style.display = 'block'
     }
 
-    function deleteMovie(e) {
+    function deleteMovie(e,) {
         const bookID = e.currentTarget.parentNode.parentNode.id;
 
         fetch(`${baseUrl}/${bookID}`, {
