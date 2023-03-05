@@ -1,4 +1,4 @@
-import { logout, updateAuth } from './auth.js';
+import { logout, updateAuth } from '../auth.js';
 
 export function renderLogout() {
     logout()

@@ -1,4 +1,4 @@
-import { updateAuth } from './auth.js';
+import { updateAuth } from '../auth.js';
 
 const loginSection = document.querySelector('.login');
 const loginForm = loginSection.querySelector('form')
@@ -20,7 +20,12 @@ loginForm.addEventListener('submit', (e) => {
             password,
         })
     })
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Wrong email or password')
+            }
+            return res.json()
+        })
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user))
             updateAuth()

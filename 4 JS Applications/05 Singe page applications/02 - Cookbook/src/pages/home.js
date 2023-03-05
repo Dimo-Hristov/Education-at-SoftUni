@@ -15,7 +15,6 @@ function renderRecipes(recipes) {
     const fragment = document.createDocumentFragment();
 
     recipes.forEach(x => {
-        console.log(x);
         fragment.appendChild(renderRecipe(x))
     });
 

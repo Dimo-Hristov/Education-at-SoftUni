@@ -1,4 +1,4 @@
-import { getToken } from './auth.js'
+import { getToken } from '../auth.js'
 
 const createSection = document.querySelector('.create');
 const createForm = createSection.querySelector('form');
@@ -28,7 +28,6 @@ createForm.addEventListener('submit', e => {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             alert('Recipe added!')
         })
         .catch(error => alert(error.message))

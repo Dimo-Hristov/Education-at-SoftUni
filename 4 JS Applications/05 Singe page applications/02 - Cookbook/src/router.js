@@ -1,9 +1,9 @@
-import { renderHome } from './home.js';
-import { renderLogin } from './login.js';
-import { renderLogout } from './logout.js';
-import { render404 } from './404.js';
-import { renderRegister } from './register.js';
-import { renderCreate } from './create.js';
+import { renderHome } from './pages/home.js';
+import { renderLogin } from './pages/login.js';
+import { renderLogout } from './pages/logout.js';
+import { render404 } from './pages/404.js';
+import { renderRegister } from './pages/register.js';
+import { renderCreate } from './pages/create.js';
 
 
 const routes = {
