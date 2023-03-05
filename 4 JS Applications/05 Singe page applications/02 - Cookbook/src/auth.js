@@ -13,3 +13,17 @@ export function updateAuth() {
         userNavigation.style.display = 'none';
     }
 }
+
+export function logout() {
+    localStorage.removeItem('user');
+}
+
+export function getToken() {
+    let serializedUser = localStorage.getItem('user');
+
+    if (serializedUser) {
+        let user = JSON.parse(serializedUser);
+
+        return user.accessToken;
+    }
+}

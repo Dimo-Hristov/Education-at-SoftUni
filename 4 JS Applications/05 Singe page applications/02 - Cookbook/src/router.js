@@ -1,5 +1,6 @@
 import { renderHome } from './home.js';
 import { renderLogin } from './login.js';
+import { renderLogout } from './logout.js';
 import { render404 } from './404.js';
 import { renderRegister } from './register.js';
 import { renderCreate } from './create.js';
@@ -9,7 +10,8 @@ const routes = {
     '/': renderHome,
     '/login': renderLogin,
     '/register': renderRegister,
-    '/create': renderCreate
+    '/create': renderCreate,
+    '/logout': renderLogout,
 }
 
 export function router(path) {
