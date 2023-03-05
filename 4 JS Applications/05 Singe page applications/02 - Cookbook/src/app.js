@@ -1,9 +1,7 @@
 import { router } from './router.js';
+import { updateAuth } from './auth.js';
 
-const guestNavigation = document.getElementById('guest');
-const userNavigation = document.getElementById('user');
-guestNavigation.style.display = 'inline';
-userNavigation.style.display = 'inline';
+updateAuth()
 
 const navigationElement = document.querySelector('.navigation');
 navigationElement.addEventListener('click', (e) => {
