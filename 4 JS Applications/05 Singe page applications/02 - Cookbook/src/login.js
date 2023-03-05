@@ -1,3 +1,5 @@
+import { updateAuth } from './auth.js';
+
 const loginSection = document.querySelector('.login');
 const loginForm = loginSection.querySelector('form')
 
@@ -21,6 +23,7 @@ loginForm.addEventListener('submit', (e) => {
         .then(res => res.json())
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user))
+            updateAuth()
             alert('Successfully login')
         })
         .catch(error => alert(error.message))
