@@ -1,6 +1,10 @@
 import { showView } from './util.js';
 import { homePage } from './home.js';
 import { loginPage } from './login.js';
+import { registerPage } from './register.js';
+import { createPage } from './create.js';
+import { detailPage } from './details.js';
+import { editPage } from './edit.js';
 
 const routes = {
     '/': homePage,
@@ -29,29 +33,9 @@ function onNavigate(ev) {
 }
 
 
-const registerSection = document.querySelector('#form-sign-up');
-const createSection = document.querySelector('#add-movie');
-const editSection = document.querySelector('#edit-movie');
-const detailSection = document.querySelector('#movie-example');
 
 
 
-
-
-
-function registerPage() {
-    showView(registerSection)
-}
-
-function createPage() {
-    showView(createSection)
-}
-function editPage() {
-    showView(editSection)
-}
-function detailPage() {
-    showView(detailSection)
-}
 
 function logoutPage() {
     alert('Successful logout')
