@@ -33,15 +33,17 @@ function loginUser(e) {
     })
         .then(res => {
             if (!res.ok) {
-                throw new Error('Response error')
+                throw new Error('Wrong email or password')
             }
             return res.json()
         })
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user))
+            alert('Successul login')
             updateAuth();
             showView(homeSection);
         })
+        .catch(error => alert(error.message))
 }
 
 

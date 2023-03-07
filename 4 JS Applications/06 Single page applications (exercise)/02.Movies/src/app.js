@@ -33,11 +33,15 @@ function onNavigate(ev) {
 }
 
 function logoutPage() {
+    localStorage.removeItem('user')
     alert('Successful logout')
+    updateAuth()
+    homePage()
 }
 
 // start in home page
+updateAuth()
 homePage()
 
-updateAuth()
+
 

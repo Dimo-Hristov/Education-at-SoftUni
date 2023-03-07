@@ -1,5 +1,4 @@
 import { showView } from "./util.js";
-import { updateAuth } from "./auth.js";
 
 const registerSection = document.querySelector('#form-sign-up');
 const registerForm = registerSection.querySelector('form');
@@ -55,12 +54,11 @@ function registerUser(e) {
             }
             res.json();
         })
-        .then(user => {
-            localStorage.setItem('user', JSON.stringify(user));
-            updateAuth();
-            alert('Succesful login')
+        .then(data => {
+            showView(homeSection)
+            alert('Succesful register')
         })
         .catch(error => console.log((error.message)))
 
-    showView(homeSection)
+
 }
