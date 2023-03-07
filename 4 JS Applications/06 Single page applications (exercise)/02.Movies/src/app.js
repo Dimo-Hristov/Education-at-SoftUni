@@ -1,10 +1,10 @@
-import { showView } from './util.js';
 import { homePage } from './home.js';
 import { loginPage } from './login.js';
 import { registerPage } from './register.js';
 import { createPage } from './create.js';
 import { detailPage } from './details.js';
 import { editPage } from './edit.js';
+import { updateAuth } from './auth.js';
 
 const routes = {
     '/': homePage,
@@ -32,15 +32,12 @@ function onNavigate(ev) {
     }
 }
 
-
-
-
-
-
 function logoutPage() {
     alert('Successful logout')
 }
 
 // start in home page
 homePage()
+
+updateAuth()
 
