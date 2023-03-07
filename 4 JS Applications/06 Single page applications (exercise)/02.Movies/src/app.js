@@ -1,6 +1,5 @@
-import { showView } from './router.js';
-
-
+import { showView } from './util.js';
+import { homePage } from './home.js'
 
 const routes = {
     '/': homePage,
@@ -12,6 +11,7 @@ const routes = {
 
 
 document.querySelector('nav').addEventListener('click', onNavigate)
+document.querySelector('#add-movie-button').addEventListener('click', onNavigate)
 
 function onNavigate(ev) {
     if (ev.target.tagName == 'A' && ev.target.href) {
@@ -19,7 +19,7 @@ function onNavigate(ev) {
         const url = new URL(ev.target);
         const path = url.pathname
 
-        const view = routes[path]
+        const view = routes[path];
         if (typeof view == 'function') {
             view()
         }
@@ -27,7 +27,6 @@ function onNavigate(ev) {
     }
 }
 
-const homeSection = document.querySelector('#home-page');
 const loginSection = document.querySelector('#form-login');
 const registerSection = document.querySelector('#form-sign-up');
 const createSection = document.querySelector('#add-movie');
@@ -36,9 +35,6 @@ const detailSection = document.querySelector('#movie-example');
 
 
 
-function homePage() {
-    showView(homeSection)
-}
 
 function loginPage() {
     showView(loginSection)
@@ -61,4 +57,7 @@ function detailPage() {
 function logoutPage() {
     alert('Successful logout')
 }
+
+// start in home page
+homePage()
 
