@@ -4,10 +4,7 @@ import { showRegister } from "../views/register.js";
 import { showCatalog } from "../views/catalog.js";
 import { showDetails } from "../views/details.js";
 import { showCreate } from "../views/create.js";
-
-
-const main = document.querySelector('main');
-
+import { initialize } from "./router.js";
 
 document.getElementById('views').remove();
 
@@ -19,16 +16,12 @@ const links = {
     '/details': showDetails,
     '/create': showCreate,
 }
-const context = {
-    showSection
-}
 
-window.showHome = () => {
+const router = initialize(links)
 
-    showHome(context)
-}
 
-function showSection(section) {
-    main.replaceChildren(section)
-}
+// start application in home view
+router.goTo('/');
+
+
 
