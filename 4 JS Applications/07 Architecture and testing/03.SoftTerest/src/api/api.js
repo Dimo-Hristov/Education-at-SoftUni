@@ -3,21 +3,29 @@ const host = 'http://localhost:3030'
 async function request(method, url, data) {
     const options = {
         method,
-        headers: {
-
-        }
+        headers: {}
     }
+
     if (data != undefined) {
         options.headers['content-type'] = 'application/json';
         options.body = JSON.stringify(data);
+    }
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user != null) {
+        const token = user.accessToken;
+        options.headers['X-Authorization'] = token;
     }
 
     try {
         const response = await fetch(host + url, options);
 
         if (response.ok != true) {
-            const error = await response.json()
-            throw error.message;
+            if (response.status == 403) {
+                localStorage.removeItem('user');
+            }
+            const error = await response.json();
+            throw new Error(error.message);
         }
 
         if (response.status == 204) {
@@ -28,7 +36,7 @@ async function request(method, url, data) {
 
 
     } catch (error) {
-        alert(error.message)
+        alert(error.message);
         throw error;
     }
 }
