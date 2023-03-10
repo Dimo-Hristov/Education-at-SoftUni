@@ -30,15 +30,11 @@ export function initialize(links) {
         }
     }
 
-    function goTo(name) {
+    function goTo(name, ...params) {
         const handler = links[name];
 
         if (typeof handler == 'function') {
-            handler(context)
-        }
-
-        if (typeof handler == 'function') {
-            handler(context)
+            handler(context, ...params)
         }
     }
 
