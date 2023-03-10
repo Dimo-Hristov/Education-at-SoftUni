@@ -1,7 +1,8 @@
 
 export function initialize(links) {
     const main = document.querySelector('main');
-    document.querySelector('nav').addEventListener('click', onNavigate);
+    const nav = document.querySelector('nav');
+    nav.addEventListener('click', onNavigate);
 
     const context = {
         showSection,
@@ -37,6 +38,16 @@ export function initialize(links) {
 
         if (typeof handler == 'function') {
             handler(context)
+        }
+    }
+
+    function updateNav() {
+        const user = localStorage.getItem('user');
+
+        if (user) {
+
+        } else {
+
         }
     }
 }
