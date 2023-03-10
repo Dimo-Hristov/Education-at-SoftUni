@@ -1,26 +1,34 @@
-// import * as api from './api/users.js';
+import { showHome } from "../views/home.js";
+import { showLogin } from "../views/login.js";
+import { showRegister } from "../views/register.js";
+import { showCatalog } from "../views/catalog.js";
+import { showDetails } from "../views/details.js";
+import { showCreate } from "../views/create.js";
+
 
 const main = document.querySelector('main');
 
-const homePage = document.getElementById('homePage');
-const registerPage = document.getElementById('registerPage');
-const loginPage = document.getElementById('loginPage');
-const catalogPage = document.getElementById('dashboard-holder');
-const detailsPage = document.getElementById('detailsPage');
-const createPage = document.getElementById('createPage');
+
 document.getElementById('views').remove();
 
 const links = {
-    '/': homePage,
-    '/catalog': catalogPage,
-    '/register': registerPage,
-    '/login': loginPage,
-    '/details': detailsPage,
-    '/create': createPage,
+    '/': showHome,
+    '/catalog': showCatalog,
+    '/register': showRegister,
+    '/login': showLogin,
+    '/details': showDetails,
+    '/create': showCreate,
+}
+const context = {
+    showSection
 }
 
-window.showSection = (name) => {
-    const section = links[name];
+window.showHome = () => {
+
+    showHome(context)
+}
+
+function showSection(section) {
     main.replaceChildren(section)
 }
 
