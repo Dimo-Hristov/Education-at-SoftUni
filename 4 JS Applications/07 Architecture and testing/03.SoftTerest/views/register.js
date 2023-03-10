@@ -19,5 +19,7 @@ async function onSubmit(e) {
     const password = formdata.get('password');
 
     await register(email, password);
-    ctx.goTo('/')
+    form.reset()
+    ctx.updateNav();
+    ctx.goTo('/');
 }

@@ -7,6 +7,7 @@ export function initialize(links) {
     const context = {
         showSection,
         goTo,
+        updateNav,
     };
 
     return context
@@ -45,9 +46,11 @@ export function initialize(links) {
         const user = localStorage.getItem('user');
 
         if (user) {
-
+            nav.querySelectorAll('.user').forEach(x => x.style.display = 'block');
+            nav.querySelectorAll('.guest').forEach(x => x.style.display = 'none');
         } else {
-
+            nav.querySelectorAll('.user').forEach(x => x.style.display = 'none');
+            nav.querySelectorAll('.guest').forEach(x => x.style.display = 'block');
         }
     }
 }

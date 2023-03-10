@@ -17,7 +17,8 @@ const links = {
     '/create': showCreate,
 }
 
-const router = initialize(links)
+const router = initialize(links);
+router.updateNav()
 
 
 // start application in home view
