@@ -1,4 +1,4 @@
-import { html, render } from '/Documents and Settings';
+import { html, render } from '../node_modules/lit-html/lit-html.js';
 
 const mainDiv = document.getElementById('contacts');
 
