@@ -14,7 +14,7 @@ describe('E2E tests', function () {
   this.timeout(6000);
 
   before(async () => {
-    browser = await chromium.launch(DEBUG ? { headless: false, slowMo } : {});
+    browser = await chromium.launch(DEBUG ? { headless: true, slowMo } : {});
   });
   after(async () => {
     await browser.close();
