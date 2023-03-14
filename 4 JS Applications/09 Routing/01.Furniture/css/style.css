@@ -8,3 +8,8 @@
     margin: 5px;
     width: 200px;
 }
+
+.login-container {
+    width: 500px;
+    margin: auto;
+}
