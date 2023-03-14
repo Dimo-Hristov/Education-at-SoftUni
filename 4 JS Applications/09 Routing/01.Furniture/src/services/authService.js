@@ -32,3 +32,9 @@ export const login = (email, password) => {
         })
         .catch(error => alert(error.message))
 };
+
+export const isAuthenticated = () => {
+    const accesToken = localStorage.getItem('accessToken');
+
+    return Boolean(accesToken)
+}
