@@ -1,4 +1,4 @@
-import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { html } from '../../node_modules/lit-html/lit-html.js';
 import * as movieService from '../services/movieService.js';
 
 const movieTemplate = (movie) => html`
@@ -21,6 +21,6 @@ const homeTemplate = (movies) => html`
 export const homeView = (ctx) => {
     movieService.getAll()
         .then(movies =>
-            render(homeTemplate(movies), document.querySelector('#root')))
+            ctx.render(homeTemplate(movies)))
 
 }
