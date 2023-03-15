@@ -8,6 +8,13 @@ const saveUser = (user) => {
     }
 }
 
+const deleteUser = () => {
+    localStorage.removeItem('user')
+}
+
+const getToken = () => getUser()?.accessToken;
+
+
 export const getUser = () => {
     let serializedUser = localStorage.getItem('user');
 
@@ -35,3 +42,10 @@ export const register = (email, password) =>
             return user;
         })
         .catch(error => alert(error.message));
+
+
+export const logout = () =>
+    fetch(`${baseUrl}/logout`, { headers: { 'X-Authorization': getToken() } })
+        .then(() => {
+            deleteUser();
+        })
