@@ -1,4 +1,6 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
+import * as authService from '../services/authService.js';
+
 
 
 const loginTemplate = (submitHanlder) => html`
@@ -24,7 +26,11 @@ export const loginView = (ctx) => {
         const formData = new FormData(e.currentTarget);
         const email = formData.get('email');
         const password = formData.get('password');
-        console.log(email, password);
+
+        authService.login(email, password)
+            .then(() => {
+                ctx.page.redirect('/');
+            })
     }
 
     ctx.render(loginTemplate(submitHanlder))

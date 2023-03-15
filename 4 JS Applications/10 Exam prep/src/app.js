@@ -3,12 +3,12 @@ import { renderHome, renderNavigation, renderLogin } from './middlewares/renderM
 import { homeView } from './views/homeView.js';
 import { loginView } from './views/loginView.js';
 
+page(renderHome)
 page(renderNavigation)
 page(renderLogin)
-page(renderHome)
 
 page('/', homeView);
-page('/login', loginView)
+page('/login', loginView);
 
 
 page.start();
