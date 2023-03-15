@@ -24,11 +24,11 @@ const navigationTemplate = (user) => html`
 
 <nav>
     <div>
-        <a href="/">Dashboard</a>
+        <a href="/dashboard">Dashboard</a>
     </div>
     ${user
-        ? userLink
-        : guestLink}
+    ? userLink
+    : guestLink}
 </nav>
 `;
 
