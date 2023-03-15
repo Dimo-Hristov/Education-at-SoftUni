@@ -32,3 +32,7 @@ const navigationTemplate = () => html`
         </div>
     </nav>
 `
+
+export const navigationView = (ctx)=> {
+    //render ?
+}

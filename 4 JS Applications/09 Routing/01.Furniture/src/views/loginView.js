@@ -1,5 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import * as authService from '../services/authService.js'
+import * as authService from '../services/authService.js';
 
 const loginTemplate = (loginHandler) => html`
 <div class="login-container">
