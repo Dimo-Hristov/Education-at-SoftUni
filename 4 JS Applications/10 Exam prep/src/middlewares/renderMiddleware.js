@@ -24,5 +24,5 @@ export const renderHome = (ctx, next) => {
 
 export const renderLogin = (ctx, next) => {
     ctx.render = renderLoginTemplate;
-    next()
+    next();
 }

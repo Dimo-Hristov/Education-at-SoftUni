@@ -27,11 +27,11 @@ const navigationTemplate = (user) => html`
         <a href="/">Dashboard</a>
     </div>
     ${user
-    ? userLink
-    : guestLink}
+        ? userLink
+        : guestLink}
 </nav>
 `;
 
 export const navigationView = (ctx) => {
-    return navigationTemplate();
+    return navigationTemplate(ctx.user);
 }

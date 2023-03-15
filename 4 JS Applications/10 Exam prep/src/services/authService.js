@@ -8,8 +8,27 @@ const saveUser = (user) => {
     }
 }
 
+export const getUser = () => {
+    let serializedUser = localStorage.getItem('user');
+
+    if (serializedUser) {
+        let user = JSON.parse(serializedUser);
+        return user;
+    }
+}
+
 export const login = (email, password) =>
     request.post(`${baseUrl}/login`, { email, password })
+        .then(user => {
+            saveUser(user);
+
+            return user;
+        })
+        .catch(error => alert(error.message));
+
+
+export const register = (email, password) =>
+    request.post(`${baseUrl}/register`, { email, password })
         .then(user => {
             saveUser(user);
 
