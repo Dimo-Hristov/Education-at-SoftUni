@@ -1,9 +1,10 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
+import * as userService from '../services/userService.js'
 
-const loginTemplate = () => html`
+const loginTemplate = (submitHandler) => html`
 <!-- Login Page ( Only for Guest users ) -->
 <section id="login-page" class="login">
-    <form id="login-form" action="" method="">
+    <form id="login-form" action="" method="" @submit=${submitHandler}>
         <fieldset>
             <legend>Login Form</legend>
             <p class="field">
@@ -25,5 +26,24 @@ const loginTemplate = () => html`
 `
 
 export const loginView = (ctx) => {
-    return loginTemplate(ctx)
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
+        const data = {
+            email: formData.get('email').trim(),
+            password: formData.get('password').trim()
+        }
+
+        if (data.email == '' || data.password == '') {
+            alert('All field must be fullfiled!')
+            return
+        }
+
+        userService.login(data)
+    }
+
+
+    return loginTemplate(submitHandler)
 }

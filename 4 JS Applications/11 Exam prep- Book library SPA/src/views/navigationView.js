@@ -1,9 +1,9 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 
-const userLink = html`
+const userLink = (user) => html`
 <!-- Logged-in users -->
 <div id="user">
-    <span>Welcome, {email}</span>
+    <span>Welcome, ${user.email}</span>
     <a class="button" href="my-books">My Books</a>
     <a class="button" href="add-book">Add Book</a>
     <a class="button" href="/logout">Logout</a>
@@ -25,7 +25,7 @@ const navTemplate = (user) => html`
         <section class="navbar-dashboard">
             <a href="/dashboard">Dashboard</a>
             ${user
-            ? userLink
+            ? userLink(user)
             : guestLink}
         </section>
     </nav>
@@ -33,5 +33,6 @@ const navTemplate = (user) => html`
 `;
 
 export const navigationView = (ctx) => {
-    return navTemplate(ctx.user)
+    const serializedUser = JSON.parse(localStorage.getItem('user'))
+    return navTemplate(serializedUser)
 }
