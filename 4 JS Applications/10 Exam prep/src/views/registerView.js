@@ -1,5 +1,5 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
-import * as authService from '../services/authService.js';
+import * as userService from '../services/userService.js';
 
 
 const registerTemplate = (submitHandler) => html` 
@@ -31,7 +31,7 @@ export const registerView = (ctx) => {
             return
         }
 
-        authService.register(email, password)
+        userService.register(email, password)
             .then(() => {
                 ctx.page.redirect('/');
             })

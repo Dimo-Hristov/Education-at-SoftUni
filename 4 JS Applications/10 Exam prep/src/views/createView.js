@@ -34,8 +34,9 @@ export const createView = (ctx) => {
         }
 
         for (const key in data) {
-            alert('All field must be fullfiled')
+
             if (data[key] == '') {
+                alert('All field must be fullfiled')
                 return
             }
         }

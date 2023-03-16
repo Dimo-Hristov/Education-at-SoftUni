@@ -1,5 +1,5 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
-import * as authService from '../services/authService.js';
+import * as userService from '../services/userService.js';
 
 
 
@@ -27,7 +27,7 @@ export const loginView = (ctx) => {
         const email = formData.get('email');
         const password = formData.get('password');
 
-        authService.login(email, password)
+        userService.login(email, password)
             .then(() => {
                 ctx.page.redirect('/');
             })
