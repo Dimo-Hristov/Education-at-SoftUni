@@ -11,6 +11,8 @@ export const updateNav = () => {
     if (localStorage.getItem('user')) {
         guestView.style.display = 'none';
         userView.style.display = 'inline';
+        const userEmail = JSON.parse(localStorage.getItem('user')).email
+        userView.querySelector('span').textContent = `Welcome, ${userEmail}`
     } else {
         guestView.style.display = 'inline';
         userView.style.display = 'none';

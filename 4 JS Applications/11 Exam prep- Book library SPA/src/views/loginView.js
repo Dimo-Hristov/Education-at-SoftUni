@@ -54,7 +54,7 @@ function submitHandler(e) {
         .catch(err => {
             throw new Error(err.message)
         });
-
+    updateNav()
     page.redirect('/')
 }
 
