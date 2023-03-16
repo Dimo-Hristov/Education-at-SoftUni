@@ -11,6 +11,12 @@ export const logoutView = () => {
                 localStorage.removeItem('user');
                 updateNav();
                 page.redirect('/')
+            } else {
+                throw new Error(res.message)
             }
+
+        })
+        .catch(err => {
+            throw new Error(err.message);
         })
 }

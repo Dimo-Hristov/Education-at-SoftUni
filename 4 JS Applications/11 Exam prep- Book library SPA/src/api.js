@@ -29,3 +29,15 @@ export const logoutUser = (accesstoken) => {
         },
     })
 }
+
+export const addNewBook = (data) => {
+    const accesstoken = JSON.parse(localStorage.getItem('user')).accessToken;
+    return fetch(`${baseUrl}/data/books`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': accesstoken
+        },
+        body: JSON.stringify(data)
+    })
+}
