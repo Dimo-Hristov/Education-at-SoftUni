@@ -57,22 +57,23 @@ function submitHandler(e) {
     registerUser(data)
         .then(res => {
             if (!res.ok) {
-                throw new Error('Response error')
+                throw new Error('Response error');
             }
             return res.json()
         })
         .then(user => {
-            localStorage.setItem('user', JSON.stringify(user))
+            localStorage.setItem('user', JSON.stringify(user));
+            updateNav();
+            page.redirect('/');
         })
         .catch(err => {
-            throw new Error(err.message)
+            throw new Error(err.message);
         })
 
-    updateNav();
-    page.redirect('/')
+
 
 }
 
 export const registerView = () => {
-    render(registerTemplate, document.getElementById('site-content'))
+    render(registerTemplate, document.getElementById('site-content'));
 }

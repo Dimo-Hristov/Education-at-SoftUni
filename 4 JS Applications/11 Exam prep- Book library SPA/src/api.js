@@ -19,3 +19,13 @@ export const loginUser = (data) => {
         body: JSON.stringify(data)
     })
 }
+
+export const logoutUser = (accesstoken) => {
+    return fetch(`${baseUrl}/users/logout`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': accesstoken
+        },
+    })
+}

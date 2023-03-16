@@ -49,13 +49,14 @@ function submitHandler(e) {
             return res.json()
         })
         .then(user => {
-            localStorage.setItem('user', JSON.stringify(user))
+            localStorage.setItem('user', JSON.stringify(user));
+            updateNav();
+            page.redirect('/');
         })
         .catch(err => {
             throw new Error(err.message)
         });
-    updateNav()
-    page.redirect('/')
+
 }
 
 export const loginView = () => {

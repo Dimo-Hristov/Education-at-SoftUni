@@ -1,6 +1,7 @@
 import page from '../node_modules/page/page.mjs'
 import { dashboardView } from './views/dashboardView.js';
 import { loginView } from './views/loginView.js';
+import { logoutView } from './views/logoutView.js';
 import { registerView } from './views/registerView.js';
 
 
@@ -26,7 +27,8 @@ updateNav();
 
 page('/', dashboardView);
 page('/register', registerView);
-page('/login', loginView)
+page('/login', loginView);
+page('/logout', logoutView)
 
 
 page.start();
