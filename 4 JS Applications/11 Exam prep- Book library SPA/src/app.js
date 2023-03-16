@@ -1,5 +1,6 @@
 import page from '../node_modules/page/page.mjs'
 import { dashboardView } from './views/dashboardView.js';
+import { loginView } from './views/loginView.js';
 import { registerView } from './views/registerView.js';
 
 
@@ -21,8 +22,9 @@ export const updateNav = () => {
 updateNav();
 
 
-page('/', dashboardView)
-page('/register', registerView)
+page('/', dashboardView);
+page('/register', registerView);
+page('/login', loginView)
 
 
-page.start()
+page.start();

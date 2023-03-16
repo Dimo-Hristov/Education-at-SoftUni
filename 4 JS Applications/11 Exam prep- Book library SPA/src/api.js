@@ -9,3 +9,13 @@ export const registerUser = (data) => {
         body: JSON.stringify(data)
     })
 }
+
+export const loginUser = (data) => {
+    return fetch(`${baseUrl}/users/login`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+}
