@@ -4,6 +4,6 @@ const dashboardTemplate = html`
 <h1>Welcome to dashbaord</h1>
 `
 
-export const dashboardView = () => {
-
+export const dashboardView = (ctx) => {
+    return dashboardTemplate
 }
