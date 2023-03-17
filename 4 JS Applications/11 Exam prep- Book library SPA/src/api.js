@@ -49,3 +49,15 @@ export const getAllMovies = () => {
 export const getDetails = (id) => {
     return fetch(`${baseUrl}/data/books/${id}`)
 }
+
+export const editMovie = (data, id) => {
+    const currentUser = JSON.parse(localStorage.getItem('user'))
+    return fetch(`${baseUrl}/data/books/${id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': currentUser.accessToken
+        },
+        body: JSON.stringify(data)
+    })
+}

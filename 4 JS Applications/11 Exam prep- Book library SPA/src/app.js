@@ -2,6 +2,7 @@ import page from '../node_modules/page/page.mjs'
 import { addBookView } from './views/addBookView.js';
 import { dashboardView } from './views/dashboardView.js';
 import { detailsView } from './views/detailsView.js';
+import { editView } from './views/editView.js';
 import { loginView } from './views/loginView.js';
 import { logoutView } from './views/logoutView.js';
 import { myBooksView } from './views/myBooksView.js';
@@ -34,7 +35,8 @@ page('/login', loginView);
 page('/logout', logoutView);
 page('/my-books', myBooksView);
 page('/add-book', addBookView);
-page('/details/:id', detailsView)
+page('/details/:id', detailsView);
+page('/edit/:id', editView)
 
 
 page.start();

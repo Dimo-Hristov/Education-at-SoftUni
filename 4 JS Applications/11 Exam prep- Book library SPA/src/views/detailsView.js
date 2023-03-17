@@ -13,14 +13,14 @@ const detailsTemplate = (book) => html`
         <div class="actions">
             <!-- Edit/Delete buttons ( Only for creator of this book )  -->
             ${currentUser && book._ownerId === currentUser._id
-            ? html`<a class="button" href="/edit">Edit</a>
-            <a class="button" href="/delete">Delete</a>`
+            ? html`<a class="button" href="/edit/${book._id}">Edit</a>
+            <a class="button" href="/delete/${book._id}">Delete</a>`
             : nothing}
 
             <!-- Bonus -->
             <!-- Like button ( Only for logged-in users, which is not creators of the current book ) -->
-            ${currentUser && currentUser._id !== book._ownerId
-            ? html`<a class="button" href="/like">Like</a>`
+            ${currentUser && currentUser._id != book._ownerId
+            ? html`<a class="button" href="/like/${book._id}">Like</a>`
             : nothing}
 
 
