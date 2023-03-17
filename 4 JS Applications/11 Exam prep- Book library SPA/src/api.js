@@ -41,3 +41,7 @@ export const addNewBook = (data) => {
         body: JSON.stringify(data)
     })
 }
+
+export const getAllMovies = () => {
+    return fetch(`${baseUrl}/data/books?sortBy=_createdOn%20desc`)
+}
