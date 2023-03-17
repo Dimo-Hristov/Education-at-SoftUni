@@ -1,4 +1,5 @@
 const baseUrl = 'http://localhost:3030';
+import page from '../node_modules/page/page.mjs';
 
 export const registerUser = (data) => {
     return fetch(`${baseUrl}/users/register`, {
@@ -60,4 +61,26 @@ export const editMovie = (data, id) => {
         },
         body: JSON.stringify(data)
     })
+}
+
+export const deleteMovie = (ctx) => {
+    const currentUser = JSON.parse(localStorage.getItem('user'))
+    const movieId = ctx.params.id;
+
+    fetch(`${baseUrl}/data/books/${movieId}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': currentUser.accessToken
+        },
+    })
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('response error')
+            }
+            return res.json()
+        })
+        .then(() => {
+            page.redirect('/')
+        })
 }

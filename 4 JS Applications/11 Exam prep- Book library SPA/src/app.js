@@ -1,4 +1,5 @@
 import page from '../node_modules/page/page.mjs'
+import { deleteMovie } from './api.js';
 import { addBookView } from './views/addBookView.js';
 import { dashboardView } from './views/dashboardView.js';
 import { detailsView } from './views/detailsView.js';
@@ -36,7 +37,8 @@ page('/logout', logoutView);
 page('/my-books', myBooksView);
 page('/add-book', addBookView);
 page('/details/:id', detailsView);
-page('/edit/:id', editView)
+page('/edit/:id', editView);
+page('/delete/:id', deleteMovie)
 
 
 page.start();
