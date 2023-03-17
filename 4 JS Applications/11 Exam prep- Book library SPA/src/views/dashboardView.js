@@ -8,7 +8,7 @@ const movieTemplate = (movie) => html`
     <h3>${movie.title}</h3>
     <p>Type: ${movie.type}</p>
     <p class="img"><img src="${movie.imageUrl}"></p>
-    <a class="button" href="/details">Details</a>
+    <a class="button" href="${`/details/${movie._id}`}">Details</a>
 </li>
 `;
 
@@ -22,10 +22,8 @@ const dashboardTemplate = (movies) => html`
     : html `<ul class="other-books-list">
         ${movies.map(movie => movieTemplate(movie))}
     </ul>`}
-    
-    
 </section>
-`
+`;
 
 export const dashboardView = () => {
     getAllMovies()
@@ -35,5 +33,8 @@ export const dashboardView = () => {
             }
             return res.json()
         })
-        .then(movies => render(dashboardTemplate(movies), root));
+        .then(movies => render(dashboardTemplate(movies), root))
+        .catch(err => {
+            throw new Error(err.message)
+        })
 }
