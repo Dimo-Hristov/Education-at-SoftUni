@@ -1,5 +1,5 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import { getAllMovies } from '../api.js';
+import { getAllBooks } from '../data.js';
 
 const root = document.getElementById('site-content');
 
@@ -26,14 +26,8 @@ const dashboardTemplate = (movies) => html`
 `;
 
 export const dashboardView = () => {
-    getAllMovies()
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Response error')
-            }
-            return res.json()
-        })
-        .then(movies => render(dashboardTemplate(movies), root))
+    getAllBooks()
+    .then(movies => render(dashboardTemplate(movies), root))
         .catch(err => {
             throw new Error(err.message)
         })

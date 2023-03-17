@@ -1,6 +1,6 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
 import page from '../../node_modules/page/page.mjs';
-import { addNewBook } from '../api.js';
+import { addNewBook } from '../data.js';
 
 const root = document.getElementById('site-content')
 
@@ -68,12 +68,6 @@ function submitHandler(e) {
         type
     }
     addNewBook(data)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Response error')
-            }
-            return res.json();
-        })
         .then(() => {
             page.redirect('/');
         })

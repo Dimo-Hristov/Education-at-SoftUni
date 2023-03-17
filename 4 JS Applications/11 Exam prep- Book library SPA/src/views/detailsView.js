@@ -1,10 +1,10 @@
 import { html, render, nothing } from '../../node_modules/lit-html/lit-html.js';
-import { getDetails } from '../api.js';
+import { getDetails } from '../data.js';
+
 
 const root = document.getElementById('site-content');
-const currentUser = JSON.parse(localStorage.getItem('user'));
 
-const detailsTemplate = (book) => html`
+const detailsTemplate = (book, currentUser) => html`
 <section id="details-page" class="details">
     <div class="book-information">
         <h3>${book.title}</h3>
@@ -43,13 +43,10 @@ const detailsTemplate = (book) => html`
 export const detailsView = (ctx) => {
 
     getDetails(ctx.params.id)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Response error');
-            }
-            return res.json()
+        .then(book => {
+            const currentUser = JSON.parse(localStorage.getItem('user'))
+            render(detailsTemplate(book, currentUser), root)
         })
-        .then(book => render(detailsTemplate(book), root))
         .catch(err => {
             throw new Error(err.message)
         });

@@ -1,7 +1,5 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import { loginUser } from '../api.js';
-import { updateNav } from '../app.js';
-import page from '../../node_modules/page/page.mjs'
+import { loginUser } from '../users.js';
 
 const logintemplate = html`
 <section id="login-page" class="login">
@@ -42,20 +40,7 @@ function submitHandler(e) {
     }
 
     loginUser(data)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Response error')
-            }
-            return res.json()
-        })
-        .then(user => {
-            localStorage.setItem('user', JSON.stringify(user));
-            updateNav();
-            page.redirect('/');
-        })
-        .catch(err => {
-            throw new Error(err.message)
-        });
+
 
 }
 

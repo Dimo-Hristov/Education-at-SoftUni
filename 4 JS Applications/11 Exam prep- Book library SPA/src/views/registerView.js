@@ -1,7 +1,5 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import { registerUser } from '../api.js';
-import { updateNav } from '../app.js';
-import page from '../../node_modules/page/page.mjs'
+import { registerUser } from '../users.js';
 
 const registerTemplate = html`
 <section id="register-page" class="register">
@@ -55,23 +53,6 @@ function submitHandler(e) {
     }
 
     registerUser(data)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Response error');
-            }
-            return res.json()
-        })
-        .then(user => {
-            localStorage.setItem('user', JSON.stringify(user));
-            updateNav();
-            page.redirect('/');
-        })
-        .catch(err => {
-            throw new Error(err.message);
-        })
-
-
-
 }
 
 export const registerView = () => {

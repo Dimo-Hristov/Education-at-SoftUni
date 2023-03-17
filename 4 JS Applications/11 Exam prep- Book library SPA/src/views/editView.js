@@ -1,4 +1,4 @@
-import { editMovie, getDetails } from '../api.js';
+import { getDetails, editMovie } from '../data.js';
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
 import page from '../../node_modules/page/page.mjs';
 
@@ -51,17 +51,10 @@ const editTemplate = (movie) => html`
 export const editView = (ctx) => {
     movieId = ctx.params.id;
     getDetails(movieId)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Response error')
-            }
-            return res.json()
-        })
         .then(movie => render(editTemplate(movie), root))
         .catch(err => {
             throw new Error(err.message)
         })
-
 };
 
 function submitHandler(e) {
@@ -86,12 +79,6 @@ function submitHandler(e) {
     }
 
     editMovie(data, movieId)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Response error');
-            }
-            return res.json();
-        })
         .then(() => {
             page.redirect(`/details/${movieId}`)
         })

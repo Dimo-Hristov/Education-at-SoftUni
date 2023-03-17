@@ -1,11 +1,11 @@
 import page from '../node_modules/page/page.mjs'
-import { deleteMovie } from './api.js';
+import { deleteMovie } from './data.js';
+import { logoutUser } from './users.js';
 import { addBookView } from './views/addBookView.js';
 import { dashboardView } from './views/dashboardView.js';
 import { detailsView } from './views/detailsView.js';
 import { editView } from './views/editView.js';
 import { loginView } from './views/loginView.js';
-import { logoutView } from './views/logoutView.js';
 import { myBooksView } from './views/myBooksView.js';
 import { registerView } from './views/registerView.js';
 
@@ -33,12 +33,13 @@ updateNav();
 page('/', dashboardView);
 page('/register', registerView);
 page('/login', loginView);
-page('/logout', logoutView);
+page('/logout', logoutUser);
 page('/my-books', myBooksView);
 page('/add-book', addBookView);
 page('/details/:id', detailsView);
 page('/edit/:id', editView);
-page('/delete/:id', deleteMovie)
+page('/delete/:id', deleteMovie);
+page('/my-books', myBooksView);
 
 
 page.start();
