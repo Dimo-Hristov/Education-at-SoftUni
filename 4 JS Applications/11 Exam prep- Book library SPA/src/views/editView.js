@@ -1,4 +1,4 @@
-import { getDetails, editMovie } from '../data.js';
+import { getDetails, editMovie } from '../api/data.js';
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
 import page from '../../node_modules/page/page.mjs';
 

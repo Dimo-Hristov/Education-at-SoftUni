@@ -1,6 +1,5 @@
 import * as api from './api.js';
-import { updateNav } from './app.js';
-import page from '../node_modules/page/page.mjs';
+import page from '../../node_modules/page/page.mjs';
 
 const endpoints = {
     login: '/users/login',
@@ -12,7 +11,6 @@ export const loginUser = (data) => {
     api.post(endpoints.login, data)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
-            updateNav();
             page.redirect('/');
         })
         .catch(err => {
@@ -24,7 +22,6 @@ export const registerUser = (data) => {
     api.post(endpoints.register, data)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
-            updateNav();
             page.redirect('/');
         })
         .catch(err => {
@@ -36,7 +33,6 @@ export const logoutUser = () => {
     api.get(endpoints.logout)
         .then(() => {
             localStorage.removeItem('user');
-            updateNav();
             page.redirect('/')
         })
 }

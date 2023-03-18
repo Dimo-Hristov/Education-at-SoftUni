@@ -1,15 +1,7 @@
 import * as api from './api.js';
-import page from '../node_modules/page/page.mjs';
+import page from '../../node_modules/page/page.mjs';
 
-const getUserId = () => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    if (user) {
-        return user._id
-    } else {
-        return null
-    }
-}
-
+const user = api.getUser()
 
 
 const endPoints = {
@@ -17,7 +9,7 @@ const endPoints = {
     addbook: '/data/books',
     details: '/data/books/',
     edit: '/data/books/',
-    userBooks: `/data/books?where=_ownerId%3D%22${getUserId()}%22&sortBy=_createdOn%20desc`,
+    userBooks: `/data/books?where=_ownerId%3D%22${user ? user._id : null}%22&sortBy=_createdOn%20desc`,
     deleteBook: '/data/books/'
 }
 
@@ -46,21 +38,4 @@ export const deleteMovie = (ctx) => {
 
     api.del(endPoints.deleteBook + movieId)
     page.redirect('/')
-
-    // fetch(``, {
-    //     method: 'DELETE',
-    //     headers: {
-    //         'content-type': 'application/json',
-    //         'X-Authorization': currentUser.accessToken
-    //     },
-    // })
-    // .then(res => {
-    //     if (!res.ok) {
-    //         throw new Error('response error')
-    //     }
-    //     return res.json()
-    // })
-    // .then(() => {
-    //     page.redirect('/')
-    // })
 }

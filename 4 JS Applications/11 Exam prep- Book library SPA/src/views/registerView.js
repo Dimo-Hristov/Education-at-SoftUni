@@ -1,5 +1,5 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import { registerUser } from '../users.js';
+import { registerUser } from '../api/users.js';
 
 const registerTemplate = html`
 <section id="register-page" class="register">

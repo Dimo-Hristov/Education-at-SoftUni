@@ -1,5 +1,7 @@
 const baseUrl = 'http://localhost:3030';
 
+export const getUser = () => JSON.parse(localStorage.getItem('user'));
+
 export const request = (method, url, data) => {
     const options = {
         method,
@@ -11,7 +13,7 @@ export const request = (method, url, data) => {
         options.body = JSON.stringify(data);
     }
 
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = getUser()
     if (user != null) {
         const token = user.accessToken;
         options.headers['X-Authorization'] = token;

@@ -1,5 +1,5 @@
 import { html, render, nothing } from '../../node_modules/lit-html/lit-html.js';
-import { getDetails } from '../data.js';
+import { getDetails } from '../api/data.js';
 
 
 const root = document.getElementById('site-content');
@@ -41,7 +41,7 @@ const detailsTemplate = (book, currentUser) => html`
 
 
 export const detailsView = (ctx) => {
-
+    console.log(ctx.params.id);
     getDetails(ctx.params.id)
         .then(book => {
             const currentUser = JSON.parse(localStorage.getItem('user'))

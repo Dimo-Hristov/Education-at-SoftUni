@@ -1,5 +1,5 @@
 import { html, render } from '../../node_modules/lit-html/lit-html.js';
-import { getAllBooks } from '../data.js';
+import { getAllBooks } from '../api/data.js';
 
 const root = document.getElementById('site-content');
 

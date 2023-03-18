@@ -1,33 +1,19 @@
 import page from '../node_modules/page/page.mjs'
-import { deleteMovie } from './data.js';
-import { logoutUser } from './users.js';
+import { deleteMovie } from './api/data.js';
+import { logoutUser } from './api/users.js';
 import { addBookView } from './views/addBookView.js';
 import { dashboardView } from './views/dashboardView.js';
 import { detailsView } from './views/detailsView.js';
 import { editView } from './views/editView.js';
 import { loginView } from './views/loginView.js';
 import { myBooksView } from './views/myBooksView.js';
+import { updateNav } from './views/navigationView.js';
 import { registerView } from './views/registerView.js';
 
 
-export const updateNav = () => {
-    const guestView = document.getElementById('guest');
-    const userView = document.getElementById('user');
-
-    if (localStorage.getItem('user')) {
-        guestView.style.display = 'none';
-        userView.style.display = 'inline';
-        const userEmail = JSON.parse(localStorage.getItem('user')).email
-        userView.querySelector('span').textContent = `Welcome, ${userEmail}`
-    } else {
-        guestView.style.display = 'inline';
-        userView.style.display = 'none';
-    }
-}
-
 
 // start the page
-updateNav();
+page(updateNav);
 
 
 page('/', dashboardView);
