@@ -41,7 +41,6 @@ const detailsTemplate = (book, currentUser) => html`
 
 
 export const detailsView = (ctx) => {
-    console.log(ctx.params.id);
     getDetails(ctx.params.id)
         .then(book => {
             const currentUser = JSON.parse(localStorage.getItem('user'))

@@ -1,7 +1,8 @@
-import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { html, render} from '../../node_modules/lit-html/lit-html.js';
 import { getAllBooks } from '../api/data.js';
 
-const root = document.getElementById('site-content');
+const root = document.getElementById('site-content')
+
 
 const movieTemplate = (movie) => html`
 <li class="otherBooks">
@@ -25,7 +26,7 @@ const dashboardTemplate = (movies) => html`
 </section>
 `;
 
-export const dashboardView = () => {
+export const dashboardView = (ctx) => {
     getAllBooks()
     .then(movies => render(dashboardTemplate(movies), root))
         .catch(err => {

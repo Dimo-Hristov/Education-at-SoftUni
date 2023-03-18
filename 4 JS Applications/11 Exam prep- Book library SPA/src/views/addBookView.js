@@ -1,11 +1,9 @@
-import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { html } from '../../node_modules/lit-html/lit-html.js';
 import page from '../../node_modules/page/page.mjs';
 import { addNewBook } from '../api/data.js';
 
-const root = document.getElementById('site-content')
 
-
-const addBookTemplate = html`
+const addBookTemplate = () => html`
 <section id="create-page" class="create">
     <form id="create-form" action="" method="" @submit=${submitHandler}>
         <fieldset>
@@ -46,7 +44,7 @@ const addBookTemplate = html`
 </section>
 `
 
-function submitHandler(e) {
+function submitHandler() {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
@@ -68,15 +66,14 @@ function submitHandler(e) {
         type
     }
     addNewBook(data)
-        .then((book) => {
-            console.log(book);
-            page.redirect('/');
+        .then(() => {
+            page.redirect('/')
         })
         .catch(err => {
             throw new Error(err.message)
         })
 }
 
-export const addBookView = () => {
-    render(addBookTemplate, root)
+export const addBookView = (ctx) => {
+    ctx.render(addBookTemplate(ctx))
 }
