@@ -1,5 +1,5 @@
 import * as api from './api.js';
-import page from '../../node_modules/page/page.mjs';
+import page from 'page/page.mjs';
 
 const endpoints = {
     login: '/users/login',
