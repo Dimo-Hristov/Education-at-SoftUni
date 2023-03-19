@@ -18,15 +18,14 @@ const dashboardTemplate = (offers) => html`
 <section id="dashboard">
     <h2>Job Offers</h2>
     ${offers.length == 0 ?
-    html`<h2>No offers yet.</h2>`
-        : html`${offers.map(x => offerTemplate(x))}`}
+        html`<h2>No offers yet.</h2>`
+    : html`${offers.map(x => offerTemplate(x))}`}
 </section>
     `;
 
 export const dashboardView = (ctx) => {
     getAllOffers()
         .then(offers => {
-            console.log(offers);
             ctx.render(dashboardTemplate(offers))
         })
         .catch(err => alert(err.message))
