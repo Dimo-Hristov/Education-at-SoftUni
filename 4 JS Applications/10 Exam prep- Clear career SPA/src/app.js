@@ -1,4 +1,5 @@
 import page from '../node_modules/page/page.mjs'
+import { logoutUser } from './api/users.js';
 import { authMiddleware } from './middleware/authMiddleware.js';
 import { renderContentMiddleware, renderNavBar } from './middleware/renderMiddleware.js';
 import { homeView } from "./views/homeView.js";
@@ -12,6 +13,7 @@ page(renderContentMiddleware);
 page('/', homeView);
 page('/login', loginView);
 page('/register', registerView)
+page('/logout', logoutUser);
 
 
 page.start();
