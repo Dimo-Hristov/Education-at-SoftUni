@@ -9,7 +9,7 @@ const endPoints = {
     details: '/data/offers/',
     edit: '/data/offers/',
     userBooks: `/data/books?where=_ownerId%3D%22${user ? user._id : null}%22&sortBy=_createdOn%20desc`,
-    deleteBook: '/data/books/'
+    deleteOffer: '/data/offers/'
 }
 
 export const getAllOffers = () => {
@@ -32,9 +32,17 @@ export const getUserBooks = () => {
     return api.get(endPoints.userBooks)
 }
 
-export const deleteMovie = (ctx) => {
-    const movieId = ctx.params.id;
+export const deleteOffer = (ctx) => {
 
-    api.del(endPoints.deleteBook + movieId)
-    ctx.redirect('/')
+    const confirmed = confirm('Are you sure you want to delete this offer');
+
+    if (confirmed) {
+        api.del(endPoints.deleteOffer + ctx.params.id)
+            .then(() => {
+                ctx.redirect('/dashboard')
+            })
+            .catch(err => alert(err.message))
+    } else {
+        return;
+    }
 }
