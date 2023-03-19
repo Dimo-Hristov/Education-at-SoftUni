@@ -5,7 +5,7 @@ const user = api.getUser()
 
 
 const endPoints = {
-    getBooks: '/data/books?sortBy=_createdOn%20desc',
+    getOffers: '/data/offers?sortBy=_createdOn%20desc',
     addbook: '/data/books',
     details: '/data/books/',
     edit: '/data/books/',
@@ -13,8 +13,8 @@ const endPoints = {
     deleteBook: '/data/books/'
 }
 
-export const getAllBooks = () => {
-    return api.get(endPoints.getBooks)
+export const getAllOffers = () => {
+    return api.get(endPoints.getOffers)
 }
 
 export const addNewBook = (data) => {
