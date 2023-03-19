@@ -10,7 +10,7 @@ const loginTemplate = (submitHandler) => html`
             <input type="password" name="password" id="password" placeholder="password" />
             <button type="submit">login</button>
             <p class="message">
-                Not registered? <a href="/create">Create an account</a>
+                Not registered? <a href="/register">Create an account</a>
             </p>
         </form>
     </div>
@@ -23,12 +23,17 @@ export const loginView = (ctx) => {
 
         const formData = new FormData(e.currentTarget);
 
-        const email = formData.get('email');
-        const password = formData.get('password');
+        const email = formData.get('email').trim();
+        const password = formData.get('password').trim();
 
         const data = {
             email,
             password
+        }
+
+        if (email == '' || password == '') {
+            alert('All field must be fullfiled');
+            return
         }
 
         loginUser(data)
