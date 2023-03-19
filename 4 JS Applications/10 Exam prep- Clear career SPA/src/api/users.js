@@ -11,7 +11,7 @@ export const loginUser = (data) => {
     api.post(endpoints.login, data)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
-            page.redirect('/');
+            page.redirect('/dashboard');
         })
         .catch(err => {
             alert(err.message)
@@ -23,7 +23,7 @@ export const registerUser = (data) => {
     api.post(endpoints.register, data)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
-            page.redirect('/');
+            page.redirect('/dashbaord');
         })
         .catch(err => {
             throw new Error(err.message);
@@ -34,6 +34,6 @@ export const logoutUser = () => {
     api.get(endpoints.logout)
         .then(() => {
             localStorage.removeItem('user');
-            page.redirect('/')
+            page.redirect('/dashboard')
         })
 }
