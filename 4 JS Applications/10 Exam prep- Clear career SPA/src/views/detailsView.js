@@ -1,7 +1,7 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
+import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 import { getDetails } from '../api/data.js';
 
-const detailsTemplate = (offer, user) => html`
+const detailsTemplate = (offer, userId) => html`
 <section id="details">
     <div id="details-wrapper">
         <img id="details-img" src="${offer.imageUrl}" alt="example1" />
@@ -24,22 +24,26 @@ const detailsTemplate = (offer, user) => html`
         </div>
         <p>Applications: <strong id="applications">1</strong></p>
 
-        <!--Edit and Delete are only for creator-->
-        <div id="action-buttons">
-            <a href="" id="edit-btn">Edit</a>
-            <a href="" id="delete-btn">Delete</a>
+        ${offer._ownerId === userId ?
+        html`<div id="action-buttons">
+            <a href="/edit/${offer._id}" id="edit-btn">Edit</a>
+            <a href="/delete/${offer._id}" id="delete-btn">Delete</a>
+        </div>`
+        : nothing}
 
-            <!--Bonus - Only for logged-in users ( not authors )-->
-            <a href="" id="apply-btn">Apply</a>
-        </div>
+        //
+        <!--Bonus - Only for logged-in users ( not authors )-->
+        // <a href="/apply/${offer._id}" id="apply-btn">Apply</a>
     </div>
 </section>
 `;
 
 export const detailsView = (ctx) => {
+    const userId = ctx.user ? ctx.user._id : null
+
     getDetails(ctx.params.id)
         .then(offer => {
-            ctx.render(detailsTemplate(offer, ctx.user))
+            ctx.render(detailsTemplate(offer, userId))
         })
 
 }
