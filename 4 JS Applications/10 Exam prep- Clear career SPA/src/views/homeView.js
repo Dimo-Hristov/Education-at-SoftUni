@@ -1,6 +1,6 @@
-import { html, render } from '../../node_modules/lit-html/lit-html.js';
+import { html } from '../../node_modules/lit-html/lit-html.js';
 
-const homeTemplate = () => html`
+const homeTemplate = html`
     <section id="home">
         <img src="./images/pngkey.com-hunting-png-6697165-removebg-preview.png" alt="home" />
         <h2>Searching for a job?</h2>
@@ -8,6 +8,6 @@ const homeTemplate = () => html`
     </section>
 `;
 
-export const homeView = () => {
-    render(homeTemplate(), document.querySelector('.main-content'))
+export const homeView = (ctx) => {
+    ctx.render(homeTemplate);
 }

@@ -25,7 +25,7 @@ export const request = (method, url, data) => {
                 if (res.status == 403) {
                     localStorage.removeItem('user');
                 }
-                throw new Error('response error')
+                throw new Error('Invalid email or password')
             }
 
             if (res.status == 204) {
@@ -34,6 +34,7 @@ export const request = (method, url, data) => {
                 return res.json()
             }
         })
+
 }
 
 export const get = request.bind(null, 'GET');

@@ -3,15 +3,15 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 
 const userLink = html`
 <div class="user">
-    <a href="#">Create Offer</a>
-    <a href="#">Logout</a>
+    <a href="/create">Create Offer</a>
+    <a href="/logout">Logout</a>
 </div>
 `;
 
 const guestLink = html`
 <div class="guest">
-    <a href="#">Login</a>
-    <a href="#">Register</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
 </div>
 `
 
@@ -20,7 +20,7 @@ const navigationTemplate = (user) => html`
 
 <nav>
     <div>
-        <a href="#">Dashboard</a>
+        <a href="/dashboard">Dashboard</a>
     </div>
 
     ${user ?
