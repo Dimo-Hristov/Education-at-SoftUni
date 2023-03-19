@@ -1,5 +1,4 @@
 import * as api from './api.js';
-import page from '../../node_modules/page/page.mjs';
 
 const endpoints = {
     login: '/users/login',
@@ -7,11 +6,11 @@ const endpoints = {
     logout: '/users/logout',
 }
 
-export const loginUser = (data) => {
+export const loginUser = (data, ctx) => {
     api.post(endpoints.login, data)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
-            page.redirect('/dashboard');
+            ctx.redirect('/dashboard');
         })
         .catch(err => {
             alert(err.message)
@@ -19,21 +18,21 @@ export const loginUser = (data) => {
 
 }
 
-export const registerUser = (data) => {
+export const registerUser = (data, ctx) => {
     api.post(endpoints.register, data)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
-            page.redirect('/dashbaord');
+            ctx.redirect('/dashbaord');
         })
         .catch(err => {
             throw new Error(err.message);
         });
 }
 
-export const logoutUser = () => {
+export const logoutUser = (ctx) => {
     api.get(endpoints.logout)
         .then(() => {
             localStorage.removeItem('user');
-            page.redirect('/dashboard')
+            ctx.redirect('/dashboard')
         })
 }

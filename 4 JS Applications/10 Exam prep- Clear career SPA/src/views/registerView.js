@@ -38,7 +38,7 @@ export const registerView = (ctx) => {
             email,
             password
         }
-        registerUser(data);
+        registerUser(data, ctx);
     }
 
 

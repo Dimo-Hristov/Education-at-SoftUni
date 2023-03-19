@@ -1,5 +1,4 @@
 import * as api from './api.js';
-import page from '../../node_modules/page/page.mjs';
 
 const user = api.getUser()
 
@@ -37,5 +36,5 @@ export const deleteMovie = (ctx) => {
     const movieId = ctx.params.id;
 
     api.del(endPoints.deleteBook + movieId)
-    page.redirect('/')
+    ctx.redirect('/')
 }

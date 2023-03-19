@@ -36,7 +36,7 @@ export const loginView = (ctx) => {
             return
         }
 
-        loginUser(data)
+        loginUser(data, ctx)
     }
 
 
