@@ -4,6 +4,7 @@ import { authMiddleware } from "./middleware/authMiddleware.js";
 import { redirectMiddleware, renderContentMiddleware, renderNavBar } from "./middleware/renderMiddleware.js";
 import { addProductView } from './views/addProductView.js';
 import { dashboardView } from './views/dashboardView.js';
+import { detailsView } from './views/detailsView.js';
 import { homeView } from "./views/homeView.js";
 import { loginView } from './views/loginView.js';
 import { registerView } from './views/registerView.js';
@@ -17,8 +18,9 @@ page('/', homeView);
 page('/register', registerView);
 page('/login', loginView);
 page('/logout', logoutUser);
-page('/dashboard', dashboardView)
-page('/add', addProductView)
+page('/dashboard', dashboardView);
+page('/add', addProductView);
+page('/details/:id', detailsView)
 
 
 page.start();
