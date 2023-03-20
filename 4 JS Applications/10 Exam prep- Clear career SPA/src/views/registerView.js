@@ -20,9 +20,9 @@ export const registerView = (ctx) => {
     const submitHanlder = (e) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
-        const email = formData.get('email').trim();
-        const password = formData.get('password').trim();
-        const rePass = formData.get('re-password').trim();
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const rePass = formData.get('re-password');
 
         if (email == '' || password == '' || rePass == '') {
             alert('All field must be fullfiled');

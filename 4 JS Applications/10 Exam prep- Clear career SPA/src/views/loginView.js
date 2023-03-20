@@ -23,8 +23,8 @@ export const loginView = (ctx) => {
 
         const formData = new FormData(e.currentTarget);
 
-        const email = formData.get('email').trim();
-        const password = formData.get('password').trim();
+        const email = formData.get('email');
+        const password = formData.get('password');
 
         const data = {
             email,
