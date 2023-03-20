@@ -22,7 +22,7 @@ export const registerUser = (data, ctx) => {
     api.post(endpoints.register, data)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
-            ctx.redirect('/dashbaord');
+            ctx.redirect('/products');
         })
         .catch(err => {
             alert(err.message);

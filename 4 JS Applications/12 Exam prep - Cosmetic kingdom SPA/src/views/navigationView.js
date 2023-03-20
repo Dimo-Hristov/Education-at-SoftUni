@@ -2,15 +2,15 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 
 const userLinks = html`
 <div class="user">
-    <a href="#">Add Product</a>
-    <a href="#">Logout</a>
+    <a href="/add">Add Product</a>
+    <a href="/logout">Logout</a>
 </div>
 `;
 
 const guestLinks = html`
 <div class="guest">
-    <a href="#">Login</a>
-    <a href="#">Register</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
 </div>
 `
 
@@ -20,11 +20,11 @@ const navTemplate = (user) => html`
 
 <nav>
     <div>
-        <a href="#">Products</a>
+        <a href="/products">Products</a>
     </div>
     ${user ?
-    userLinks
-    : guestLinks}
+        userLinks
+        : guestLinks}
 </nav>
 `;
 
