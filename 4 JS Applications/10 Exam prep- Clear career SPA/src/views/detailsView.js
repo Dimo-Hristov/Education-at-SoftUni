@@ -45,5 +45,6 @@ export const detailsView = (ctx) => {
         .then(offer => {
             ctx.render(detailsTemplate(offer, userId))
         })
+        .catch(err => alert(err.message))
 
 }

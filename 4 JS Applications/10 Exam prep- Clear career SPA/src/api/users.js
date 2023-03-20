@@ -25,7 +25,7 @@ export const registerUser = (data, ctx) => {
             ctx.redirect('/dashbaord');
         })
         .catch(err => {
-            throw new Error(err.message);
+            alert(err.message);
         });
 }
 
@@ -35,4 +35,5 @@ export const logoutUser = (ctx) => {
             localStorage.removeItem('user');
             ctx.redirect('/dashboard')
         })
+        .catch(err => alert(err.message))
 }
