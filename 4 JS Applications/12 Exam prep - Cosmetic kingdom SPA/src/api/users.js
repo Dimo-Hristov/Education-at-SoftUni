@@ -10,7 +10,7 @@ export const loginUser = (data, ctx) => {
     api.post(endpoints.login, data)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
-            ctx.redirect('/products');
+            ctx.redirect('/dashboard');
         })
         .catch(err => {
             alert(err.message)
@@ -22,7 +22,7 @@ export const registerUser = (data, ctx) => {
     api.post(endpoints.register, data)
         .then(user => {
             localStorage.setItem('user', JSON.stringify(user));
-            ctx.redirect('/products');
+            ctx.redirect('/dashboard');
         })
         .catch(err => {
             alert(err.message);

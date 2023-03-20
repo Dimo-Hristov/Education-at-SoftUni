@@ -1,5 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { registerUser } from '../api/users.js';
+import { loginUser, registerUser } from '../api/users.js';
 
 const loginTemplate = (submitHanlder) => html`
 <section id="login">
@@ -24,6 +24,7 @@ export const loginView = (ctx) => {
         const formData = new FormData(e.currentTarget);
         const email = formData.get('email');
         const password = formData.get('password');
+        console.log(email);
 
         if (email == '' || password == '') {
             alert('All field must be fullfiled');
@@ -35,7 +36,7 @@ export const loginView = (ctx) => {
             password
         }
 
-        registerUser(data, ctx)
+        loginUser(data, ctx)
     }
 
     ctx.render(loginTemplate(submitHandler))

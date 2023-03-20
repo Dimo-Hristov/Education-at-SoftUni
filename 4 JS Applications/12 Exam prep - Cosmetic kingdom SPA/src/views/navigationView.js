@@ -20,11 +20,11 @@ const navTemplate = (user) => html`
 
 <nav>
     <div>
-        <a href="/products">Products</a>
+        <a href="/dashboard">Products</a>
     </div>
     ${user ?
-        userLinks
-        : guestLinks}
+    userLinks
+    : guestLinks}
 </nav>
 `;
 
