@@ -3,7 +3,7 @@ import { getAllProducts } from '../api/data.js';
 
 const productTemplate = (product) => html`
 <div class="product">
-    <img src="./images/product example 1.png" alt="example1" />
+    <img src="${product.imageUrl}" alt="example1" />
     <p class="title">
         ${product.name}
     </p>
@@ -17,7 +17,7 @@ const dashboardtemplate = (products) => html`
 <h2>Products</h2>
 
 ${products.length == 0
-? html`<h2>No products yet.</h2>`
+        ? html`<h2>No products yet.</h2>`
     : html`<section id="dashboard">
     ${products.map(product => productTemplate(product))}
 </section>
