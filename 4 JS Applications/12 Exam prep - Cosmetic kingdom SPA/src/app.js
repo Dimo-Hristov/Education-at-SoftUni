@@ -1,4 +1,5 @@
 import page from '../node_modules/page/page.mjs'
+import { deleteProduct } from './api/data.js';
 import { logoutUser } from './api/users.js';
 import { authMiddleware } from "./middleware/authMiddleware.js";
 import { redirectMiddleware, renderContentMiddleware, renderNavBar } from "./middleware/renderMiddleware.js";
@@ -23,6 +24,7 @@ page('/dashboard', dashboardView);
 page('/add', addProductView);
 page('/details/:id', detailsView)
 page('/edit/:id', editView)
+page('/delete/:id', deleteProduct)
 
 
 page.start();
