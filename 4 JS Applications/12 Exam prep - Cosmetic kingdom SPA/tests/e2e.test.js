@@ -32,9 +32,9 @@ describe("E2E tests", function () {
   this.timeout(DEBUG ? 120000 : 100000);
   before(
     async () =>
-      (browser = await chromium.launch(
-        DEBUG ? { headless: false, slowMo } : {}
-      ))
+    (browser = await chromium.launch(
+      DEBUG ? { headless: false, slowMo } : {}
+    ))
   );
   after(async () => await browser.close());
   beforeEach(async () => {
@@ -252,10 +252,10 @@ describe("E2E tests", function () {
       await page.click("nav >> text=Products");
       await page.waitForTimeout(interval);
 
-     
+
       expect(await page.isVisible("text=Products")).to.be.true;
       expect(await page.isVisible("text=No products yet.")).to.be.true;
-      
+
     });
 
     it("Check products page with 2 offers [ 2.5 Points ]", async () => {
@@ -287,7 +287,7 @@ describe("E2E tests", function () {
       expect(await page.isVisible('text="Details"')).to.be.true;
     });
 
-    it("Check product page Info [ 2.5 Points ]", async () => {
+    it.only("Check product page Info [ 2.5 Points ]", async () => {
       const { get } = await handle(endpoints.catalog);
       get(mockData.catalog.slice(0, 1));
       const data = mockData.catalog.slice(0, 1);

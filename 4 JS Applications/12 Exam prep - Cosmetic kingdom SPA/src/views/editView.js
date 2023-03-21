@@ -33,11 +33,11 @@ export const editView = (ctx) => {
     const submitHandler = (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-        const name = formData.get('name');
-        const imageUrl = formData.get('imageUrl');
-        const category = formData.get('category');
-        const description = formData.get('description');
-        const price = formData.get('price');
+        const name = formData.get('name').trim();
+        const imageUrl = formData.get('imageUrl').trim();
+        const category = formData.get('category').trim();
+        const description = formData.get('description').trim();
+        const price = formData.get('price').trim();
 
         if (name == '' || imageUrl == '' || category == '' || description == '' || price == '') {
             alert('All field must be fullfiled');
