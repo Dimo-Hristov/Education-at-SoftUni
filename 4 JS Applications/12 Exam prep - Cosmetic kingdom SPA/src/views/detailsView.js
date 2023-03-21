@@ -18,15 +18,16 @@ const detailsTemplate = (product, userId) => html`
             </div>
         </div>
 
-        ${userId === product._ownerId
-        ? html`<div id="action-buttons">
+        <div id="action-buttons">
+            ${userId === product._ownerId
+            ? html`
             <a href="/edit/${product._id}" id="edit-btn">Edit</a>
             <a href="/delete/${product._id}" id="delete-btn">Delete</a>`
-            : nothing}
+                : nothing}
 
-            ${userId
-        ? html`<a href="" id="buy-btn">Buy</a>`
-    : nothing}
+            ${userId && userId !== product._ownerId
+            ? html`<a href="/buy/${product._id}" id="buy-btn">Buy</a>`
+        : nothing}
 
         </div>
     </div>
