@@ -7,7 +7,7 @@ const endPoints = {
     getProducts: '/data/products?sortBy=_createdOn%20desc',
     addProduct: '/data/products',
     details: '/data/products/',
-    edit: '/data/offers/',
+    edit: '/data/products/',
     userBooks: `/data/books?where=_ownerId%3D%22${user ? user._id : null}%22&sortBy=_createdOn%20desc`,
     deleteOffer: '/data/offers/'
 }
@@ -24,7 +24,7 @@ export const getDetails = (id) => {
     return api.get(endPoints.details + id)
 }
 
-export const editOffer = (data, id) => {
+export const editProduct = (data, id) => {
     return api.put(endPoints.edit + id, data)
 }
 
