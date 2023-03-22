@@ -6,6 +6,7 @@ import { redirectMiddleware, renderContentMiddleware, renderNavBar } from './mid
 import { createView } from './views/createView.js';
 import { dashboardView } from './views/dashboardView.js';
 import { detailsView } from './views/detailsView.js';
+import { editView } from './views/editView.js';
 import { homeView } from './views/homeView.js';
 import { loginView } from './views/loginView.js';
 import { registerView } from './views/registerView.js';
@@ -23,7 +24,7 @@ page('/logout', logoutUser);
 page('/dashboard', dashboardView)
 page('/create', createView)
 page('/details/:id', detailsView)
-// page('/edit/:id', editView);
+page('/edit/:id', editView);
 // page('/delete/:id', deleteOffer)
 
 
