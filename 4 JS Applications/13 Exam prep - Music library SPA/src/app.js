@@ -4,6 +4,7 @@ import { authMiddleware } from './middleware/authMiddleware.js';
 import { redirectMiddleware, renderContentMiddleware, renderNavBar } from './middleware/renderMiddleware.js';
 import { homeView } from './views/homeView.js';
 import { loginView } from './views/loginView.js';
+import { registerView } from './views/registerView.js';
 
 
 page(authMiddleware);
@@ -13,8 +14,7 @@ page(redirectMiddleware);
 
 page('/', homeView)
 page('/login', loginView)
-// page('/login', loginView);
-// page('/register', registerView);
+page('/register', registerView)
 // page('/logout', logoutUser);
 // page('/dashboard', dashboardView);
 // page('/create', createView);
