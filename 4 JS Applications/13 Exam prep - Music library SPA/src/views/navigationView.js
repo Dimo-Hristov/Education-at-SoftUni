@@ -2,7 +2,7 @@ import { html } from '../../node_modules/lit-html/lit-html.js'
 
 const userLinks = html`
     <div class="user">
-        <a href="/add">Add Album</a>
+        <a href="/create">Add Album</a>
         <a href="/logout">Logout</a>
     </div>
 `;
@@ -22,8 +22,8 @@ const navtemplate = (user) => html`
         <a href="/dashboard">Dashboard</a>
     </div>
     ${user
-        ? userLinks
-        : guestLinks}
+    ? userLinks
+    : guestLinks}
 </nav>
 `;
 

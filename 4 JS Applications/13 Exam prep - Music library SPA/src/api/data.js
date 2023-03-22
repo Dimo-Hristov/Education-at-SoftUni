@@ -5,7 +5,7 @@ const user = api.getUser()
 
 const endPoints = {
     getAlbums: '/data/albums?sortBy=_createdOn%20desc',
-    addbook: '/data/offers',
+    addAlbum: '/data/albums',
     details: '/data/offers/',
     edit: '/data/offers/',
     userBooks: `/data/books?where=_ownerId%3D%22${user ? user._id : null}%22&sortBy=_createdOn%20desc`,
@@ -16,8 +16,8 @@ export const getAllAlbums = () => {
     return api.get(endPoints.getAlbums)
 }
 
-export const addNewOffer = (data) => {
-    return api.post(endPoints.addbook, data)
+export const addNewAlbum = (data) => {
+    return api.post(endPoints.addAlbum, data)
 }
 
 export const getDetails = (id) => {
