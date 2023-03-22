@@ -9,7 +9,10 @@ const endPoints = {
     details: '/data/albums/',
     edit: '/data/albums/',
     userBooks: `/data/books?where=_ownerId%3D%22${user ? user._id : null}%22&sortBy=_createdOn%20desc`,
-    deleteOffer: '/data/offers/'
+    deleteAlbum: '/data/albums/',
+    getLikes1: '/data/likes?where=albumId%3D%22',
+    getLikes2: '%22&distinct=_ownerId&count',
+    sendLike: '/data/likes'
 }
 
 export const getAllAlbums = () => {
@@ -32,12 +35,20 @@ export const getUserBooks = () => {
     return api.get(endPoints.userBooks)
 }
 
-export const deleteOffer = (ctx) => {
+export const getLikes = (albumId) => {
+    return api.get(endPoints.getLikes1 + albumId + endPoints.getLikes2)
+}
+
+export const sendLike = (data) => {
+    return api.post(endPoints.sendLike, data)
+}
+
+export const deleteAlbum = (ctx) => {
 
     const confirmed = confirm('Are you sure you want to delete this offer');
 
     if (confirmed) {
-        api.del(endPoints.deleteOffer + ctx.params.id)
+        api.del(endPoints.deleteAlbum + ctx.params.id)
             .then(() => {
                 ctx.redirect('/dashboard')
             })
