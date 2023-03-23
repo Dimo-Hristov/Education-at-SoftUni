@@ -2,7 +2,7 @@ import { html } from "../../node_modules/lit-html/lit-html.js";
 
 const userLinks = html`
 <div class="user">
-    <a href="/add">Add Pair</a>
+    <a href="/create">Add Pair</a>
     <a href="/logout">Logout</a>
 </div>
 `;
