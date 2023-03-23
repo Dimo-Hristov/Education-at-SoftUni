@@ -9,7 +9,9 @@ const endPoints = {
     details: '/data/shoes/',
     edit: '/data/shoes/',
     userBooks: `/data/books?where=_ownerId%3D%22${user ? user._id : null}%22&sortBy=_createdOn%20desc`,
-    deleteOffer: '/data/shoes/'
+    deleteOffer: '/data/shoes/',
+    search1: '/data/shoes?where=brand%20LIKE%20%22',
+    search2: '%22'
 }
 
 export const getAllArticles = () => {
@@ -30,6 +32,10 @@ export const editArticle = (data, id) => {
 
 export const getUserBooks = () => {
     return api.get(endPoints.userBooks)
+}
+
+export const getSearchedBrand = (brand) => {
+    return api.get(endPoints.search1 + brand + endPoints.search2)
 }
 
 export const deleteArticle = (ctx) => {

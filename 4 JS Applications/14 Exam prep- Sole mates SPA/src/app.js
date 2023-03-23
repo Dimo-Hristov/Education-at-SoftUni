@@ -10,6 +10,7 @@ import { editView } from './views/editView.js';
 import { homeView } from './views/homeView.js';
 import { loginView } from './views/loginView.js';
 import { registerView } from './views/registerView.js';
+import { searchView } from './views/searchView.js';
 
 
 page(authMiddleware);
@@ -25,7 +26,8 @@ page('/dashboard', dashboardView);
 page('/create', createView);
 page('/details/:id', detailsView);
 page('/edit/:id', editView);
-page('/delete/:id', deleteArticle)
+page('/delete/:id', deleteArticle);
+page('/search', searchView)
 
 
 page.start();
