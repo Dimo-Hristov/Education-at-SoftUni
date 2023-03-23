@@ -20,8 +20,8 @@ const artileTemplate = (article, userId) => html`
 
 const resultTemplate = (articles, userId) => html`
             ${articles.length == 0
-            ? html`<h2>There are no results found.</h2>`
-            : html`
+        ? html`<h2>There are no results found.</h2>`
+        : html`
             <ul class="card-wrapper">
                 ${articles.map(x => html`${artileTemplate(x, userId)}`)}
             </ul>
