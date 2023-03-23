@@ -6,7 +6,7 @@ const editTemplate = (article, submitHanlder) => html`
         <div class="form">
             <h2>Edit item</h2>
             <form class="edit-form" @submit=${submitHanlder}>
-                <input type="text" name="brand" id="shoe-brand" placeholder="Brand" value="${article.value}" />
+                <input type="text" name="brand" id="shoe-brand" placeholder="Brand" value="${article.brand}" />
                 <input type="text" name="model" id="shoe-model" placeholder="Model" value="${article.model}" />
                 <input type="text" name="imageUrl" id="shoe-img" placeholder="Image url" value="${article.imageUrl}" />
                 <input type="text" name="release" id="shoe-release" placeholder="Release date" value="${article.release}" />
