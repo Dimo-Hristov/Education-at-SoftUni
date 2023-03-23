@@ -15,7 +15,7 @@ page(redirectMiddleware);
 page('/', homeView)
 page('/login', loginView);
 page('/register', registerView);
-// page('/logout', logoutUser);
+page('/logout', logoutUser);
 // page('/dashboard', dashboardView);
 // page('/create', createView);
 // page('/details/:id', detailsView);
