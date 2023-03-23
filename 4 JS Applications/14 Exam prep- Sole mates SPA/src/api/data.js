@@ -9,7 +9,7 @@ const endPoints = {
     details: '/data/shoes/',
     edit: '/data/shoes/',
     userBooks: `/data/books?where=_ownerId%3D%22${user ? user._id : null}%22&sortBy=_createdOn%20desc`,
-    deleteOffer: '/data/offers/'
+    deleteOffer: '/data/shoes/'
 }
 
 export const getAllArticles = () => {
@@ -32,7 +32,7 @@ export const getUserBooks = () => {
     return api.get(endPoints.userBooks)
 }
 
-export const deleteOffer = (ctx) => {
+export const deleteArticle = (ctx) => {
 
     const confirmed = confirm('Are you sure you want to delete this offer');
 

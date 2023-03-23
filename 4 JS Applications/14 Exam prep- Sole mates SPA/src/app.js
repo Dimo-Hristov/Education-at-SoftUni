@@ -1,4 +1,5 @@
 import page from '../node_modules/page/page.mjs'
+import { deleteArticle } from './api/data.js';
 import { logoutUser } from './api/users.js';
 import { authMiddleware } from './middleware/authMiddleware.js';
 import { redirectMiddleware, renderContentMiddleware, renderNavBar } from './middleware/renderMiddleware.js';
@@ -24,7 +25,7 @@ page('/dashboard', dashboardView);
 page('/create', createView);
 page('/details/:id', detailsView);
 page('/edit/:id', editView);
-// page('/delete/:id', deleteOffer)
+page('/delete/:id', deleteArticle)
 
 
 page.start();
