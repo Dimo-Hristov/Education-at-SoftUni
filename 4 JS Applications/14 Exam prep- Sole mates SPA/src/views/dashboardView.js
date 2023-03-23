@@ -33,4 +33,5 @@ export const dashboardView = (ctx) => {
         .then(articles => {
             ctx.render(dashboardTemplate(articles))
         })
+        .catch(err => alert(err.message))
 }
