@@ -22,7 +22,7 @@ const navTemplate = (user) => html`
 <h1><a href="/">Orphelp</a></h1>
 
 <nav>
-    <a href="/">Dashboard</a>
+    <a href="/dashboard">Dashboard</a>
     ${user
     ? userLinks
     : guestLinks}

@@ -4,7 +4,7 @@ const user = api.getUser()
 
 
 const endPoints = {
-    getArticles: '/data/shoes?sortBy=_createdOn%20desc',
+    getPosts: '/data/posts?sortBy=_createdOn%20desc',
     addArticle: '/data/shoes',
     details: '/data/shoes/',
     edit: '/data/shoes/',
@@ -14,8 +14,8 @@ const endPoints = {
     search2: '%22'
 }
 
-export const getAllArticles = () => {
-    return api.get(endPoints.getArticles)
+export const getAllPosts = () => {
+    return api.get(endPoints.getPosts)
 }
 
 export const addNewArticle = (data) => {
