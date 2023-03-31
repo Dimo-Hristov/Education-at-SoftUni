@@ -6,7 +6,7 @@ const user = api.getUser()
 const endPoints = {
     getPosts: '/data/posts?sortBy=_createdOn%20desc',
     addPost: '/data/posts',
-    details: '/data/shoes/',
+    details: '/data/posts/',
     edit: '/data/shoes/',
     userBooks: `/data/books?where=_ownerId%3D%22${user ? user._id : null}%22&sortBy=_createdOn%20desc`,
     deleteOffer: '/data/shoes/',
