@@ -1,5 +1,6 @@
 import page from '../node_modules/page/page.mjs'
 import { loginView } from '../views/loginView.js';
+import { registerView } from '../views/registerView.js';
 import { authMiddleware } from './middleware/authMiddleware.js';
 import { redirectMiddleware, renderContentMiddleware, renderNavBar } from './middleware/renderMiddleware.js';
 
@@ -12,7 +13,7 @@ page(redirectMiddleware);
 
 // page('/', homeView)
 page('/login', loginView);
-// page('/register', registerView);
+page('/register', registerView);
 // page('/logout', logoutUser);
 // page('/dashboard', dashboardView);
 // page('/create', createView);
