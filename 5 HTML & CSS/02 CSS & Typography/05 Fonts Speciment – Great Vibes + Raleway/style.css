@@ -12,14 +12,14 @@
     format(truetype);
 }
 
-body {
+html {
     font-family: Raleway, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     padding: 30px;
 }
-h2 {
-    font-family: "Great vibes", cursive;
+h1,h2,h3,h4,h5,h6 {
+    font-family: Great Vibes, cursive;
     line-height: 1.2;
     font-weight: bold;
 }
