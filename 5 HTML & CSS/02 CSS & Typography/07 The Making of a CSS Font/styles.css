@@ -1,1 +1,18 @@
-/* TODO: style the html */
+@font-face {
+    font-family: Righteous;
+    src: url(https://fonts.googleapis.com/css2?family=Righteous&display=swap);
+}
+
+body {
+    background-color: darkred;
+}
+
+h1 {
+    font-family: Righteous, cursive;
+    font-size: 45px;
+    font-weight: normal;
+    line-height: 60px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
