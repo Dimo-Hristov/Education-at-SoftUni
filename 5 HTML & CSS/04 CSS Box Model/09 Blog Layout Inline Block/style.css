@@ -1,0 +1,40 @@
+html {
+    font: 16px/1.4 Helvetica, sans-serif;
+    background-color: rgb(238, 238, 238);
+    color: rgb(51, 51, 51);
+}
+
+body {
+    padding: 0 20px;
+    max-width: 700px;
+}
+
+img {
+    max-width: 400px;
+}
+
+article {
+    display: inline-block;
+    position: inherit;
+    width: 70%;
+}
+
+aside {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    margin-top: 10px;
+}
+
+aside li {
+    list-style-type: square;
+    text-decoration:underline;
+    cursor: pointer;
+    padding: 3px;
+    color: blue;
+}
+
+aside li::marker{
+    color: black;
+}
