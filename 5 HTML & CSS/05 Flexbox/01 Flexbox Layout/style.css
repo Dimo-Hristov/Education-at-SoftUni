@@ -1,0 +1,38 @@
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+
+body{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+    gap: 1em;
+    background-color: #EEE;
+}
+
+
+body > * {
+    background-color: white;
+    border: 1px solid #999;
+    padding: 1em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    outline: solid transparent;
+}
+
+.site-header, .site-footer {
+    flex: 1 0 100%;
+}
+
+.site-aside {
+    flex: 0 0 30%;
+}
+
+.site-main {
+    flex: 1 1 auto;
+}
