@@ -1,0 +1,54 @@
+html {
+    box-sizing: border-box;
+}
+
+div, section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.container {
+    max-width: 65vw;
+    max-height: 50vw;
+}
+
+span{
+    border: solid 1px black;
+    text-align: center;
+}
+
+.notes {
+    flex-direction: column;
+    flex: 1 0 30%;
+}
+
+.week>* {
+    flex: 1 0 10%;
+    padding: 0.8em 0.8em;
+}
+
+.week {
+    flex: 1 1 70%;
+}
+
+span.week-title {
+    flex: 0 1 100%;
+    padding: 1em 2em;
+}
+
+span.weekend-title {
+flex: 0 1 100%;
+padding: 1em 2em;
+}
+
+
+
+  
+
+
+
+
+
+
+
