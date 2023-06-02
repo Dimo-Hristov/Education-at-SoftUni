@@ -23,3 +23,11 @@ header ul li {
     
     background-color: lightgrey;
 }
+
+main h1 {
+    font-weight: 300;
+}
+
+main {
+    font: 16px/1.4 Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
