@@ -31,24 +31,3 @@
     border-radius: 50%;    
     padding: 5px;
 }
-
-
-.header input, .header button {
-    border: 2px solid #0066CC;
-    padding: 3px;
-    margin-right: 5px;
-    border-radius: 5px;
-    background-color: #0066CC;
-    color: white;
-    text-align: center;
-    margin-left: auto;
-}
-
-.header ::placeholder{
-    color: white;
-}
-
-.header button {
-    padding: 3px 8px;
-    cursor: pointer;
-}
