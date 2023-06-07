@@ -1,0 +1,24 @@
+.museums-list {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.museums-list li img {
+    height: 150px;
+    width: 200px;
+}
+
+.museums-list li {
+    flex: 1 1 calc(50%);
+}
+
+.museums-list li p{
+    background-color: rgba(102, 22, 134, 0.329);
+    color: rgb(92, 87, 27);
+    font-weight: bold;
+}
+
+.museums-list li:nth-child(even) p{
+    border-left: 2px solid rgb(83, 80, 80);
+}
