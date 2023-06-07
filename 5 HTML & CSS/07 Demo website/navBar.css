@@ -2,17 +2,47 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: whitesmoke;
+    border: 3px solid #0066CC;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 50px;
 }
     
 
 .header img {
-    width: 30px;
-    height: 25px;
+    width: 60px;
+    height: 100%;
+
 }
 
 .navigation .list {
     display: flex;
     gap: 12px;
+}
+
+.navigation .list li {
+    background-color: #0066CC;
+    border-radius: 50%;
+    color: white;
+    padding: 5px;
+}
+
+.header input, .header button {
+    border: 2px solid #0066CC;
+    padding: 3px;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: #0066CC;
+    color: white;
+    text-align: center;
+}
+
+.header ::placeholder{
+    color: white;
+}
+
+.header button {
+    padding: 3px 8px
 }
 
 
