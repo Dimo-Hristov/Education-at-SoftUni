@@ -26,8 +26,3 @@
 .beaches ul li:nth-child(5) {
     top: 400px;
 }
-
-.beaches ul li:hover{
-    z-index: 1;
-    top: 0px;
-}
