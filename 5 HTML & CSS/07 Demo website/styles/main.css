@@ -1,9 +1,12 @@
 main {
     height: calc(100vh - 50px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-image: url(/images/shutterstock_562590757.jpg);
     background-size: cover;
     background-position: center;
+}
+
+main h1{
+    color: antiquewhite;
+    text-shadow: 1px 1px 1px rgba(51, 102, 255, 0.8), 2px 2px 1px rgba(51, 102, 255, 0.6), 3px 3px 1px rgba(51, 102, 255, 0.4), 4px 4px 1px rgba(51, 102, 255, 0.2);
+    text-align: center;
 }
