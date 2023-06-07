@@ -1,0 +1,24 @@
+section.islands{
+    display: grid;
+    grid-template-areas:
+     "pic1 pic2"
+     "pic3 pic4";
+    height: calc(100vh - 50px);
+    gap: 4px;
+}
+
+.pic1{grid-area: pic1;}
+.pic2{grid-area: pic2;}
+.pic3{grid-area: pic3;}
+.pic4{grid-area: pic4;}
+
+section.islands img {
+    width: 100%;
+    height: 100%;
+}
+
+section.islands img:hover{
+    cursor: pointer;
+    filter:brightness(110%)
+}
+
