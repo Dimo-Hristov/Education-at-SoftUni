@@ -4,7 +4,7 @@ section.islands{
      "pic1 pic2"
      "pic3 pic4";
     height: calc(100vh - 50px);
-    gap: 4px;
+    gap: 2px;
 }
 
 .pic1{grid-area: pic1;}
@@ -19,6 +19,6 @@ section.islands img {
 
 section.islands img:hover{
     cursor: pointer;
-    filter:brightness(110%)
+    filter: brightness(110%)
 }
 
