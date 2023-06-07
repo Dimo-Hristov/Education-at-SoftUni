@@ -1,0 +1,9 @@
+main {
+    height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/images/shutterstock_562590757.jpg);
+    background-size: cover;
+    background-position: center;
+}
