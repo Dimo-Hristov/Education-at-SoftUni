@@ -54,3 +54,24 @@ main h1 {
     padding-top: 30px;
     
 }
+
+@media screen and (max-width:499px){
+
+    body {
+        display: grid;
+        grid-template-areas:
+        "header header"
+        "aside aside"
+        "main main"
+        "footer footer";
+        grid-template-columns: auto;
+        grid-template-rows: 60px 100px auto;
+        gap: 10px;
+        margin: 5px;
+    }
+
+    header h1 {
+        display: block;
+        padding-top: 10px;margin-bottom: 5px;
+    }
+}
