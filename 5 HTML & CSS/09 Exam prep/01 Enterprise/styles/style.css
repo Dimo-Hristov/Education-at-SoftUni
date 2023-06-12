@@ -1,0 +1,67 @@
+/* purple color: #786eff */
+/*  headings color: #273240*/
+/* font color: #646f79 */
+/* buttons color: #273240 */
+/* buttons border color: #0d0e10 */
+/* section backkground color: #f6f8f9 */
+
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    color: #646f79;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.asana {
+    background-color: #f6f8f9;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-height: 400px;
+    max-width: 1000px;
+}
+
+.content{ 
+    padding: 6rem 0 6rem 3rem;
+    flex: 0 0 40%
+}
+
+.asana img {
+    width: 25%;
+    margin-right: 2rem;
+    margin-top: 3rem;
+}
+
+.content h2 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #273240;
+    padding-bottom: 0.5rem;
+}
+
+.content h1 {
+    color: #273240;
+    font-weight: normal;
+    padding-bottom: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    margin-top: 1.5rem;
+    border: 1px solid #0d0e10;
+    border-radius: 3px;
+    color: #273240;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.btn.primary {
+    background-color: #786eff;
+    color: white;
+    border-color: #786eff;
+    margin-right: 6px;
+}
