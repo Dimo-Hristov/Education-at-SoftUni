@@ -16,7 +16,7 @@ body{
     margin: 1em auto;
     padding-top: 5rem;
     padding-left: 5rem;
-    max-height: 80vh;
+    height: 80vh;
 }
 
 .page-section.flexy {
@@ -102,7 +102,23 @@ padding-top: 3rem;
 
 }
 
-.page-section#featured .featured-image{
-    max-width: 50%;
-    margin: 3rem
+#photos.page-section.flexy{
+    gap: 0;
+    padding-bottom: 80px;
+    padding-left: 0;
+    align-items: center;
+    justify-content: center;
 }
+
+#photos.page-section.flexy img {
+    max-width: 25%;
+}
+
+#photos.page-section.flexy img:nth-child(2) {
+    transform: scale(1.5)
+}
+
+    /* maybe with hover ? */
+/* #photos.page-section.flexy img:hover{
+    transform: scale(1.5);
+} */
