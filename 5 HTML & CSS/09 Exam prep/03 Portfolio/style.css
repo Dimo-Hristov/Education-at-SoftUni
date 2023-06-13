@@ -1,6 +1,24 @@
 :root{
     --background: #efefef;
     --logo-background: #909090;
-    --font-color: #121212;
+    --font-color: #1a1a1a;
     --heading-black: #222222;
+}
+
+body{
+    font: 16px/1.5 Raleway;
+    color: var(--font-color);
+}
+
+.page-section {
+    background-color: var(--background);
+}
+
+.info h1{
+    font-weight: normal;
+}
+
+.info .bolded-title {
+    font-weight: bold;
+    color: var(--heading-black);
 }
