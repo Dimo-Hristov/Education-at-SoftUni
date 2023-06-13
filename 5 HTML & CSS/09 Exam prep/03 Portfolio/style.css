@@ -12,13 +12,80 @@ body{
 
 .page-section {
     background-color: var(--background);
+    max-width: 1880px;
+    margin: 1em auto;
+    padding-top: 5rem;
+    padding-left: 3rem;
+    max-height: 80vh;
 }
+
+.page-section.flexy {
+    display: flex;
+    overflow: hidden;
+    gap: 3rem;
+}
+
 
 .info h1{
     font-weight: normal;
+padding-top: 3rem;
+}
+
+.info p {
+    margin-top: 1.5rem;
+    font-style: italic;
 }
 
 .info .bolded-title {
     font-weight: bold;
     color: var(--heading-black);
+}
+
+#hero.page-section {
+    position: relative;
+
+}
+
+#hero .navigation {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+#hero.info {
+    flex: 1 1 30%;
+}
+
+#hero .hero-image {
+    flex: 0 1 60%;
+    max-width: 55%;
+    padding-right: 4rem;
+}
+
+.page-section#camera .camera-image {
+    max-width: 35%;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+}
+
+.page-section#camera p {
+    margin-right: 5rem;
+}
+
+.page-section#camera {
+    padding-top: 0;
+}
+
+.social-icons {
+    display: flex;
+    text-align: center;
+}
+
+.social-icons i{
+    margin-top: 2rem;
+    margin-right: 1rem;
+    background-color: var(--logo-background);
+    color: white;
+    width: 24px;
+    padding: 0.25rem;
 }
