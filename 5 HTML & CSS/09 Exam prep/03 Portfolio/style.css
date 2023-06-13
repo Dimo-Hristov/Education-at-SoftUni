@@ -89,3 +89,10 @@ padding-top: 3rem;
     width: 24px;
     padding: 0.25rem;
 }
+
+#img-section{
+    align-items: center;
+    text-align: center;
+    padding-top: 0;
+    padding-left: 0;
+}
