@@ -15,7 +15,7 @@ body{
     max-width: 1880px;
     margin: 1em auto;
     padding-top: 5rem;
-    padding-left: 3rem;
+    padding-left: 5rem;
     max-height: 80vh;
 }
 
@@ -95,4 +95,14 @@ padding-top: 3rem;
     text-align: center;
     padding-top: 0;
     padding-left: 0;
+}
+
+.page-section#featured {
+    padding-top: 0;
+
+}
+
+.page-section#featured .featured-image{
+    max-width: 50%;
+    margin: 3rem
 }
