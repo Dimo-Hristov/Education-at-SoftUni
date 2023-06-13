@@ -122,3 +122,48 @@ padding-top: 3rem;
 /* #photos.page-section.flexy img:hover{
     transform: scale(1.5);
 } */
+
+#form-section.page-section {
+    text-align: center;
+    padding: 0rem 10rem;
+}
+
+#form-section.page-section form {
+    display: grid;
+    grid-template-areas: 
+    "email subject"
+    "message message"
+    "button button";
+    gap: 1rem;
+    margin: 2rem 10rem
+}
+
+#form-section.page-section form #email{
+    grid-area: email;
+    border: 1.5px solid var(--font-color);
+    padding: 0.25rem 0 0.25rem 1rem;
+}
+#form-section.page-section form #subject{
+    grid-area: subject;
+    border: 1.5px solid var(--font-color);
+    padding: 0.25rem 0 0.25rem 1rem;
+}
+#form-section.page-section form #message{
+    grid-area: message;
+    border: 1.5px solid var(--font-color);
+    padding: 0.25rem 0 0 1rem;
+}
+
+#form-section.page-section form .submit-btn{
+    grid-area: button;
+    padding: 0.25rem 0 0.25rem 1rem;
+    background-color: #111111;
+    color: white;
+    font-weight: bold;
+}
+
+#form-section.page-section h1 {
+    padding-top: 2rem;
+}
+
+
