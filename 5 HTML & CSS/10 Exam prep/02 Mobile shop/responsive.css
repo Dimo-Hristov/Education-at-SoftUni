@@ -1,0 +1,49 @@
+@media (max-width: 600px) {
+    /* Navbar */
+
+    .home-left, .home-right {
+        display: none;
+    }
+
+    .home-container01 {
+        display: none;
+    }
+
+    .navbar-logo-title{
+       margin-left: 0;
+    }
+
+    /*  Main - home hero*/
+
+    .home-container03 {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home-hero1 {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*  Section container column*/
+
+    /* max width container */
+    .home-cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+   
+    /* Home container 07 */
+    .category-card-image {
+        width: 100%;
+        height: 250px;
+    }
+
+    .home-container07 .home-text23 span{
+        font-size: 22px;
+    }
+}
