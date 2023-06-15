@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+.site-header {
+    color: white;
+}
+
 /* Top bar */
 .top-bar{
     background-color: #d01919;
@@ -40,7 +44,6 @@
 
 .site-nav ul{
     display: flex;
-    color: white;
     font-size: 18px;
     font-weight: 600;
 }
@@ -54,4 +57,32 @@
     display: block;
     list-style: none;
     padding:  0 32px;
+}
+
+/* intro */
+
+.intro{
+    text-align: center;
+    margin-top: 108px;
+}
+
+.intro h1 {
+    font-size: 54px;
+    letter-spacing: 18px;
+}
+
+.intro p {
+    margin: 42px 650px 42px 650px;
+    font-size: 22px;
+    
+}
+
+.intro a {
+    background-color: #d01919;
+    text-decoration: none;
+    color: white;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 18px;
 }
