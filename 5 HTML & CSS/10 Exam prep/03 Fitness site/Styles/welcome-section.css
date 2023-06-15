@@ -4,7 +4,7 @@
     height: 480px;
 }
 
-.welcome-section .welcome{
+.welcome{
     text-align: center;
     padding-top: 36px;
     font-size: 28px;
@@ -14,15 +14,14 @@
 .divider {
     height: 3px;
     background-color: #d01919;
-    margin: 32px 935px;
+    margin: 32px 920px;
 }
 
-.welcome-section .content {
+.content {
     display: flex;
     justify-content: space-evenly;
 }
-
-.welcome-section .content article{
+.content article{
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -30,24 +29,24 @@
     justify-content: center;
 }
 
-.welcome-section .content article img{
+.content article img{
     width: 25%;
     margin-bottom: 16px;
 }
 
-.welcome-section .content article h3{
+.content article h3{
     color: #d01919;
     margin-bottom: 16px;
     font-size: 20px;
 }
 
-.welcome-section .content article p {
+.content article p {
     text-align: center;
     font-size: 20px;
     font-weight: 500;
     width: 400px;
 }
 
-.welcome-section .content article:last-child p {
+.content article:last-child p {
     width: 300px;
 }

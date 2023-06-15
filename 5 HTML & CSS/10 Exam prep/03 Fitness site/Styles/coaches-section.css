@@ -1,0 +1,30 @@
+.coaches{
+    background-color: #efefef;
+    height: 700px;
+}
+
+.coaches .content article{
+    width: 600px;
+    margin: 0 0;
+}
+
+.coaches .content img{
+    width: 65%;
+    border-radius: 8px;
+}
+
+.coaches h4 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.coaches h5{
+    color: #d01919;
+    margin-top: 8px;
+    font-size: 18px;
+}
+
+.coaches .content p {
+    color: #a6a1b6;
+    width: 360px;
+}
