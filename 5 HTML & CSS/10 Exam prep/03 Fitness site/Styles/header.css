@@ -1,0 +1,32 @@
+.background-img {
+    width: 100%;
+    position: absolute;
+    top: -280px;
+    z-index: -1;
+    width: 100%;
+}
+
+/* Top bar */
+.top-bar{
+    background-color: #d01919;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 0 38px;
+    font-size: 20px;
+}
+
+.top-bar ul{
+    display: flex;
+    margin-right: 8px;
+}
+
+.top-bar ul li {
+    list-style-type: none;
+    padding: 0 6px;
+}
+
+.phone i{
+    margin-right: 12px;
+}
