@@ -30,3 +30,28 @@
 .phone i{
     margin-right: 12px;
 }
+
+/* Site nav */
+
+.site-nav{
+    display: flex;
+    justify-content: end;
+}
+
+.site-nav ul{
+    display: flex;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.site-nav a{
+    display: block;
+    padding:  8px 48px;
+}
+
+.site-nav li {
+    display: block;
+    list-style: none;
+    padding:  0 32px;
+}
