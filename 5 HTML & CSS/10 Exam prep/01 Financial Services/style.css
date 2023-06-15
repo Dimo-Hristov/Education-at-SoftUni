@@ -1,8 +1,56 @@
-root{
+:root {
     --bg-color: #ffffff;
-    --heading-blue: #327dc4;
+    --blue: #327dc4;
+    --article-bg: #819daf;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+}
+
+header {
+    text-align: center;
+    margin: 2rem;
+}
+
+header .blue {
+    color: var(--blue);
+}
+
+.fin-services {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.fin-services article {
+    flex: 0 0 22%;
+    background-color: var(--article-bg);
+    border-radius: 1rem;
+}
+
+.fin-services article img{
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.fin-services article h2{
+    margin: 1rem;
+    font-weight: 600;
+}
+
+.fin-services article p {
+    margin: 1rem;
+}
+
+.fin-services article button {
+    color: white;
+    background-color: var(--blue);
+    border: 1px solid white;
+    border-radius: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.25rem 1rem;
 }
