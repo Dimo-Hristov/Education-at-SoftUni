@@ -21,17 +21,44 @@
     display: inline-block;
 }
 
-.navbar a {
+.site-header a {
     text-decoration: none;
     color: black;
     font-size: 18px;
     padding: 0.5rem 2rem;
     font-weight: 500;
+    border-radius: 1rem;
+    color: white;
 }
 
 .navbar ul li:last-child a {
     background-color: #370511;
-    border-radius: 1rem;
-    color: white;
 }
+
+.intro {
+    margin-top: 10rem;
+    margin-left: 21rem;
+}
+
+.intro h1 {
+    font-size: 64px;
+}
+
+.intro h3 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+.intro p {
+    font-size: 22px;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.intro a {
+    background-color: #370511;
+}
+
+
 
