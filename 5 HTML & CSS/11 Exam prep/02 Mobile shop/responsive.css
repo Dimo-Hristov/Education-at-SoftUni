@@ -86,3 +86,14 @@
 .home-container08 div {
     max-width: 100%;
 }
+
+/* footer */
+
+.home-footer1 {
+    flex-direction: column-reverse;
+    padding: 48px 0 16px 0;
+}
+
+.home-footer1 .home-links-container {
+    flex-direction: column;
+}
