@@ -75,3 +75,14 @@
 
 /* max width container */
 
+.home-main .section-container {
+    padding-top: 40px;
+}
+
+.home-container08{
+    justify-content: center;
+}
+
+.home-container08 div {
+    max-width: 100%;
+}
