@@ -1,0 +1,38 @@
+.site-footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    height: 250px;
+    padding: 0 5rem;
+}
+
+.site-footer h1 {
+    font-size: 48px;
+}
+
+.site-footer ul li {
+    list-style-type: none;
+    padding: 0.5rem 0;
+}
+
+.site-footer ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 0.25rem;
+}
+
+.socials {
+    text-align: center;
+}
+
+.socials p{
+    font-size: 20px;
+}
+
+.socials .icons i {
+font-size: 24px;
+padding: 0.75rem;
+}
