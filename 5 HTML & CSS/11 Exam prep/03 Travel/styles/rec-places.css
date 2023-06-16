@@ -1,0 +1,55 @@
+.rec-places{
+    background-color: #ffffff;
+    text-align: center;
+    padding: 5rem 15rem;
+    margin-top: 11rem;
+}
+
+.places-header h2 {
+font-size: 42px;
+}
+
+.places-header p {
+    font-size: 18px;
+    margin-bottom: 3rem;
+}
+
+.places-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.places-container article{
+    width: 400px;
+}
+
+
+.places-container img {
+    width: 400px;
+    height: 320px;
+    border-radius: 1rem 1rem 0 0 ;
+}
+
+.places-container h5{
+    font-size: 28px;
+    margin: 1rem 0;
+}
+
+.places-container p {
+    padding: 0 2.25rem
+}
+
+.places-container a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5rem;
+    width: 50%;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    padding: 1rem 2rem;
+}
+
+
+
