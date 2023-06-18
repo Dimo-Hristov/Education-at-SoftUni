@@ -6,7 +6,29 @@
         padding-right: 16px;
     }
 
+
     .home-navbar {
         padding-left: 42px;
+    }
+
+
+    /* home hero */
+
+    .home-hero{
+        flex-direction: column-reverse;
+    }
+
+    .home-image1{
+        width: 100%;
+    }
+
+    .home-hero-text-container{
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .home-cta-btn2 {
+        align-self: center;
+        padding: 16px 16px;
     }
 }
