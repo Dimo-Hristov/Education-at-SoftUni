@@ -31,4 +31,41 @@
         align-self: center;
         padding: 16px 16px;
     }
+
+
+    /* features */
+
+    .home-heading-container{
+        width: 100%;
+    }
+
+    .home-cards-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home-cards-container>div {
+        width: 100%;
+    }
+    
+    .home-feature-card{
+        align-self: center;
+
+    }
+
+    .home-feature-card img {
+        width: 400px;
+        height: 300px;
+    }
+
+    span.card-text{
+        width: 100%;
+    }
+
+
+
+    .home-stats{
+        display: none;
+    }
 }
