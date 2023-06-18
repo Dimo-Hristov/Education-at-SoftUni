@@ -1,0 +1,12 @@
+@media (max-width: 600px){
+
+    /* navbar */
+    .home-cta-btn{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .home-navbar {
+        padding-left: 42px;
+    }
+}
