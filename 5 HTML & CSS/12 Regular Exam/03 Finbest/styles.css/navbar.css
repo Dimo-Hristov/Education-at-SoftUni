@@ -1,0 +1,21 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 10rem;
+    font-size: 22px;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 0 2rem;
+}
+
+.login-reg a{
+    padding: 1rem 2rem;
+}
+
+.reg-btn{
+    background-color: #ade2df;
+    border-radius: 1rem;
+}
+

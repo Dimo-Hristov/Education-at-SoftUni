@@ -6,3 +6,8 @@ body {
 main {
     background-color: #f3f5fa;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
