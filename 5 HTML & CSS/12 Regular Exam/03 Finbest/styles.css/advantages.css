@@ -1,0 +1,39 @@
+.advantages {
+    background-color: #ade2df;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.advantages img {
+    border: 2px dashed #98b8b6;
+    padding: 0 3rem;
+}
+
+.desc {
+    padding-left: 7rem;
+    max-width: 700px;
+}
+
+.desc h2 {
+    font-size: 3rem;
+}
+
+.desc h5{
+    font-size: 22px;
+}
+
+.desc p {
+    font-size: 20px;
+}
+
+.pricing {
+    margin-top: 2rem;
+    font-size: 20px;
+    border-bottom: 2px solid black;
+    max-width: 235px;
+}
+
+.pricing i {
+    padding-left: 1rem;
+}
