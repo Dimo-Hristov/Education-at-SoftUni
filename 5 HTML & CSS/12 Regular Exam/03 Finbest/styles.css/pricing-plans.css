@@ -1,0 +1,17 @@
+.pricing-plans {
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+}
+
+
+.pricing-plans h3 {
+    font-size: 3rem;
+}
+
+.pricing-plans a {
+    font-size: 20px;
+    background-color: #ade2df;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+}
