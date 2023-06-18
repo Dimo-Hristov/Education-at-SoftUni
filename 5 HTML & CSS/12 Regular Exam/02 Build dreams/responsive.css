@@ -1,5 +1,7 @@
 @media (max-width: 600px){
 
+
+
     /* navbar */
     .home-cta-btn{
         padding-left: 16px;
@@ -64,8 +66,16 @@
     }
 
 
+    /* home stats */
 
-    .home-stats{
-        display: none;
+    .home-stats {
+        width: 100%;
+        margin-top: 1000px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
+
 }
