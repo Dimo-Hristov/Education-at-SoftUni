@@ -1,0 +1,26 @@
+.followers {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 10rem;
+}
+
+.followers article {
+    padding: 3rem 2rem;
+    max-width: 500px;
+    text-align: center;
+    border-left: 2px solid #e4e4e4;
+}
+
+.followers article:last-child {
+    border-right: 2px solid #e4e4e4
+}
+
+.followers h4{
+    font-size: 3rem;
+}
+
+.followers p {
+    font-size: 20px;
+}
