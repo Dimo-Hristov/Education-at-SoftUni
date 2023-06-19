@@ -1,0 +1,9 @@
+footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 3rem;
+}
+
+footer .socials i{
+    margin-right: 1rem;
+}
