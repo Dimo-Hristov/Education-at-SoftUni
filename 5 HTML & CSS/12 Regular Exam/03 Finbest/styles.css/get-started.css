@@ -1,0 +1,12 @@
+.app-info.get-started {
+    padding: 10rem 34rem;
+}
+
+.app-info.get-started h1{
+    font-size: 62px;
+    line-height: 1.2;
+}
+
+.app-info.get-started p{
+    padding-top: 0;
+}
