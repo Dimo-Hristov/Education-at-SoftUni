@@ -1,29 +1,53 @@
 function ticketsSorter(ticketInfo: string[], sortCriteria: string ){
 
-    const splittedArray = ticketInfo.map(ticket => ticket.split('|'))
+    const splittedArray = ticketInfo.map(ticket => ticket.split('|'));
+    let sortedArray: string[][] = []
     
     switch(sortCriteria){
-        case 'destination': sortByDestination(splittedArray);
+        case 'destination': sortedArray = sortByDestination(splittedArray);
             break;
-        case 'status': sortBystatus(splittedArray);
+        case 'status': sortedArray = sortBystatus(splittedArray);
             break;
-        case 'price': sortByPrice(splittedArray);
+        case 'price': sortedArray = sortByPrice(splittedArray);
+        break;
 
     }
+
+    class Ticket {
+
+        destination: string
+        price: number
+        status: string
+        
+        constructor(destination: string, price: number, status: string){
+            this.destination = destination
+            this.price = price
+            this.status = status
+        }
+    }
+
+    const output = sortedArray.map(x => {
+        const [destination, price, status] = x;
+        return new Ticket (destination, parseFloat(price), status)
+    })
+
+    return output;
+    
 
 }
 
 function sortByDestination(ticketInfo: string[][]){
-    console.log(ticketInfo.sort((a: string[] ,b: string[]) =>  a[0].localeCompare(b[0])));
+    return ticketInfo.sort((a: string[] ,b: string[]) =>  a[0].localeCompare(b[0]));
     
 }
 function sortBystatus(ticketInfo: string[][]){
-    console.log(ticketInfo.sort((a: string[] ,b: string[]) =>  a[2].localeCompare(b[2])));
+    return ticketInfo.sort((a: string[] ,b: string[]) =>  a[1].localeCompare(b[1]));
 }
 
 function sortByPrice(ticketInfo: string[][]){
-    console.log(ticketInfo.sort((a: string[], b: string[]) => Number(a[2])-Number(b[2]))) 
+    return ticketInfo.sort((a: string[], b: string[]) => Number(a[2])-Number(b[2]));
 }
+
 
 ticketsSorter([
 'Philadelphia|94.20|available',
