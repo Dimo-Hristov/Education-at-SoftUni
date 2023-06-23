@@ -1,5 +1,5 @@
 <!-- Add event listener angular style -->
-<button (click)="handleClickEvent()">
+<button (click)="handleClickEvent($event)">
   <ng-container *ngIf="showLastName">Hide</ng-container>
   <ng-container *ngIf="!showLastName">Show</ng-container>
   last name

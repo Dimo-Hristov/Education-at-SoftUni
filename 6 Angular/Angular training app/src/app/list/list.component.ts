@@ -21,7 +21,8 @@ export class ListComponent {
 
   constructor() {}
 
-  handleClickEvent() {
+  handleClickEvent(event: MouseEvent) {
     this.showLastName = !this.showLastName;
+    console.log(event.target);
   }
 }
