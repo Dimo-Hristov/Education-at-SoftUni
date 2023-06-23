@@ -1,5 +1,9 @@
 <!-- Add event listener angular style -->
-<button (click)="handleClickEvent()">Toggle last name</button>
+<button (click)="handleClickEvent()">
+  <ng-container *ngIf="showLastName">Hide</ng-container>
+  <ng-container *ngIf="!showLastName">Show</ng-container>
+  last name
+</button>
 
 <!-- Template rendering with conditions and loops angular style -->
 <div id="list-container">
@@ -8,8 +12,3 @@
     ><span *ngIf="showLastName"> - {{ user.lastName }}</span>
   </div>
 </div>
-
-<ng-template
-  >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae,
-  quia?</ng-template
->
