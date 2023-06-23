@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class ArticleComponent {
   private symbols: number = 250;
   @Input() article: Article;
-  @Input() artocleeDesc: string;
+  @Input() articleDesc: string;
   descToShow!: string;
   articleDescLen!: number;
   showReadMoreBtn: boolean = true;
@@ -25,5 +25,15 @@ export class ArticleComponent {
     this.iamgeIsShown = !this.iamgeIsShown;
     this.imageButtonTitle =
       this.imageButtonTitle === 'Show Image' ? 'Hide Image' : 'Show Image';
+  }
+
+  readMore(): void {
+    this.articleDescLen == this.symbols;
+    if (this.articleDescLen == this.articleDesc.length) {
+      this.showHideBtn = true;
+      this.showReadMoreBtn = false;
+    } else {
+      this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
+    }
   }
 }
