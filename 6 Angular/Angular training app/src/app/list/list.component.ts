@@ -6,10 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent {
-  myProp = 'Hello World';
-  constructor() {
-    setTimeout(() => {
-      this.myProp = 'Hello other World!';
-    }, 1000);
-  }
+  users = [
+    {
+      firstName: 'Ivan',
+      lastName: 'Ivanov',
+    },
+    {
+      firstName: 'Petar',
+      lastName: 'Petrov',
+    },
+  ];
+  constructor() {}
 }
