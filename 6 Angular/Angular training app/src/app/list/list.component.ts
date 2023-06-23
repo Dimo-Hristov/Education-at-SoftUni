@@ -17,6 +17,11 @@ export class ListComponent {
     },
   ];
 
-  showLastName = false;
+  showLastName = true;
+
   constructor() {}
+
+  handleClickEvent() {
+    this.showLastName = !this.showLastName;
+  }
 }
