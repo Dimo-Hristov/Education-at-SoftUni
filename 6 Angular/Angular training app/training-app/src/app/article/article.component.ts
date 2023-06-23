@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Article } from '../models/article.model';
 
 @Component({
   selector: 'app-article',
@@ -7,8 +8,8 @@ import { Component } from '@angular/core';
 })
 export class ArticleComponent {
   private symbols: number = 250;
-  @Input() article: Article;
-  @Input() articleDesc: string;
+  @Input() article!: Article;
+  @Input() articleDesc!: string;
   descToShow!: string;
   articleDescLen!: number;
   showReadMoreBtn: boolean = true;
