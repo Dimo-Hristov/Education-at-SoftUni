@@ -8,7 +8,7 @@ import { ArticleData } from '../data/data';
   styleUrls: ['./articles.component.css'],
 })
 export class ArticlesComponent {
-  articles: Article[];
+  articles!: Article[];
   constructor() {}
 
   ngOnInit() {
