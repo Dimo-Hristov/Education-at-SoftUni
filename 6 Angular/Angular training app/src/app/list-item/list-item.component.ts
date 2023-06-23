@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./list-item.component.css'],
 })
 export class ListItemComponent {
-  @Input() userItem!: { firstName: string; lastName: string };
-  @Input() showLastNameItem!: boolean;
+  @Input() user!: { firstName: string; lastName: string };
+  @Input() showLastName!: boolean;
 
   constructor() {}
 }
