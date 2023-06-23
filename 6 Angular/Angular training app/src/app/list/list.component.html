@@ -8,6 +8,10 @@
 <!-- Template rendering with conditions and loops angular style -->
 <ul id="list-container">
   <li *ngFor="let user of user" class="list-item">
-    <app-list-item [user]="user" [showLastName]="showLastName"></app-list-item>
+    <app-list-item
+      [user]="user"
+      [showLastName]="showLastName"
+      staticString="static string"
+    ></app-list-item>
   </li>
 </ul>

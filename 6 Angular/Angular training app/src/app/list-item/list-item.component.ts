@@ -9,5 +9,8 @@ export class ListItemComponent {
   @Input() user!: { firstName: string; lastName: string };
   @Input() showLastName!: boolean;
 
+  // pass static string example
+  @Input() staticString!: string;
+
   constructor() {}
 }
