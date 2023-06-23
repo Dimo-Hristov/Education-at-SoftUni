@@ -11,6 +11,7 @@ export class ListItemComponent {
 
   // pass static string example
   @Input() staticString!: string;
+  @Input() staticNumber!: number;
 
   constructor() {}
 }
