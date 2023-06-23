@@ -36,4 +36,11 @@ export class ArticleComponent {
       this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
     }
   }
+
+  hideDesc(): void {
+    this.descToShow = '';
+    this.articleDescLen = 0;
+    this.showHideBtn = false;
+    this.showReadMoreBtn = true;
+  }
 }
