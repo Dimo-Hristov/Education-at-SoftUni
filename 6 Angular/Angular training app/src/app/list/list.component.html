@@ -1,6 +1,7 @@
 <div id="list-container">
   <div *ngFor="let user of user" class="list-item">
-    {{ user.firstName }} - {{ user.lastName }}
+    <span> {{ user.firstName }}</span
+    ><span *ngIf="showLastName"> - {{ user.lastName }}</span>
   </div>
 </div>
 

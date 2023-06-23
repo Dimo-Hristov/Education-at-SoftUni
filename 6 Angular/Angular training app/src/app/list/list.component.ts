@@ -16,5 +16,7 @@ export class ListComponent {
       lastName: 'Petrov',
     },
   ];
+
+  showLastName = false;
   constructor() {}
 }
