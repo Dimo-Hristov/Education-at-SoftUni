@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list-item',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-item.component.css'],
 })
 export class ListItemComponent {
-  user!: { firstName: string; lastName: string };
+  @Input() userItem!: { firstName: string; lastName: string };
+  @Input() showLastNameItem!: boolean;
+
   constructor() {}
 }
