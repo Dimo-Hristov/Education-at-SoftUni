@@ -5,14 +5,17 @@
   last name
 </button>
 
+<div *ngIf="showSelectedIndex()">selected index is {{ selectedUserIndex }}</div>
+
 <!-- Template rendering with conditions and loops angular style -->
 <ul id="list-container">
-  <li *ngFor="let user of user" class="list-item">
+  <li *ngFor="let user of user; let i = index" class="list-item">
     <app-list-item
       [user]="user"
       [showLastName]="showLastName"
       staticString="static string"
       [staticNumber]="5"
+      (click)="selectedUserIndex = i"
     ></app-list-item>
   </li>
 </ul>

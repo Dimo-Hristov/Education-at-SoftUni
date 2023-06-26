@@ -16,6 +16,7 @@ export class ListComponent {
       lastName: 'Petrov',
     },
   ];
+  selectedUserIndex: null | number = null;
 
   showLastName = true;
 
@@ -24,5 +25,9 @@ export class ListComponent {
   handleClickEvent(event: MouseEvent) {
     this.showLastName = !this.showLastName;
     console.log(event.target);
+  }
+
+  showSelectedIndex(): boolean | number {
+    return this.selectedUserIndex === null ? -1 : this.selectedUserIndex >= 0;
   }
 }

@@ -1,8 +1,13 @@
 <span> {{ user.firstName }}</span>
 <span *ngIf="showLastName"> - {{ user.lastName }}</span>
 
-<!-- get static string from parent test -->
-<p>{{ staticString }} -> from parent</p>
+<!-- send event to parent -->
+<button (click)="(selectClickHandler)">Select</button>
 
-<!-- get static string from parent test -->
-<p>static number: {{ staticNumber }} -> from parent</p>
+<div>
+  <!-- get static string from parent test -->
+  <p>{{ staticString }} -> from parent</p>
+
+  <!-- get static string from parent test -->
+  <p>static number: {{ staticNumber }} -> from parent</p>
+</div>

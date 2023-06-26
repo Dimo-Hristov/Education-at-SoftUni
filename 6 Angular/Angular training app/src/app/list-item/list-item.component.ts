@@ -14,4 +14,6 @@ export class ListItemComponent {
   @Input() staticNumber!: number;
 
   constructor() {}
+
+  selectClickHandler() {}
 }
