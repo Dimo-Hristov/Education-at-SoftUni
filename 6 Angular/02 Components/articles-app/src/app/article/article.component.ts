@@ -31,4 +31,10 @@ export class ArticleComponent {
       this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
     }
   }
+
+  toggleImage(): void {
+    this.imageIsShown = !this.imageIsShown;
+    this.imageButtonTitle =
+      this.imageButtonTitle === 'Show Image' ? 'Hide Image' : 'Show Image';
+  }
 }
