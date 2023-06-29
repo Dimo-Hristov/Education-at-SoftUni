@@ -8,8 +8,8 @@ import { Article } from '../article.model';
 })
 export class ArticleComponent {
   private symbols: number = 250;
-  @Input() article!: Article;
-  @Input() articleDesc!: string;
+  @Input() article: Article;
+  @Input() articleDesc: string;
   descToShow: string;
   articleDescLen: number;
   showReadMoreBtn: boolean = true;
