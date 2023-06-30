@@ -26,7 +26,7 @@ export class AppComponent {
       age: Number(inputAgeEl.value),
       email: inputEmailEl.value,
     };
-    this.users.push(user);
+    this.users = [...this.users, user];
 
     inputNameEl.value = '';
     inputAgeEl.value = '';
