@@ -2,9 +2,9 @@
   <input #inputNameEl type="text" placeholder="name" />
   <input #inputageEl type="text" placeholder="age" />
   <input #inputEmailEl type="text" placeholder="email" />
-  <button (click)="addUser(inputEmailEl, inputageEl, inputEmailEl)">
+  <button (click)="userService.addUser(inputEmailEl, inputageEl, inputEmailEl)">
     Add user
   </button>
 </div>
 
-<app-users-list [users]="users" />
+<app-users-list [users]="userService.users" />
