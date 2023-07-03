@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { User } from './types/user';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   users: User[] = [
-    { name: 'Pesho', age: 51, email: 'asdasd@abv.bg' },
-    { name: 'Gosho', age: 41, email: 'asdasd@abv.bg' },
-    { name: 'Ceko', age: 31, email: 'asdasd@abv.bg' },
-    { name: 'Ivan', age: 21, email: 'asdasd@abv.bg' },
+    // { name: 'Pesho', age: 51, email: 'asdasd@abv.bg' },
+    // { name: 'Gosho', age: 41, email: 'asdasd@abv.bg' },
+    // { name: 'Ceko', age: 31, email: 'asdasd@abv.bg' },
+    // { name: 'Ivan', age: 21, email: 'asdasd@abv.bg' },
   ];
 
-  constructor() {
+  constructor(private http: HttpClient) {
     // Dummy users to check the refresh function
     // setInterval(() => {
     //   this.users.push({ name: 'Ivan', age: 21, email: 'asdasd@abv.bg' });
@@ -34,5 +35,9 @@ export class UserService {
     inputNameEl.value = '';
     inputAgeEl.value = '';
     inputEmailEl.value = '';
+  }
+
+  getUsers() {
+    return this.http.get<User[]>('http://jsonplaceholder.typicode.com/users');
   }
 }

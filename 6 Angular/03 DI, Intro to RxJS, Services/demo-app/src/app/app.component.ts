@@ -10,4 +10,10 @@ export class AppComponent {
   title = 'demo-app';
 
   constructor(public userService: UserService) {}
+
+  ngOnInit() {
+    this.userService.getUsers().subscribe((users) => {
+      this.userService.users = users;
+    });
+  }
 }
