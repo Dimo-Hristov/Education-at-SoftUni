@@ -1,3 +1,4 @@
-<div class="loader-wrapper">
+<div class="loader-wrapper" *ngIf="globalLoaderService.isLoading">
   <app-spinner />
+  <p>Loading...</p>
 </div>
