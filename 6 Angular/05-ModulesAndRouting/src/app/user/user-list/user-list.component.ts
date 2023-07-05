@@ -20,9 +20,17 @@ export class UserListComponent implements OnInit {
     this.globalLoaderService.showLoader();
 
     setTimeout(() => {
-      this.userService.getUsers().subscribe((users) => {
-        this.usersList = users;
-        this.globalLoaderService.hideLoader();
+      this.userService.getUsers().subscribe({
+        next: (users) => {
+          this.usersList = users;
+        },
+        error: (err) => {
+          console.error(`Error: ${err}`);
+          this.globalLoaderService.hideLoader();
+        },
+        complete: () => {
+          this.globalLoaderService.hideLoader();
+        },
       });
     }, 2000);
   }
