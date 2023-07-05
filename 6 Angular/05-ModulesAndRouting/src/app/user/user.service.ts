@@ -13,6 +13,6 @@ export class UserService implements OnInit {
   }
 
   getUsers() {
-    return this.http.get<User>('https://jsonplaceholder.typicode.com/users');
+    return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users');
   }
 }

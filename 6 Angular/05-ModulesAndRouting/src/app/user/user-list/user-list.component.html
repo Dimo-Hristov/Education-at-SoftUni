@@ -1,2 +1,5 @@
-<p>user-list works!</p>
-
+<div class="users-list-wrapper">
+  <div *ngFor="let user of usersList">
+    <h3>{{ user.name }}</h3>
+  </div>
+</div>
