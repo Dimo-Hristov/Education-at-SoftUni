@@ -8,6 +8,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 @NgModule({
   declarations: [GlobalLoaderComponent, NavigationComponent],
   imports: [CommonModule, SharedModule],
-  exports: [GlobalLoaderComponent],
+  exports: [GlobalLoaderComponent, NavigationComponent],
 })
 export class CoreModule {}

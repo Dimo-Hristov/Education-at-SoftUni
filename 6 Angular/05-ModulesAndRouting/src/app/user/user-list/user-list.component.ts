@@ -8,7 +8,7 @@ import { GlobalLoaderService } from 'src/app/core/global-loader/global-loader.se
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent {
   usersList: User[] = [];
 
   constructor(
