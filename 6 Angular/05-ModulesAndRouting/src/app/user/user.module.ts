@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserListComponent } from './user-list/user-list.component';
 import { RouterModule } from '@angular/router';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { UserResolver } from './user-detail/user-detail.resolver';
 
 @NgModule({
   declarations: [UserListComponent, UserDetailComponent],
@@ -15,6 +16,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
       },
       {
         path: 'user/list/:id',
+        resolve: { user: UserResolver },
         component: UserDetailComponent,
       },
     ]),
