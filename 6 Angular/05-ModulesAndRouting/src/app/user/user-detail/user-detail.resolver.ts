@@ -17,13 +17,6 @@ export class UserResolver implements Resolve<User> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): User | Observable<User> | Promise<User> {
-    throw new Error('Method not implemented.');
-  }
-
-  Resolve(
-    router: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): User | Observable<User> | Promise<User> {
-    return this.userService.getSingleUser(router.params['id']);
+    return this.userService.getSingleUser(route.params['id']);
   }
 }

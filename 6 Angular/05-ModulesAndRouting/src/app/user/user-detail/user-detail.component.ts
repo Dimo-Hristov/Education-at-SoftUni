@@ -12,7 +12,10 @@ export class UserDetailComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private userService: UserService
-  ) {}
+  ) {
+    console.log(this.activeRoute.snapshot.data);
+    this.activeRoute.params.subscribe((v) => console.log(`subsribe ${v}`));
+  }
 
   ngOnInit(): void {}
 }
