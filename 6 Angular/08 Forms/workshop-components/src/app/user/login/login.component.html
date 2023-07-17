@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="login" #form="ngForm" (ngSubmit)="login()">
+  <form class="login" #form="ngForm" (ngSubmit)="login(form)">
     <fieldset>
       <h2>Login Form</h2>
 
@@ -13,11 +13,17 @@
           name="email"
           id="email"
           placeholder="john.doe@gmail.com"
-          #inputEmail
+          #inputEmail="ngModel"
+          ngModel
+          required
         />
       </p>
-      <p class="error">Email is required!</p>
-      <p class="error">Email is not valid!</p>
+      <ng-container *ngIf="inputEmail.touched">
+        <p class="error" *ngIf="inputEmail.errors?.['required']">
+          Email is required!
+        </p>
+        <p class="error">Email is not valid!</p>
+      </ng-container>
 
       <p class="field field-icon">
         <label for="password"
@@ -28,11 +34,16 @@
           name="password"
           id="password"
           placeholder="******"
-          #inputPassword
+          #inputPassword="ngModel"
+          ngModel
+          required
         />
       </p>
-      <p class="error">Password is required!</p>
-      <p class="error">Password must be at least 4 characters!</p>
+
+      <ng-container *ngIf="inputPassword.touched">
+        <p class="error">Password is required!</p>
+        <p class="error">Password must be at least 4 characters!</p>
+      </ng-container>
 
       <button>Login</button>
 
