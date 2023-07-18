@@ -16,6 +16,7 @@
           #inputEmail="ngModel"
           ngModel
           required
+          [appEmail]="appEmaildomains"
         />
       </p>
       <ng-container *ngIf="inputEmail.touched">

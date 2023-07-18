@@ -6,6 +6,6 @@ import { AppEmailDirective } from './validators/app-email.directive';
 @NgModule({
   declarations: [LoaderComponent, AppEmailDirective],
   imports: [CommonModule],
-  exports: [LoaderComponent],
+  exports: [LoaderComponent, AppEmailDirective],
 })
 export class SharedModule {}
