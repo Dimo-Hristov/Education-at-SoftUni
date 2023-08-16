@@ -1333,7 +1333,7 @@
         }
     };
     var seedData = {
-        books:{
+        books: {
             'b559bd24-5fb6-4a42-bc48-40c17dea649d': {
                 '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
                 'title': 'A Court of Thorns and Roses',
@@ -1360,7 +1360,7 @@
             }
         },
         likes: {
-            
+
         }
     };
     var rules$1 = {
