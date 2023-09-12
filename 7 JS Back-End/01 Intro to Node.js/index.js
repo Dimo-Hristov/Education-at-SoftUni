@@ -1,7 +1,7 @@
 const http = require('http');
 const homeHtml = require('./views/home/index');
-
-
+const siteCss = require('./content/styles/site')
+const addBreed = require('./views/addBreed')
 
 const server = http.createServer((req, res) => {
     console.log(req.url);
@@ -9,9 +9,12 @@ const server = http.createServer((req, res) => {
     if (req.url == '/') {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(homeHtml)
-    } else if (res.url == '/content/styles/site.css') {
+    } else if (req.url == '/content/styles/site.css') {
         res.writeHead(200, { 'Content-Type': 'text/css' });
-        res.write(homeHtml)
+        res.write(siteCss)
+    } else if (req.url == '/cats/add-breed') {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(addBreed)
     }
 
     res.end();
