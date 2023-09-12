@@ -1,0 +1,15 @@
+{
+  "name": "7-js-back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01 Intro to Node.js",
+  "scripts": {
+    "start": "nodemon /01 Intro to Node.js/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

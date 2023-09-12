@@ -1,0 +1,39 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# Dependency directories
+.pnpm/
+pnpm-lock.yaml
+yarn.lock
+
+# Optional: Build output
+/dist/
+/out/
+
+# Optional: Environment configuration
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Optional: Mac specific files
+.AppleDouble
+.LSOverride
+
+# Optional: Windows specific files
+Desktop.ini
+Thumbs.db
