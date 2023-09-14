@@ -13,4 +13,5 @@ eventBus.subscribe('user-remove', () => {
     console.log('User is removed');
 });
 
+eventBus.publish('user-add');
 eventBus.publish('user-remove');
