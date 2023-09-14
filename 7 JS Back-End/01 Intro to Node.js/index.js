@@ -1,8 +1,8 @@
 const http = require('http');
 const homeHtml = require('./views/home/index');
 const siteCss = require('./content/styles/site');
-const addBreed = require('./views/addBreed');
-const addCat = require('./views/addCat')
+const addBreedHtml = require('./views/addBreed');
+const addCatHtml = require('./views/addCat')
 
 
 const server = http.createServer((req, res) => {
@@ -16,10 +16,10 @@ const server = http.createServer((req, res) => {
         res.write(siteCss)
     } else if (req.url == '/cats/add-breed') {
         res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write(addBreed)
+        res.write(addBreedHtml)
     } else if (req.url == '/cats/add-cat') {
         res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write(addCat)
+        res.write(addCatHtml)
     }
 
     res.end();
