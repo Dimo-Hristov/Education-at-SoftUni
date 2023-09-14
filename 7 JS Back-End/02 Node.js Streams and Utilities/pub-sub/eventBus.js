@@ -1,7 +1,7 @@
 const listeners = {};
 
-const publish = () => {
-
+const publish = (eventName) => {
+    listeners[eventName].forEach(listener => listener());
 };
 
 const subscribe = (eventName, eventListener) => {
@@ -9,10 +9,12 @@ const subscribe = (eventName, eventListener) => {
         listeners[eventName] = [];
     }
 
-    listeners[eventName].push(eventListener)
+    listeners[eventName].push(eventListener);
 };
 
 const eventBus = {
     publish,
     subscribe
 }
+
+module.exports = eventBus
