@@ -1,7 +1,7 @@
 const listeners = {};
 
-const publish = (eventName) => {
-    listeners[eventName].forEach(listener => listener());
+const publish = (eventName, eventData) => {
+    listeners[eventName]?.forEach(listener => listener(eventData));
 };
 
 const subscribe = (eventName, eventListener) => {
