@@ -7,6 +7,10 @@ eventBus.subscribe('user-add', () => {
 
 eventBus.subscribe('user-add', () => {
     console.log('new user added 2');
-})
+});
 
-eventBus.publish('user-add');
+eventBus.subscribe('user-remove', () => {
+    console.log('User is removed');
+});
+
+eventBus.publish('user-remove');
