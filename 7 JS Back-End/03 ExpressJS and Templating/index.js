@@ -44,8 +44,8 @@ app.get('/about', (req, res) => {
 
 app.get("/cats", (req, res) => {
     const cats = getCats();
-    const firstCat = cats[0];
-    res.render('cats', firstCat)
+    console.log(cats);
+    res.render('cats', { cats })
 });
 
 app.get("/cats/:catId", (req, res) => {
@@ -62,7 +62,8 @@ app.post("/cats", (req, res) => {
     const name = req.body.name
     const age = Number(req.body.age)
     addCat(name, age)
-    res.status(201).send("Cat hard been created");
+
+    res.redirect('/cats')
 });
 
 app.get("/download", (req, res) => {
