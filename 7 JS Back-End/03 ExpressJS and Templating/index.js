@@ -9,7 +9,7 @@ app.use(bodyParser);
 
 
 // static files directory middleware
-app.use(express.static('public'))
+app.use(express.static('./03 ExpressJS and Templating/public'));
 
 // Middlewares
 app.use((req, res, next) => {
@@ -35,7 +35,8 @@ app.get("/cats", (req, res) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+
     <title>Document</title>
 </head>
 <body>
