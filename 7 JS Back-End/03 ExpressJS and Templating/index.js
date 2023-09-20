@@ -25,7 +25,15 @@ app.post('/cats', (req, res) => {
 });
 
 app.get('/download', (req, res) => {
+    // download the file
     res.download('./03 ExpressJS and Templating/manual.jpg');
+
+    // if we want to attack more responses use .attachment, need to end()
+    // res.attachment('./03 ExpressJS and Templating/manual.jpg');
+    // res.end();
+
+
+
 });
 
 
