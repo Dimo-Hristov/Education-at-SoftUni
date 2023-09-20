@@ -11,7 +11,13 @@ app.get('/cats', (req, res) => {
 });
 
 app.get('/cats/:catId', (req, res) => {
-    res.send(`Request with parameter = ${req.params.catId}`)
+    const catId = Number(req.params.catId)
+    if (!catId) {
+        res.status(404).send('Cannot find cat');
+        return
+    }
+    console.log(req.params);
+    res.send(`Request with parameter = ${catId}`)
 });
 
 app.post('/cats', (req, res) => {
