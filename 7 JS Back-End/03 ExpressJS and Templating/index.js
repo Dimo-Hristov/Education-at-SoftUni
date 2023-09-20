@@ -3,6 +3,10 @@ const path = require('path')
 
 const app = express();
 
+//Add third party middleware
+const bodyParser = express.urlencoded({ extended: false })
+app.use(bodyParser);
+
 
 // Middlewares
 app.use((req, res, next) => {
@@ -25,7 +29,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/cats', (req, res) => {
-    res.send('This page contains cats')
+    res.send(`<form method="post"> 
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name"/>
+    <label for="age">Age</label>
+    <input type"number" name="age" id="age"/>
+    <button type="submit">Submit</button>
+    </form>`);
 });
 
 app.get('/cats/:catId', (req, res) => {
@@ -35,10 +45,11 @@ app.get('/cats/:catId', (req, res) => {
         return
     }
     console.log(req.params);
-    res.send(`Request with parameter = ${catId}`)
+    res.send(`Request with parameter = ${catId} `)
 });
 
 app.post('/cats', (req, res) => {
+    console.log(req.body);
     res.status(201).send('Cat hard been created')
 });
 
