@@ -3,6 +3,17 @@ const path = require('path')
 
 const app = express();
 
+
+// Middlewares
+app.use((req, res, next) => {
+    console.log(`HTTP Request ${req.method}: ${req.path}`);
+    next()
+})
+
+
+
+//Express Router - Actions
+
 app.get('/', (req, res) => {
     res.send('Hello from express');
 });
@@ -40,7 +51,7 @@ app.get('/download', (req, res) => {
 });
 
 app.get('/old-route', (req, res) => {
-    res.redirect('/cats')
+    res.redirect('/cats');
 });
 
 
