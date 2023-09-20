@@ -1,10 +1,15 @@
-{{#each cats}}
-<article>
-    <h2>{{name}}</h2>
+{{#if cats}}
+    {{#each cats}}
+    <article>
+        <h2>{{name}}</h2>
 
-    <p>Cat {{name}}is {{age}} years old</p>
-</article>
-{{/each}}
+        <p>Cat {{name}}is {{age}} years old</p>
+    </article>
+    {{/each}}
+{{else}}
+    <h3>No cats in list</h3>
+{{/if}}
+
 
 <form method="post"> 
     <label for="name">Name</label>
