@@ -6,8 +6,14 @@ const app = express();
 
 // Middlewares
 app.use((req, res, next) => {
+    console.log('Middleware 1');
+    next();
+})
+
+
+app.use((req, res, next) => {
     console.log(`HTTP Request ${req.method}: ${req.path}`);
-    next()
+    next();
 })
 
 
