@@ -33,8 +33,14 @@ app.get('/download', (req, res) => {
     // res.attachment('./03 ExpressJS and Templating/manual.jpg');
     // res.end();
 
-    res.sendFile(path.resolve(__dirname, 'manual.jpg'))
 
+    //open the file in the browser tab
+    // res.sendFile(path.resolve(__dirname, 'manual.jpg'))
+
+});
+
+app.get('/old-route', (req, res) => {
+    res.redirect('/cats')
 });
 
 
