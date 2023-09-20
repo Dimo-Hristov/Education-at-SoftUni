@@ -24,6 +24,10 @@ app.post('/cats', (req, res) => {
     res.status(201).send('Cat hard been created')
 });
 
+app.get('/download', (req, res) => {
+    res.download('./03 ExpressJS and Templating/manual.jpg');
+});
+
 
 // not found request should be always in the end.
 app.get('/*', (req, res) => {
