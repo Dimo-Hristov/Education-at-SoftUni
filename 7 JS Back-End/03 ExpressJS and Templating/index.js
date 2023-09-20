@@ -1,7 +1,14 @@
 const express = require("express");
+const handlebars = require('express-handlebars')
 const path = require("path");
-
 const app = express();
+
+
+//add handlebars to express
+app.engine('handlebars', handlebars.engine());
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
+
 
 //Add third party middleware
 const bodyParser = express.urlencoded({ extended: false });
@@ -25,7 +32,8 @@ app.use((req, res, next) => {
 //Express Router - Actions
 
 app.get("/", (req, res) => {
-    res.send("Hello from express");
+    // res.send("Hello from express");
+    res.render('home', { layout: false });
 });
 
 app.get("/cats", (req, res) => {
