@@ -5,8 +5,8 @@ const app = express();
 
 
 //add handlebars to express
-app.engine('handlebars', handlebars.engine());
-app.set('view engine', 'handlebars');
+app.engine('hbs', handlebars.engine({ extname: 'hbs' }));
+app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 
@@ -41,27 +41,7 @@ app.get('/about', (req, res) => {
 })
 
 app.get("/cats", (req, res) => {
-    res.send(`
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-
-    <title>Document</title>
-</head>
-<body>
-    <form method="post"> 
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name"/>
-    <label for="age">Age</label>
-    <input type"number" name="age" id="age"/>
-    <button type="submit">Submit</button>
-    </form>
-        
-</body>
-</html>`);
+    res.render('cats')
 });
 
 app.get("/cats/:catId", (req, res) => {
