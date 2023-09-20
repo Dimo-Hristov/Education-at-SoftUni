@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 
 app.get("/", (req, res) => {
     // res.send("Hello from express");
-    res.render('home', { layout: false });
+    res.render('home');
 });
 
 app.get("/cats", (req, res) => {
