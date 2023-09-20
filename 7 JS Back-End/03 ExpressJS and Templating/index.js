@@ -11,7 +11,7 @@ app.get('/cats', (req, res) => {
 });
 
 app.get('/cats/:catId', (req, res) => {
-    res.send('Request with parameter')
+    res.send(`Request with parameter = ${req.params.catId}`)
 });
 
 app.post('/cats', (req, res) => {
