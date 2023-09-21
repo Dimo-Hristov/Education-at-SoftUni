@@ -2,9 +2,9 @@
   "name": "7-js-back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "03 ExpressJS and Templating",
+  "main": "04 Workshop ExpressJS and Templating",
   "scripts": {
-    "start": "nodemon /03 ExpressJS and Templating/index.js"
+    "start": "nodemon /04 Workshop ExpressJS and Templating/index.js"
   },
   "keywords": [],
   "author": "",
