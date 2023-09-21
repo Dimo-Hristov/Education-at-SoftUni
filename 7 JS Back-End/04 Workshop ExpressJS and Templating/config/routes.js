@@ -2,23 +2,23 @@
 
 module.exports = (app) => {
     app.get('/', (req, res) => {
-        res.render('index', { layout: false })
+        res.render('index')
     })
 
     app.get('/about', (req, res) => {
-        res.render('about', { layout: false })
+        res.render('about')
     });
 
     app.get('/create', (req, res) => {
-        res.render('create', { layout: false })
+        res.render('create')
     })
 
     app.get('/details/:id', (req, res) => {
         console.log(req.params);
-        res.render('details', { layout: false })
+        res.render('details')
     })
 
     app.get('*', (req, res) => {
-        res.render('404', { layout: false })
+        res.render('404')
     })
 };
