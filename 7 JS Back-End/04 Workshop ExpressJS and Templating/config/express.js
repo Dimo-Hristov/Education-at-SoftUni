@@ -15,5 +15,6 @@ module.exports = (app) => {
     app.use(bodyParser)
 
     //TODO: Setup the static files
+    app.use(express.static('./04 Workshop ExpressJS and Templating/static'));
 
 };
