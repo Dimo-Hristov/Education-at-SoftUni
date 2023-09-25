@@ -6,7 +6,6 @@ const config = require('./config/config')[env];
 const app = require('express')();
 
 require('./config/express')(app);
-require('./config/routes')(app);
 
 app.use(homeController);
 app.use('/cubes', cubeController);
