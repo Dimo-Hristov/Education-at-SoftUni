@@ -9,11 +9,11 @@ exports.getAll = (search, from, to) => {
     }
 
     if (from) {
-        result = result.filter(cube => cube.difficultyLevel >= from);
+        result = result.filter(cube => cube.difficultyLevel >= Number(from));
     }
 
     if (to) {
-        result = result.filter(cube => cube.difficultyLevel <= to);
+        result = result.filter(cube => cube.difficultyLevel <= Number(to));
     }
 
     return result
