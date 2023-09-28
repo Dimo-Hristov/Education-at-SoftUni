@@ -37,5 +37,13 @@ async function connectDb() {
     // });
     // await newCat.save()
 
+    // Second method
+
+    const newCat = await Cat.create({
+        name: 'Ivan',
+        age: 111,
+        breed: 'hoho'
+    })
+
 }
 connectDb();
