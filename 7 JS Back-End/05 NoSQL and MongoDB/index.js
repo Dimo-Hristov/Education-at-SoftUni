@@ -38,12 +38,17 @@ async function connectDb() {
     // await newCat.save()
 
     // Second method
+    // const newCat = await Cat.create({
+    //     name: 'Ivan',
+    //     age: 111,
+    //     breed: 'hoho'
+    // })
 
-    const newCat = await Cat.create({
-        name: 'Ivan',
-        age: 111,
-        breed: 'hoho'
-    })
+    // Update
+    const ceko = await Cat.findOne({ name: 'Ceko' })
+    ceko.age = 555;
+    await ceko.save()
+    console.log(ceko);
 
 }
 connectDb();
