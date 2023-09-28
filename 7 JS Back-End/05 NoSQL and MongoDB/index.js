@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
-async function main() {
+async function connectDb() {
     await mongoose.connect('mongodb://localhost:27017/test');
-    console.log('Database connected');
+    console.log('Database connected....');
+
+
+
+
 }
-main();
+connectDb();
