@@ -9,8 +9,15 @@ async function connectDb() {
 
     const cats = await Cat.find();
 
+    //virtual function
     // cats.forEach(cat => cat.greet());
-    cats.forEach(cat => console.log(cat.info));
+
+    //virtual property
+    // cats.forEach(cat => console.log(cat.info));
+
+    //static request
+    const result = await Cat.giveMeCats();
+    console.log(result);
 
 }
 connectDb();
