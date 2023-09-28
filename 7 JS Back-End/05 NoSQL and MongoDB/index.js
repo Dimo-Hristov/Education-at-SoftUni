@@ -7,13 +7,9 @@ async function connectDb() {
     console.log('Database connected....');
 
 
-    const newCat = new Cat({
-        name: 'Gosho',
-        age: 15,
-        breed: 'kuche'
-    });
+    const cats = await Cat.find();
 
-    await newCat.save();
+    cats.forEach(cat => cat.greet())
 
 }
 connectDb();
