@@ -23,10 +23,19 @@ async function connectDb() {
 
     // const cats = await Cat.find({ age: 21 })
     // const cat = await Cat.findById('651536a71711eb8377f46edf')
-
     //FindOne takes the first match !
     // const cat = await Cat.findOne({ breed: 'Pes' })
     // console.log(cat);
+
+    // Create
+
+    // First method
+    // const newCat = new Cat({
+    //     name: 'Ceko',
+    //     age: 45,
+    //     breed: 'Aloha'
+    // });
+    // await newCat.save()
 
 }
 connectDb();
