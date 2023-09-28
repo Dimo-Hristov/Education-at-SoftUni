@@ -46,15 +46,19 @@ async function connectDb() {
 
     // Update
 
-    // First method
+    //  method 1
     // const ceko = await Cat.findOne({ name: 'Ceko' })
     // ceko.age = 555;
     // await ceko.save()
     // console.log(ceko);
 
-    // Native mongoDb update
+    // Native mongoDb update, method 2
     // updates the first match!
-    // await Cat.updateOne({ name: 'Ceko' }, { $set: { age: 47 } })
+    // await Cat.updateOne({ name: 'Ceko' }, { $set: { age: 47 } });
+
+    // Mongoose extension , method 3
+    // await Cat.findByIdAndUpdate('651536ca1fd1f62fb2d4de5d', { $set: { breed: 'kotka' } });
+
 
 }
 connectDb();
