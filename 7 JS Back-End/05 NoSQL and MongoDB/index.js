@@ -7,8 +7,6 @@ async function connectDb() {
     console.log('Database connected....');
 
 
-    const cats = await Cat.find();
-
     //virtual function
     // cats.forEach(cat => cat.greet());
 
@@ -16,8 +14,19 @@ async function connectDb() {
     // cats.forEach(cat => console.log(cat.info));
 
     //static request
-    const result = await Cat.giveMeCats();
-    console.log(result);
+    // const result = await Cat.giveMeCats();
+    // console.log(result);
+
+    // CRUD OPERATIONS
+
+    // Read
+
+    // const cats = await Cat.find({ age: 21 })
+    // const cat = await Cat.findById('651536a71711eb8377f46edf')
+
+    //FindOne takes the first match !
+    // const cat = await Cat.findOne({ breed: 'Pes' })
+    // console.log(cat);
 
 }
 connectDb();
