@@ -62,7 +62,11 @@ async function connectDb() {
     // Delete
 
     // Method 1
-    await Cat.deleteOne({ name: 'Gosho' })
+    // delete the first match!!!
+    // await Cat.deleteOne({ name: 'Gosho' })
+
+    //Method 2
+    await Cat.findByIdAndDelete('651536a71711eb8377f46edf');
 
 
 }
