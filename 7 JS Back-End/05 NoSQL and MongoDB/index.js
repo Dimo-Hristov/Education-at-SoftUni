@@ -45,10 +45,16 @@ async function connectDb() {
     // })
 
     // Update
-    const ceko = await Cat.findOne({ name: 'Ceko' })
-    ceko.age = 555;
-    await ceko.save()
-    console.log(ceko);
+
+    // First method
+    // const ceko = await Cat.findOne({ name: 'Ceko' })
+    // ceko.age = 555;
+    // await ceko.save()
+    // console.log(ceko);
+
+    // Native mongoDb update
+    // updates the first match!
+    // await Cat.updateOne({ name: 'Ceko' }, { $set: { age: 47 } })
 
 }
 connectDb();
