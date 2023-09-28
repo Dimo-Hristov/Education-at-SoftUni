@@ -9,7 +9,8 @@ async function connectDb() {
 
     const cats = await Cat.find();
 
-    cats.forEach(cat => cat.greet())
+    // cats.forEach(cat => cat.greet());
+    cats.forEach(cat => console.log(cat.info));
 
 }
 connectDb();

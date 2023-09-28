@@ -10,6 +10,10 @@ catSchema.methods.greet = function () {
     console.log(`Hello i am ${this.name} and i am ${this.age} yars old`);
 };
 
+catSchema.virtual('info').get(function () {
+    return `My name is ${this.name} and i am ${this.breed} breed`
+})
+
 const Cat = mongoose.model('Cat', catSchema);
 
 module.exports = Cat;
