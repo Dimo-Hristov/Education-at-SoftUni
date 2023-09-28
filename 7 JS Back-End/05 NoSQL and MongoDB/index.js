@@ -59,6 +59,11 @@ async function connectDb() {
     // Mongoose extension , method 3
     // await Cat.findByIdAndUpdate('651536ca1fd1f62fb2d4de5d', { $set: { breed: 'kotka' } });
 
+    // Delete
+
+    // Method 1
+    await Cat.deleteOne({ name: 'Gosho' })
+
 
 }
 connectDb();
