@@ -2,9 +2,9 @@
   "name": "7-js-back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "05 NoSQL and MongoDB",
+  "main": "06 Workshop MongoDB and Mongoose",
   "scripts": {
-    "start": "nodemon /05 NoSQL and MongoDB/index.js"
+    "start": "nodemon /06 Workshop MongoDB and Mongoose/index.js"
   },
   "keywords": [],
   "author": "",
