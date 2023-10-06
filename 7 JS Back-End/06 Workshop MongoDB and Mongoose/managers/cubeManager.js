@@ -1,10 +1,11 @@
 const Cube = require('../models/cube');
 
-const uniqid = require('uniqid')
+const uniqid = require('uniqid');
 
 
 exports.getAll = async (search, from, to) => {
     let result = await Cube.find().lean();
+    console.log(result);
 
     // TODO: use mongoose to filter in db
 
@@ -29,6 +30,5 @@ exports.create = async (cubeData) => {
     const cube = new Cube(cubeData);
     await cube.save();
 
-
-    return cube
+    return cube;
 }
