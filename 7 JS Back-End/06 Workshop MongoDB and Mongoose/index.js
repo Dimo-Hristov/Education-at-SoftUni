@@ -9,7 +9,7 @@ require('./config/express')(app);
 
 dbConnect()
     .then(() => console.log('db connected'))
-    .catch((err) => console.log(`Error: ${err}`));
+    .catch((err) => console.log(`Error: ${err.message}`));
 
 app.use(routes);
 
