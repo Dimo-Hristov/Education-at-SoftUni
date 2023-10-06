@@ -8,12 +8,8 @@ const routes = require('./routes');
 require('./config/express')(app);
 
 dbConnect()
-    .then(() => {
-        console.log('db connected');
-    })
-    .catch((err) => {
-        console.log(`Error: ${err}`);
-    })
+    .then(() => console.log('db connected'))
+    .catch((err) => console.log(`Error: ${err}`));
 
 app.use(routes)
 
