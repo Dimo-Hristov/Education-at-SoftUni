@@ -1,17 +1,17 @@
 const router = require('express').Router();
 
+const accesoryManager = require('../managers/accesoryManager')
+
 router.get('/create', (req, res) => {
     res.render('accesory/create');
 });
 
-router.post('/create', (req, res) => {
-    const body = req.body;
+router.post('/create', async (req, res) => {
+    const { name, description, imageUrl } = req.body;
 
-    console.log(body);
-
-    // TODO: add accesory data to database
+    await accesoryManager.create({ name, description, imageUrl });
 
     res.redirect('/')
-})
+});
 
 module.exports = router;

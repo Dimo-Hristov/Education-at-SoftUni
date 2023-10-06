@@ -5,7 +5,6 @@ const uniqid = require('uniqid');
 
 exports.getAll = async (search, from, to) => {
     let result = await Cube.find().lean();
-    console.log(result);
 
     // TODO: use mongoose to filter in db
 
