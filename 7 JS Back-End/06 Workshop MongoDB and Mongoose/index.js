@@ -1,11 +1,19 @@
 const env = process.env.NODE_ENV || 'development';
-const mongoose = require('mongoose')
 
 const config = require('./config/config')[env];
 const app = require('express')();
-const routes = require('./routes')
+const dbConnect = require('./config/dbConfig');
+const routes = require('./routes');
 
 require('./config/express')(app);
+
+dbConnect()
+    .then(() => {
+        console.log('db connected');
+    })
+    .catch((err) => {
+        console.log(`Error: ${err}`);
+    })
 
 app.use(routes)
 
