@@ -40,7 +40,7 @@ router.get('/:cubeId/details', async (req, res) => {
 
 router.get('/:cubeId/attach-accesory', async (req, res) => {
     const cube = await cubeManager.find(req.params.cubeId).lean();
-    const accesories = await accesoryManager.getAll().lean();
+    const accesories = await accesoryManager.getAvailable(cube.accersories).lean();
 
     const hasAccesories = accesories.length > 0
 
