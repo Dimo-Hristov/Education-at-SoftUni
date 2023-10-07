@@ -31,3 +31,9 @@ exports.create = async (cubeData) => {
 
     return cube;
 }
+
+exports.attachAccesory = async (cubeId, accesoryId) => {
+    const cube = await Cube.findById(cubeId);
+    cube.accersories.push(accesoryId);
+    await cube.save();
+}
