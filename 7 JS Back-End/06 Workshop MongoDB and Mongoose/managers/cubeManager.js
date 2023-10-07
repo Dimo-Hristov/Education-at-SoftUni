@@ -1,4 +1,4 @@
-const Cube = require('../models/cube');
+const Cube = require('../models/Cube');
 
 const uniqid = require('uniqid');
 
@@ -23,7 +23,7 @@ exports.getAll = async (search, from, to) => {
     return result
 }
 
-exports.find = (cubeId) => Cube.findById(cubeId).lean();
+exports.find = (cubeId) => Cube.findById(cubeId).populate('accersories');
 
 exports.create = async (cubeData) => {
     const cube = new Cube(cubeData);

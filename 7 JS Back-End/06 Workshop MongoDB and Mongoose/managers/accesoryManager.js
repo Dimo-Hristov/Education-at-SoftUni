@@ -1,4 +1,4 @@
-const Accesory = require('../models/accesory');
+const Accesory = require('../models/Accesory');
 
 exports.getAll = () => Accesory.find();
 

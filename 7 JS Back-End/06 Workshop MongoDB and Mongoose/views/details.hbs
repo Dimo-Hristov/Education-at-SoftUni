@@ -7,5 +7,19 @@
         <a class="btn" href="/">Back</a>
         <a href="/cubes/{{cube._id}}/attach-accesory" class="btn">Attach</a>
       </div>
+      <h2>Accessories</h2>
+
+          {{#each accesories}}
+            <div class="accessories">
+                <div class="accessory">
+                    <img src="{{imageUrl}}" alt="{{name}}">
+                    <h3>{{name}}</h3>
+                    <p> {{description}} </p>
+                </div>
+                {{else}}
+                
+                <h3 class="italic">This cube has no accessories yet...</h3>
+                {{/each}}
+            </div>
 
      
