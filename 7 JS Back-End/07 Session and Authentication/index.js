@@ -4,13 +4,15 @@ const { v4: uuid } = require('uuid');
 
 const app = express();
 
+app.use(cookieParser())
+
 app.get('/', (req, res) => {
     let id = uuid();
 
-    const cookie = req.header('Cookie');
-    if (cookie) {
-        const [key, value] = cookie.split('=');
-        id = value;
+    const userId = req.cookies['userId'];
+
+    if (userId) {
+        id = userId;
     } else {
         res.cookie('userId', id);
     }
