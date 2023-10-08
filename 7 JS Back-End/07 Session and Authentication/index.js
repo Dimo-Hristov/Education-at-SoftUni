@@ -4,12 +4,15 @@ const { v4: uuid } = require('uuid');
 const app = express();
 
 app.get('/', (req, res) => {
-    const id = uuid();
+    let id = uuid();
 
-    console.log(req.header('Cookie'));
-
-
-    res.header('Set-Cookie', `userId=${id}`);
+    const cookie = req.header('Cookie');
+    if (cookie) {
+        const [key, value] = cookie.split('=');
+        id = value;
+    } else {
+        res.header('Set-Cookie', `userId=${id}`);
+    }
 
     res.send(`Hello user - ${id}`);
 });
