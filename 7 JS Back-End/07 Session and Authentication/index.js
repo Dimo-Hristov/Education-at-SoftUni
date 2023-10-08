@@ -7,13 +7,14 @@ const app = express();
 app.use(cookieParser())
 
 app.get('/', (req, res) => {
-    let id = uuid();
+    let id = undefined;
 
     const userId = req.cookies['userId'];
 
     if (userId) {
         id = userId;
     } else {
+        id = uuid();
         res.cookie('userId', id);
     }
 
