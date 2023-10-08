@@ -1,10 +1,17 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
 const { v4: uuid } = require('uuid');
 
 const app = express();
 
 app.use(cookieParser());
+app.use(expressSession({
+    secret: 'my secret',
+    resave: false,
+    saveUninitialized: true,
+    coookie: { secure: false }
+}))
 
 const session = {};
 
@@ -16,12 +23,10 @@ app.get('/', (req, res) => {
 
     if (userId) {
         id = userId;
-        console.log('User secret: ', session[userId].secret);
+        console.log(req.session.secret);
     } else {
         id = uuid();
-        session[id] = {
-            secret: 'My secret',
-        };
+        req.session.secret = `${id} some secret`;
         res.cookie('userId', id);
     }
 
