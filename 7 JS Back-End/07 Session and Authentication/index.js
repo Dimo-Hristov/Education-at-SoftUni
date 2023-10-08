@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
     } else {
         id = uuid();
         req.session.secret = `${id} some secret`;
-        res.cookie('userId', id);
+        res.cookie('userId', id, { httpOnly: true });
     }
 
     res.send(`Hello user - ${id}`);
