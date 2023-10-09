@@ -2,9 +2,9 @@
   "name": "7-js-back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "07 Session and Authentication",
+  "main": "08 Workshop Session and Authentication",
   "scripts": {
-    "start": "nodemon /07 Session and Authentication/index.js"
+    "start": "nodemon /08 Workshop Session and Authentication/index.js"
   },
   "keywords": [],
   "author": "",
