@@ -212,6 +212,8 @@ div.form {
     margin: auto;
 }
 
+
+
 span.error {
     animation: fadeOut 1s forwards;
     animation-delay: 2s;
