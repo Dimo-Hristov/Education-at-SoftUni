@@ -4,3 +4,5 @@ module.exports = {
     },
     production: {}
 };
+
+exports.SECRET = 'longsecret';

@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
+const { auth } = require('../middlewares/authMiddleware');
+
 module.exports = (app) => {
 
     //TODO: Setup the view engine
@@ -21,5 +23,8 @@ module.exports = (app) => {
 
     //TODO: Setup the static files
     app.use(express.static('./04 Workshop ExpressJS and Templating/static'));
+
+    // Add authMidlleware
+    app.use(auth);
 
 };
