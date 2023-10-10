@@ -2,7 +2,7 @@ const { promisify } = require('util');
 const jsonwebtoken = require('jsonwebtoken');
 
 const jwt = {
-    gign: promisify(jsonwebtoken.sign),
+    sign: promisify(jsonwebtoken.sign),
     verify: promisify(jsonwebtoken.verify),
 };
 
