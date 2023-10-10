@@ -3,7 +3,7 @@ const cubeManager = require('../managers/cubeManager');
 const accesoryManager = require('../managers/accesoryManager');
 
 router.get('/create', (req, res) => {
-    res.render('create')
+    res.render('cube/create')
 });
 
 router.post('/create', async (req, res) => {
@@ -36,7 +36,7 @@ router.get('/:cubeId/details', async (req, res) => {
         return res.redirect('404')
     }
 
-    res.render('details', { cube });
+    res.render('cube/details', { cube });
 });
 
 router.get('/:cubeId/attach-accesory', async (req, res) => {
@@ -55,6 +55,12 @@ router.post('/:cubeId/attach-accesory', async (req, res) => {
     await cubeManager.attachAccesory(cubeId, accesory);
 
     res.redirect(`/cubes/${cubeId}/attach-accesory`)
+});
+
+router.get('/:cubeId/delete', async (req, res) => {
+    const cube = await cubeManager.find(req.params.cubeId).lean();
+
+    res.render('cube/delete', { cube });
 })
 
 
