@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const cubeManager = require('../managers/cubeManager');
 const accesoryManager = require('../managers/accesoryManager');
+const { getViewOptionsValue } = require('../utils/viewHelpers')
 
 router.get('/create', (req, res) => {
     res.render('cube/create')
@@ -77,25 +78,6 @@ router.get('/:cubeId/edit', async (req, res) => {
     res.render('cube/edit', { cube, options });
 });
 
-function getViewOptionsValue(difficultyLevel) {
-    const titles = [
-        'Very Easy',
-        'Easy',
-        'Medium (Standard 3x3)',
-        'Intermediate',
-        'Expert',
-        'Hardcore',
-    ]
-
-    const options = titles.map((title, index) => ({
-        title: `${index + 1} - ${title}`,
-        value: index + 1,
-        selected: Number(difficultyLevel) === index + 1
-    }));
-
-    return options;
-
-}
 
 router.post('/:cubeId/edit', async (req, res) => {
     const cubeData = req.body;
