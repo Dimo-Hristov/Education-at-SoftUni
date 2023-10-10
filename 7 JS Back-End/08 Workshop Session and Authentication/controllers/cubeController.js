@@ -73,7 +73,17 @@ router.get('/:cubeId/edit', async (req, res) => {
     const cube = await cubeManager.find(req.params.cubeId).lean();
 
     res.render('cube/edit', { cube });
+});
+
+router.post('/:cubeId/edit', async (req, res) => {
+    const cubeData = req.body;
+    const cubeId = req.params.cubeId;
+
+
+    await cubeManager.update(cubeId, cubeData);
+
+    res.redirect(`/cubes/${cubeId}/details`);
 })
 
 
-module.exports = router
+module.exports = router;
