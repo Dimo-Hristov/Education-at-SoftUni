@@ -18,6 +18,7 @@ router.post('/create', async (req, res) => {
             description,
             imageUrl,
             difficultyLevel: Number(difficultyLevel),
+            owner: req.user._id
         }
     );
 
