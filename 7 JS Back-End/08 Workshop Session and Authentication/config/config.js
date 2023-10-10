@@ -2,7 +2,7 @@ module.exports = {
     development: {
         port: process.env.PORT || 3000
     },
-    production: {}
+    production: {},
+    SECRET: 'mySecret'
 };
 
-exports.SECRET = 'longsecret';
