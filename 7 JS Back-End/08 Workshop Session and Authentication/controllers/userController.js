@@ -4,7 +4,7 @@ const { isAuth, isGuest } = require('../middlewares/authMiddleware');
 
 
 router.get('/register', isGuest, (req, res) => {
-    res.render('user/register')
+    res.render('user/register');
 });
 
 router.post('/register', isGuest, async (req, res) => {

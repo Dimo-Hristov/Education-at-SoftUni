@@ -2,9 +2,9 @@
   "name": "7-js-back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "08 Workshop Session and Authentication",
+  "main": "09 Validation and Error Handling",
   "scripts": {
-    "start": "nodemon /08 Workshop Session and Authentication/index.js"
+    "start": "nodemon /09 Validation and Error Handling/index.js"
   },
   "keywords": [],
   "author": "",
