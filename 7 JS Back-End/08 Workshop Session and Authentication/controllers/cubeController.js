@@ -31,7 +31,7 @@ router.get('/:cubeId/details', async (req, res) => {
     const cubeId = req.params.cubeId;
     const cube = await cubeManager.find(cubeId).lean()
 
-    const isOwner = cube.owner.toString() === req.user._id;
+    const isOwner = cube.owner?.toString() === req.user._id;
 
     if (!cube) {
         return res.redirect('404')
