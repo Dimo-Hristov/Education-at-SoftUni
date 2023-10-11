@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { } = require('./utils/validations')
+const { isAgeValid } = require('./utils/validations');
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.post('/', (req, res) => {
         return res.send('invalid name!');
     }
 
-    if (!age || age < 0) {
+    if (!isAgeValid(age)) {
         return res.send('invalid age!');
     }
 
