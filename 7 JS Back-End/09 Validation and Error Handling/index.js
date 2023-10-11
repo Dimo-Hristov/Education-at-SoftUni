@@ -1,5 +1,7 @@
 const express = require('express');
 
+const { } = require('./utils/validations')
+
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
