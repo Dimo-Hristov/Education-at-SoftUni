@@ -21,7 +21,10 @@ app.get('/', (req, res) => {
 
 app.post('/', validateName, (req, res) => {
     const { name, age } = req.body;
-
+    //  three types of validation
+    // in the action if is specific
+    // in util if we use it a couple of times
+    // in middleware if we use it a lot
 
     if (!isAgeValid(age)) {
         return res.send('invalid age!');
