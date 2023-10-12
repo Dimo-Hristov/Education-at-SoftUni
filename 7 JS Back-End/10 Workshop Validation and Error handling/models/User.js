@@ -2,15 +2,23 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-    username: String,
+    username: {
+        type: String,
+        required: true,
+        minLength: 5,
+        maxLength: 20,
+        match: /^[A-Za-z-0-9]+$/,
+        unique: true,
+
+    },
     password: {
         type: String,
-        // validate: {
-        //     validator: function (value) {
-        //         return this.repeatPassword === value;
-        //     },
-        //     message: `Passwords do not match!`
-        // }
+        validate: {
+            validator: function (value) {
+                return /^[A-Za-z-0-9]+$/.test(value);
+            },
+            message: `Invalid password characters`,
+        }
     },
 });
 
