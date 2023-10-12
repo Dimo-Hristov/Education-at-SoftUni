@@ -1,6 +1,7 @@
 const express = require('express');
 
 const { isAgeValid } = require('./utils/validations');
+const { validateName } = require('./middlewares/middlewares');
 
 const app = express();
 
@@ -18,14 +19,9 @@ app.get('/', (req, res) => {
 </form>`);
 });
 
-app.post('/', (req, res) => {
+app.post('/', validateName, (req, res) => {
     const { name, age } = req.body;
 
-    console.log(name, age);
-
-    if (!name || name.length <= 3) {
-        return res.send('invalid name!');
-    }
 
     if (!isAgeValid(age)) {
         return res.send('invalid age!');
