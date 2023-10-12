@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
-        minLength: 5,
+        required: [true, 'Username is required'],
+        minLength: [5, 'Password should be at least 5 characters long'],
         maxLength: 20,
         match: /^[A-Za-z-0-9]+$/,
         unique: true,
@@ -18,7 +18,9 @@ const userSchema = new mongoose.Schema({
                 return /^[A-Za-z-0-9]+$/.test(value);
             },
             message: `Invalid password characters`,
-        }
+        },
+        minLength: 8,
+
     },
 });
 
