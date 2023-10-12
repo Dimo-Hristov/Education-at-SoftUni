@@ -3,6 +3,7 @@ const validator = require('validator')
 
 const { isAgeValid } = require('./utils/validations');
 const { validateName } = require('./middlewares/middlewares');
+const { body } = require('express-validator');
 
 const app = express();
 
