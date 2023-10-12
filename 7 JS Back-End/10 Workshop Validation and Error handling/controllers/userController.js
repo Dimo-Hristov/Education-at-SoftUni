@@ -15,7 +15,8 @@ router.post('/register', isGuest, async (req, res) => {
         await userManager.register({ username, password, repeatPassword });
         res.redirect('/user/login');
     } catch (err) {
-        res.status(404).render('user/register', { errorMessage: err.message });
+        const firstErrorMessage = Object.values(err.errors)[0].message
+        res.status(404).render('user/register', { errorMessage: firstErrorMessage });
     }
 
 });
