@@ -10,12 +10,16 @@ router.get('/register', isGuest, (req, res) => {
 router.post('/register', isGuest, async (req, res) => {
     const { username, password, repeatPassword } = req.body;
 
-    await userManager.register({ username, password, repeatPassword });
 
-    res.redirect('/user/login');
+    try {
+        await userManager.register({ username, password, repeatPassword });
+        res.redirect('/user/login');
+    } catch (err) {
+        res.status(404).render('user/register', { errorMessage: err.message });
+    }
+
 });
 
-//  TODO validate if user exists
 
 router.get('/login', isGuest, (req, res) => {
     res.render('user/login');

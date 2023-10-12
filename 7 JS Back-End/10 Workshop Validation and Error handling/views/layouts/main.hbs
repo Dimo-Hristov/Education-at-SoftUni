@@ -28,11 +28,15 @@
       <i>Welcome {{user.username}} </i>
       {{/if}}
     </header>
-    <main>
-
+    
+  {{#if errorMessage}}
+  <div id="notifications">
+    <p id="notification-message">{{errorMessage}}</p>
+  </div>
+  {{/if}}
+<main>
 {{{body}}}
-
-  </main>
+</main>
   </div>
   <footer>@Cubicle: Exercise for Express.js and Handlebars</footer>
 </body>

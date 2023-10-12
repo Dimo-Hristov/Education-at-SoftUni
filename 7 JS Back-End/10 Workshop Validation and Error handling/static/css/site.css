@@ -261,8 +261,22 @@ footer {
     font-size: 20px;
 }
 
+div#notifications {
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    width: 50%;
+    padding: 0.5%;
+    margin-top: 2%;
+    background: rgb(231,188,188);
+    color: white;
+    border-radius: 5px;
+    text-decoration: underline;
+}
+
 /*Animations & Transitions
-*/
+
 
 @-webkit-keyframes fadeOut {
     from {
@@ -283,3 +297,4 @@ footer {
         opacity: 0;
     }
 }
+ 
