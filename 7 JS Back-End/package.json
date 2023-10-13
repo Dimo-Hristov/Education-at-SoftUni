@@ -4,7 +4,7 @@
   "description": "",
   "main": "10 Workshop Validation and Error handling",
   "scripts": {
-    "start": "nodemon /10 Workshop Validation and Error handling/index.js"
+    "start": "nodemon 10 Workshop Validation and Error handling/index.js"
   },
   "keywords": [],
   "author": "",
