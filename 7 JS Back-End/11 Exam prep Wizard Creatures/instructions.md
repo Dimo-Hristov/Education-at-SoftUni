@@ -14,11 +14,15 @@
    - Group views by meaning
 8. Create controller folder and add home controller
 9. Add database
-   -install mongoose
-   -connrect to db
+   - install mongoose
+   - connrect to db
 10. Prepare user funcionality
-    -user controller
-    -add controller to routes
-    -fix navigations in navbar (login, register, logout)
-    -render login page
-    -render register pager
+    - user controller
+    - add controller to routes
+    - fix navigations in navbar (login, register, logout)
+    - render login page
+    - render register pager
+11. Add User model
+
+- simple validation in Schema
+- add method for register
