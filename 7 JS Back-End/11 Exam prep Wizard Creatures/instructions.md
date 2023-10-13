@@ -9,3 +9,4 @@
 6. Install express-handlebars
    - configure view engine
    - add main layout
+   - fix hyperlink styles

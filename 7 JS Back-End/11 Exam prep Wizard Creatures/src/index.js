@@ -3,14 +3,15 @@ const path = require('path');
 const handlebars = require('express-handlebars');
 
 
+
 const { PORT } = require('./constants');
 const routes = require('./router');
 
 const app = express();
 
 // Express configurations
-app.unsubscribe(express.static(path.resolve(__dirname, './public')));
-app.unsubscribe(express.urlencoded({ extended: false }));
+app.use(express.static(path.resolve(__dirname, './public')));
+app.use(express.urlencoded({ extended: false }));
 
 // Handlebars configuration
 app.engine('hbs', handlebars.engine({ extname: 'hbs' }));
