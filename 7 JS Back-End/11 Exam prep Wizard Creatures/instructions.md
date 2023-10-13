@@ -13,3 +13,6 @@
 7. Convert all html to handlebars views
    - Group views by meaning
 8. Create controller folder and add home controller
+9. Add database
+   -install mongoose
+   -connrect to db
