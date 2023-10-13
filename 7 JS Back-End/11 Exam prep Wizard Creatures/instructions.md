@@ -16,3 +16,9 @@
 9. Add database
    -install mongoose
    -connrect to db
+10. Authentication
+    -user controller
+    -add controller to routes
+    -fix navigations in navbar (login, register, logout)
+    -render login page
+    -render register pager
