@@ -20,9 +20,7 @@ app.set('views', 'src/views');
 
 
 // Routes
-app.get('/', (req, res) => {
-    res.render('home');
-});
+
 
 app.use(routes)
 
