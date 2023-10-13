@@ -10,4 +10,5 @@
    - configure view engine
    - add main layout
    - fix public style hyperlinks
-7. Convert all html views to handlebars views
+7. Convert all html to handlebars views
+   - Group views by meaning
