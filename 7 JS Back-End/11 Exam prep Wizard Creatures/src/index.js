@@ -1,6 +1,9 @@
 const express = require('express');
-const { PORT } = require('./constants');
 const path = require('path');
+const handlebars = require('express-handlebars');
+
+
+const { PORT } = require('./constants');
 const routes = require('./router');
 
 const app = express();
@@ -9,10 +12,15 @@ const app = express();
 app.unsubscribe(express.static(path.resolve(__dirname, './public')));
 app.unsubscribe(express.urlencoded({ extended: false }));
 
+// Handlebars configuration
+app.engine('hbs', handlebars.engine({ extname: 'hbs' }));
+app.set('view engine', 'hbs');
+app.set('views', 'src/views');
+
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('<h1>Ola amigo 2</h1>');
+    res.render('layouts/main');
 });
 
 app.use(routes)
