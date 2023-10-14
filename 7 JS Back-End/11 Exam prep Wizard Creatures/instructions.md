@@ -73,3 +73,6 @@
 - add error message util
 
 20. Show error notirfrination
+
+- render errors in main layout
+- pass errorsto render in login and register pages

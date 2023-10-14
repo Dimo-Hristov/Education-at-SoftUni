@@ -52,11 +52,10 @@ router.post('/register', async (req, res) => {
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
 
+        // If email already exists in database replace the error message with custom message using array.splice()
         if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
             errorMessages.splice(0, 1, 'Email already exists')
         }
-
-        console.log(errorMessages);
 
         res.status(404).render('user/register', { errorMessages });
 
