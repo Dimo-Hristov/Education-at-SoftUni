@@ -43,4 +43,10 @@
 - install jsonwebtoken
 - promisify it
 - generate secret
-  -generate token in service login
+- generate token in service login
+
+15. return token in cookie
+
+- install cookie-praser
+- configure cookie-praser
+- set cookie with the token
