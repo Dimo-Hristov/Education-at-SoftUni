@@ -23,9 +23,17 @@
     - render login page
     - render register pager
 11. Add User model
-
     - add method for register
     - simple validation in Schema
     - register user in db
     - validate password missmatch
     - unique email validation
+12. Hash password
+
+- install bcrypt
+- has password
+
+13. Login
+
+- find user by email
+- validate password with hash

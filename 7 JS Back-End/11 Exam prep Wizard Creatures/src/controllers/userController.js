@@ -7,9 +7,8 @@ router.get('/login', (req, res) => {
 
 router.post('/login', (req, res) => {
     const { email, password } = req.body;
-    console.log(email + password);
 
-
+    const user = userService.login(email, password);
     res.redirect('/')
 
 });
