@@ -24,7 +24,8 @@
     - render register pager
 11. Add User model
 
-- simple validation in Schema
-- add method for register
-- register user in db
-- validate password missmatch
+    - add method for register
+    - simple validation in Schema
+    - register user in db
+    - validate password missmatch
+    - unique email validation

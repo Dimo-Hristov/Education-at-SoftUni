@@ -42,5 +42,7 @@ router.post('/register', async (req, res) => {
     res.redirect('/users/login')
 });
 
+// TODO LOGOUT
+
 
 module.exports = router;
