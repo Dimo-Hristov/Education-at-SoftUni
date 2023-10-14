@@ -37,16 +37,32 @@ router.post('/register', async (req, res) => {
         rePassword,
     } = req.body;
 
-    await userService.register(
-        {
-            firstName,
-            lastName,
-            email,
-            password,
-            rePassword,
-        })
+    try {
+        await userService.register(
+            {
+                firstName,
+                lastName,
+                email,
+                password,
+                rePassword,
+            })
 
-    res.redirect('/users/login')
+        res.redirect('/users/login');
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+
+        if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
+            errorMessages.splice(0, 1, 'Email already exists')
+        }
+
+        console.log(errorMessages);
+
+        res.status(404).render('user/register', { errorMessages });
+
+    }
+
+
 });
 
 router.get('/logout', (req, res) => {
