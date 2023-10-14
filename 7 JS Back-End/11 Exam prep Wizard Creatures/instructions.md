@@ -26,3 +26,5 @@
 
 - simple validation in Schema
 - add method for register
+- register user in db
+- validate password missmatch

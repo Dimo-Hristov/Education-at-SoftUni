@@ -7,6 +7,11 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
 });
 
-const User = mongoose.model('User', userSchema);
+userSchema.virtual('rePassword').set(function (value) {
+    if (value !== this.password) {
+        throw new Error('Password missmatch!');
+    }
+});
 
+const User = mongoose.model('User', userSchema);
 module.exports = User;

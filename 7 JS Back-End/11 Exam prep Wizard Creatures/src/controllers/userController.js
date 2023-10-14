@@ -28,11 +28,14 @@ router.post('/register', async (req, res) => {
         rePassword,
     } = req.body;
 
-    await userService.register(firstName,
-        lastName,
-        email,
-        password,
-        rePassword,)
+    await userService.register(
+        {
+            firstName,
+            lastName,
+            email,
+            password,
+            rePassword,
+        })
 
 
 
