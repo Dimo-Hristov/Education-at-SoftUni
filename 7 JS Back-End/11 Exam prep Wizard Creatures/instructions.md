@@ -54,4 +54,13 @@
 16. Implement login aurth
 17. Auth middleware
 
--
+- create middleware directory
+- add auth middleware and import it in express config below cookieParser
+- decode the token
+- handle invalid token
+- provide aurthrization
+
+18. Dynamic navigation
+
+- conditional options in nav
+- add data to res.locals for templates
