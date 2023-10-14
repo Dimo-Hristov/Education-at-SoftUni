@@ -64,3 +64,5 @@
 
 - conditional options in nav
 - add data to res.locals for templates
+
+19. Error handling

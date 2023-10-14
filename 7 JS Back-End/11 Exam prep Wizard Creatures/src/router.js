@@ -5,7 +5,11 @@ const userControler = require('./controllers/userController')
 // TODO add endpoints with controllers here...
 
 router.use(homeController);
-router.use('/users', userControler)
+router.use('/users', userControler);
+
+router.get('*', (req, res) => {
+    res.redirect('/404')
+})
 
 
 module.exports = router;
