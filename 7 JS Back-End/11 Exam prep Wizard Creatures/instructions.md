@@ -66,3 +66,10 @@
 - add data to res.locals for templates
 
 19. Error handling
+
+- add 404 page
+- redirect missing route to 404
+- add global error handler (optional)
+- add error message util
+
+20. Show error notirfrination
