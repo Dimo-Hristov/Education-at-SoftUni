@@ -38,12 +38,13 @@ router.post('/register', async (req, res) => {
             rePassword,
         })
 
-
-
     res.redirect('/users/login')
 });
 
-// TODO LOGOUT
+router.get('/logout', (req, res) => {
+    res.clearCookie('token');
+    res.redirect('/')
+});
 
 
 module.exports = router;
