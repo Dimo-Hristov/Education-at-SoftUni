@@ -12,3 +12,5 @@ exports.vote = (postId, userId) => Creature.findByIdAndUpdate(
     { $push: { 'votes': { user: userId } } },
     { new: true }
 )
+
+exports.getVotedUsers = (votedUsersId) => Creature.find({ _id: { $in: votedUsersId } });

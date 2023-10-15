@@ -62,17 +62,12 @@ router.get('/:postId/details', async (req, res) => {
         const hasVoted = post.votes.some(x => x._id.toString() === currentUserId.toString());
         const votesCount = post.votes.length;
         const isVoted = votesCount > 0;
-        const votedUsers = [];
+        const votedUsersId = post.votes.map(x => x._id)
+        console.log(votedUsersId);
 
-        if (isVoted) {
-            const votedUsersIds = post.votes.map(x => x._id)
 
-            for (const id of votedUsersIds) {
-                const user = await userService.getUserById(id).lean()
-                votedUsers.push(user);
-                console.log(user);
-            }
-        }
+        const votedUsers = await postService.getVotedUsers(votedUsersId);
+        console.log('Voted users:', votedUsers);
 
 
         res.render('post/details', { post, isAuthor, postAuthor, hasVoted, votesCount, isVoted, votedUsers });
