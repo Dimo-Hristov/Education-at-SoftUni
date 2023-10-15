@@ -53,13 +53,14 @@ router.get('/:postId/details', async (req, res) => {
 
 
     try {
-        const currentUserId = req.user?.id;
+        const currentUserId = req.user?._id;
         const postId = req.params.postId;
         const post = await postService.getOne(postId).lean();
         const postAuthor = await userService.getUserById(post.owner).lean()
 
         const isAuthor = currentUserId === post.owner;
-        const hasVoted = post.votes.includes(currentUserId)
+        const hasVoted = post.votes.some(x => x._id.toString(), currentUserId.toString());
+        console.log(hasVoted);
 
         res.render('post/details', { post, isAuthor, postAuthor, hasVoted });
 
@@ -71,6 +72,22 @@ router.get('/:postId/details', async (req, res) => {
 
 
 });
+
+router.get('/:postId/vote', async (req, res) => {
+
+
+    try {
+        const userId = req.user?.id;
+        const postId = req.params.postId;
+
+        await postService.vote(postId, userId);
+        res.redirect(`/posts/${postId}/details`);
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).redirect(`/posts/${postId}/details`, { errorMessages });
+    }
+})
 
 router.get('/edit', (req, res) => {
     res.render('post/edit')

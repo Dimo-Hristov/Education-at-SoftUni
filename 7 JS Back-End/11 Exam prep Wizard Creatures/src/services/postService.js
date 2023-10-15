@@ -6,3 +6,9 @@ exports.addCreature = (creatureData) => Creature.create(creatureData);
 exports.getAllPosts = () => Creature.find();
 
 exports.getOne = (postId) => Creature.findById(postId);
+
+exports.vote = (postId, userId) => Creature.findByIdAndUpdate(
+    postId,
+    { $push: { 'votes': { user: userId } } },
+    { new: true }
+)

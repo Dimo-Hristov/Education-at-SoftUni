@@ -30,7 +30,7 @@
                                 <p class="thanks-for-vote">Thanks For Voting</p>
                                 {{else}}
                                 <!-- logged in users, who have not yet voted-->
-                                <a href="/posts/" class="vote-up">Vote</a>
+                                <a href="/posts/{{post._id}}/vote" class="vote-up">Vote</a>
                                 {{/if}}
                             </div>
                             {{/if}}
