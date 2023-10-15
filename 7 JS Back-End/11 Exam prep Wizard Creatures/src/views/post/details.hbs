@@ -1,66 +1,70 @@
-        <main>
+<main>
 
-            <section id="details-page">
+  <section id="details-page">
 
-                <div class="main_card">
-                    <div class="card_left">
-                        <div class="card_datails">
+    <div class="main_card">
+      <div class="card_left">
+        <div class="card_datails">
 
-                            <h1>Name: {{post.name}}</h1>
-                            <h3>Created by an author: {{postAuthor.firstName}} {{postAuthor.lastName}}</h3>
-                            <div class="card_character">
-                                <p class="card-species">Species: {{post.species}}</p>
-                                <p class="card-skin">Skin colour: {{post.skinColor}}</p>
-                                <p class="card-eye">Eye Colour: {{post.eyeColor}}</p>
-                            </div>
+          <h1>Name: {{post.name}}</h1>
+          <h3>Created by an author:
+            {{postAuthor.firstName}}
+            {{postAuthor.lastName}}</h3>
+          <div class="card_character">
+            <p class="card-species">Species: {{post.species}}</p>
+            <p class="card-skin">Skin colour: {{post.skinColor}}</p>
+            <p class="card-eye">Eye Colour: {{post.eyeColor}}</p>
+          </div>
 
-                            <p class="disc">Description: {{post.description}}</p>
+          <p class="disc">Description: {{post.description}}</p>
 
-                            <!-- If there is no registered user, do not display buttons-->
-                            {{#if user}}
-                            <div class="social-btn">
-                                <!-- Only for registered user and author of the post -->
-                                {{#if isAuthor}}
-                                <a href="/posts/edit" class="edit-btn">Edit</a>
-                                <a href="/posts/delete" class="del-btn">Delete</a>
-                                {{/if}}
+          <!-- If there is no registered user, do not display buttons-->
+          {{#if user}}
+            <div class="social-btn">
+              <!-- Only for registered user -->
+              {{#if isAuthor}}
+                <a href="/posts/edit" class="edit-btn">Edit</a>
+                <a href="/posts/delete" class="del-btn">Delete</a>
+              {{else}}
+                {{#if hasVoted}}
+                  <!-- logged in user who has already voted -->
+                  <p class="thanks-for-vote">Thanks For Voting</p>
+                {{else}}
+                  <!-- logged in users, who have not yet voted -->
+                  <a href="/posts/{{post._id}}/vote" class="vote-up">Vote</a>
+                {{/if}}
+              {{/if}}
+            </div>
+          {{/if}}
+        </div>
+      </div>
+      <div class="card_right">
+        <img src="{{post.image}}" alt="image" />
+      </div>
+    </div>
 
-                                {{#if hasVoted}}
-                                <!-- logged in user who has already voted-->
-                                <p class="thanks-for-vote">Thanks For Voting</p>
-                                {{else}}
-                                <!-- logged in users, who have not yet voted-->
-                                <a href="/posts/{{post._id}}/vote" class="vote-up">Vote</a>
-                                {{/if}}
-                            </div>
-                            {{/if}}
-                        </div>
-                    </div>
-                    <div class="card_right">
-                        <img src="{{post.image}}"
-                            alt="image">
-                    </div>
-                </div>
+  </section>
 
-            </section>
+  <section id="votes">
+    <div class="vote-info">
+      <div class="card_left">
+        <div class="card_datails">
+          <h1>Votes</h1>
+          <div class="card_vote">
+            <!-- Show the rating of votes, if there are no votes yet, the number must be 0. -->
+            <p class="PV">Total rating of votes: {{votesCount}}</p>
+          </div>
+          <!-- If there are already people who have cast their vote for the post, separate their emails with a comma and a space ", " -->
+            {{#if isVoted}}
+           <p class="disc">People who voted for the post - {{#each votedUsers}} {{this}}, {{/each}}</p>
 
-            <section id="votes">
-                <div class="vote-info">
-                    <div class="card_left">
-                        <div class="card_datails">
-                            <h1>Votes</h1>
-                            <div class="card_vote">
-                                <!-- Show the rating of votes, if there are no votes yet, the number must be 0. -->
-                                <p class="PV">Total rating of votes: 0</p>
-                            </div>
-                            <!-- If there are already people who have cast their vote for the post, separate their emails with a comma and a space ", " -->
-                            <!-- <p class="disc">People who voted for the post - alex@gmai.com, petar@gmail.com, petq@gmail.com</p>-->
+          <!-- If not display: -->
+          {{else}}
+          <p class="disc">People who voted for the post - No one has voted yet.</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </section>
 
-                            <!-- If not display: -->
-                            <p class="disc">People who voted for the post - No one has voted yet.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
+</main>

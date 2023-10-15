@@ -56,13 +56,26 @@ router.get('/:postId/details', async (req, res) => {
         const currentUserId = req.user?._id;
         const postId = req.params.postId;
         const post = await postService.getOne(postId).lean();
-        const postAuthor = await userService.getUserById(post.owner).lean()
+        const postAuthor = await userService.getUserById(post.owner).lean();
 
-        const isAuthor = currentUserId === post.owner;
-        const hasVoted = post.votes.some(x => x._id.toString(), currentUserId.toString());
-        console.log(hasVoted);
+        const isAuthor = currentUserId.toString() === post.owner.toString();
+        const hasVoted = post.votes.some(x => x._id.toString() === currentUserId.toString());
+        const votesCount = post.votes.length;
+        const isVoted = votesCount > 0;
+        const votedUsers = [];
 
-        res.render('post/details', { post, isAuthor, postAuthor, hasVoted });
+        if (isVoted) {
+            const votedUsersIds = post.votes.map(x => x._id)
+
+            for (const id of votedUsersIds) {
+                const user = await userService.getUserById(id).lean()
+                votedUsers.push(user);
+                console.log(user);
+            }
+        }
+
+
+        res.render('post/details', { post, isAuthor, postAuthor, hasVoted, votesCount, isVoted, votedUsers });
 
     } catch (error) {
 
