@@ -1,14 +1,15 @@
 const router = require('express').Router();
 const postService = require('../services/postService');
 const userService = require('../services/userService');
-const { extractErrorMsgs } = require('../utils/errorHandler')
+const { extractErrorMsgs } = require('../utils/errorHandler');
+const { isAuth } = require('../middlewares/authMiddleare')
 
 
-router.get('/create', (req, res) => {
+router.get('/create', isAuth, (req, res) => {
     res.render('post/create')
 });
 
-router.post('/create', async (req, res) => {
+router.post('/create', isAuth, async (req, res) => {
     const creatureData = {
         name,
         species,
@@ -60,7 +61,7 @@ router.get('/:postId/details', async (req, res) => {
 
 
         const isAuthor = currentUserId?.toString() === post.owner.toString();
-        const hasVoted = post.votes.some(x => x.user.toString() === currentUserId?.toString());
+        const hasVoted = post.votes.some(x => x.user?.toString() === currentUserId?.toString());
 
 
         const votesCount = post.votes.length;
@@ -83,7 +84,7 @@ router.get('/:postId/details', async (req, res) => {
 
 });
 
-router.get('/:postId/vote', async (req, res) => {
+router.get('/:postId/vote', isAuth, async (req, res) => {
 
 
     try {
@@ -99,7 +100,7 @@ router.get('/:postId/vote', async (req, res) => {
     }
 })
 
-router.get('/:postId/delete', async (req, res) => {
+router.get('/:postId/delete', isAuth, async (req, res) => {
 
     try {
         const postId = req.params.postId
@@ -114,7 +115,7 @@ router.get('/:postId/delete', async (req, res) => {
 
 })
 
-router.get('/:postId/edit', async (req, res) => {
+router.get('/:postId/edit', isAuth, async (req, res) => {
 
     try {
         const postId = req.params.postId
@@ -130,7 +131,7 @@ router.get('/:postId/edit', async (req, res) => {
     }
 });
 
-router.post('/:postId/edit', async (req, res) => {
+router.post('/:postId/edit', isAuth, async (req, res) => {
     const postId = req.params.postId;
     const editedPost = req.body
 
@@ -143,10 +144,6 @@ router.post('/:postId/edit', async (req, res) => {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render(`post/edit`, { errorMessages, post: editedPost });
     }
-});
-
-router.get('/details', (req, res) => {
-    res.render('post/details')
 });
 
 module.exports = router;
