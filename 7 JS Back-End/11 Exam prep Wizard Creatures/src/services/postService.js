@@ -13,3 +13,5 @@ exports.vote = (postId, userId) => Creature.findByIdAndUpdate(
     { new: true }
 );
 
+exports.deleteCreature = (postId) => Creature.findByIdAndDelete(postId);
+

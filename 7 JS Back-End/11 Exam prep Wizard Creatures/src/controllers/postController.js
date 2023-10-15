@@ -97,6 +97,20 @@ router.get('/:postId/vote', async (req, res) => {
     }
 })
 
+router.get('/:postId/delete', async (req, res) => {
+
+    try {
+        const postId = req.params.postId
+        await postService.deleteCreature(postId);
+
+        res.redirect('/posts/all-posts')
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).redirect(`/posts/${postId}/details`, { errorMessages });
+    }
+
+})
+
 router.get('/edit', (req, res) => {
     res.render('post/edit')
 });
