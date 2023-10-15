@@ -29,4 +29,3 @@ exports.login = async (email, password) => {
 
 exports.getUserById = (userId) => User.findById(userId);
 
-exports.getVotedUsers = (votedUsersId) => User.find({ _id: { $in: votedUsersId } });
