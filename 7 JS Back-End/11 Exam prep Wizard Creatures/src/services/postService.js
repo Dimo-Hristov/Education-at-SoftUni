@@ -15,3 +15,5 @@ exports.vote = (postId, userId) => Creature.findByIdAndUpdate(
 
 exports.deleteCreature = (postId) => Creature.findByIdAndDelete(postId);
 
+exports.updateCreature = (creatureId, updatedData) => Creature.findByIdAndUpdate(creatureId, updatedData, { runValidators: true });
+

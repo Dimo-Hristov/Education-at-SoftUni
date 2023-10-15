@@ -103,6 +103,7 @@ router.get('/:postId/delete', async (req, res) => {
         await postService.deleteCreature(postId);
 
         res.redirect('/posts/all-posts')
+
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).redirect(`/posts/${postId}/details`, { errorMessages });
@@ -110,8 +111,35 @@ router.get('/:postId/delete', async (req, res) => {
 
 })
 
-router.get('/edit', (req, res) => {
-    res.render('post/edit')
+router.get('/:postId/edit', async (req, res) => {
+
+    try {
+        const postId = req.params.postId
+        const post = await postService.getOne(postId).lean();
+
+        res.render('post/edit', { post });
+
+    } catch (error) {
+
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render(`post/edit`, { errorMessages });
+
+    }
+});
+
+router.post('/:postId/edit', async (req, res) => {
+    const postId = req.params.postId;
+    const editedPost = req.body
+
+    try {
+
+        await postService.updateCreature(postId, editedPost);
+        res.redirect(`/posts/${postId}/details`)
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render(`post/edit`, { errorMessages, post: editedPost });
+    }
 });
 
 router.get('/details', (req, res) => {
