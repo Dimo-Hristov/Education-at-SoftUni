@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const postService = require('../services/postService');
+const userService = require('../services/userService');
 const { extractErrorMsgs } = require('../utils/errorHandler')
 
 
@@ -54,8 +55,11 @@ router.get('/:postId/details', async (req, res) => {
     try {
         const postId = req.params.postId;
         const post = await postService.getOne(postId).lean();
+        const postAuthor = await userService.getUserById(post.owner).lean()
 
-        res.render('post/details', { post });
+        const isAuthor = req.user?.id === post.owner;
+
+        res.render('post/details', { post, isAuthor, postAuthor });
 
     } catch (error) {
 

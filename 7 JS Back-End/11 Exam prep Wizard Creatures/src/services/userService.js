@@ -20,9 +20,11 @@ exports.login = async (email, password) => {
         throw new Error('Invalid email or password!');
     }
 
-    const payload = { _id: user._id, email: user.email, firstName: user.firstName, lastName: user.lastName }
+    const payload = { _id: user._id, email: user.email, }
 
     const token = await jwt.sign(payload, SECRET, { expiresIn: '2d' });
 
     return token;
 };
+
+exports.getUserById = (userId) => User.findById(userId);
