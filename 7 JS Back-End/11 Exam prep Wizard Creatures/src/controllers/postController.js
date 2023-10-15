@@ -34,9 +34,14 @@ router.post('/create', async (req, res) => {
 router.get('/all-posts', async (req, res) => {
 
     try {
+
         const allPosts = await postService.getAllPosts().lean();
-        res.render('post/all-posts', { allPosts })
+        const isEmpty = allPosts.length === 0
+
+        res.render('post/all-posts', { allPosts, isEmpty });
+
     } catch (error) {
+
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('post/all-posts', { errorMessages });
     }
