@@ -45,9 +45,12 @@ router.post('/register', async (req, res) => {
                 email,
                 password,
                 rePassword,
-            })
+            });
 
-        res.redirect('/users/login');
+        const token = await userService.login(email, password);
+        res.cookie('token', token, { httpOnly: true });
+
+        res.redirect('/');
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
