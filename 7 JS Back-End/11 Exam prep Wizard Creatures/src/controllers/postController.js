@@ -48,6 +48,24 @@ router.get('/all-posts', async (req, res) => {
 
 });
 
+router.get('/:postId/details', async (req, res) => {
+
+
+    try {
+        const postId = req.params.postId;
+        const post = await postService.getOne(postId).lean();
+
+        res.render('post/details', { post });
+
+    } catch (error) {
+
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('post/all-posts', { errorMessages });
+    }
+
+
+});
+
 router.get('/edit', (req, res) => {
     res.render('post/edit')
 });

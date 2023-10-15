@@ -6,15 +6,15 @@
                     <div class="card_left">
                         <div class="card_datails">
 
-                            <h1>Name: Thestral</h1>
-                            <h3>Created by an author: Alex Smith</h3>
+                            <h1>Name: {{post.name}}</h1>
+                            <h3>Created by an author:{{user.firstName}} {{user.lastName}}</h3>
                             <div class="card_character">
-                                <p class="card-species">Species: Beast</p>
-                                <p class="card-skin">Skin colour: Black</p>
-                                <p class="card-eye">Eye Colour: White</p>
+                                <p class="card-species">Species: {{post.species}}</p>
+                                <p class="card-skin">Skin colour: {{post.skinColor}}</p>
+                                <p class="card-eye">Eye Colour: {{post.eyeColor}}</p>
                             </div>
 
-                            <p class="disc">Description: Thestrals are an elusive, carnivorous species of winged horse, visible only to those who have witnessed and embraced a death, and described as having "blank, white, shining eyes," a "dragonish face," "long, black manes," "great leathery wings," and the "skeletal body of a great, black, winged horse"; also described by Hagrid as "dead clever an' useful", and also by Harry as "reptilian".</p>
+                            <p class="disc">Description: {{post.Description}}</p>
 
                             <!-- If there is no registered user, do not display buttons-->
                             <div class="social-btn">
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="card_right">
-                        <img src="./static/img/Thestral.jpeg"
+                        <img src="{{post.image}}"
                             alt="image">
                     </div>
                 </div>
