@@ -24,12 +24,14 @@
                                 <a href="/posts/edit" class="edit-btn">Edit</a>
                                 <a href="/posts/delete" class="del-btn">Delete</a>
                                 {{/if}}
-                                <!-- logged in users, who have not yet voted-->
-                                <a href="/posts.vote" class="vote-up">Vote</a>
 
+                                {{#if hasVoted}}
                                 <!-- logged in user who has already voted-->
                                 <p class="thanks-for-vote">Thanks For Voting</p>
-
+                                {{else}}
+                                <!-- logged in users, who have not yet voted-->
+                                <a href="/posts/" class="vote-up">Vote</a>
+                                {{/if}}
                             </div>
                             {{/if}}
                         </div>

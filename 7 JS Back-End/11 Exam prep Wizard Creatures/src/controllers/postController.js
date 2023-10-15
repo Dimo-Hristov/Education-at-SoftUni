@@ -53,13 +53,15 @@ router.get('/:postId/details', async (req, res) => {
 
 
     try {
+        const currentUserId = req.user?.id;
         const postId = req.params.postId;
         const post = await postService.getOne(postId).lean();
         const postAuthor = await userService.getUserById(post.owner).lean()
 
-        const isAuthor = req.user?.id === post.owner;
+        const isAuthor = currentUserId === post.owner;
+        const hasVoted = post.votes.includes(currentUserId)
 
-        res.render('post/details', { post, isAuthor, postAuthor });
+        res.render('post/details', { post, isAuthor, postAuthor, hasVoted });
 
     } catch (error) {
 
