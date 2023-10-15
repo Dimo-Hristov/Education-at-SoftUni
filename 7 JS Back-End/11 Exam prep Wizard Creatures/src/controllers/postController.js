@@ -31,8 +31,16 @@ router.post('/create', async (req, res) => {
 
 })
 
-router.get('/all-posts', (req, res) => {
-    res.render('post/all-posts')
+router.get('/all-posts', async (req, res) => {
+
+    try {
+        const allPosts = await postService.getAllPosts().lean();
+        res.render('post/all-posts', { allPosts })
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('post/all-posts', { errorMessages });
+    }
+
 });
 
 router.get('/edit', (req, res) => {
