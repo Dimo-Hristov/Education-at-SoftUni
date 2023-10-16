@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const userService = require('../services/userService');
+const postService = require('../services/postService');
 const { extractErrorMsgs } = require('../utils/errorHandler');
 const { isAuth } = require('../middlewares/authMiddleare');
 
@@ -51,9 +52,35 @@ router.post('/register', async (req, res) => {
         res.status(404).render('user/register', { errorMessages });
 
     }
-
-
 });
+
+router.get('/profile', async (req, res) => {
+
+
+    try {
+        const userId = req.user?._id
+        let myPosts = await postService.findMyPosts(userId)
+        const isEmpty = myPosts.length < 0
+
+        myPosts = myPosts.map(post => {
+            const plainPost = post.toObject();
+            return {
+                ...plainPost,
+                votesCount: plainPost.votes.length,
+            };
+        });
+
+        console.log(myPosts);
+
+
+        res.render('user/profile', { myPosts, isEmpty });
+
+    } catch (error) {
+
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('user/profile', { errorMessages });
+    }
+})
 
 router.get('/logout', isAuth, (req, res) => {
     res.clearCookie('token');

@@ -17,3 +17,5 @@ exports.deleteCreature = (postId) => Creature.findByIdAndDelete(postId);
 
 exports.updateCreature = (creatureId, updatedData) => Creature.findByIdAndUpdate(creatureId, updatedData, { runValidators: true });
 
+exports.findMyPosts = (userId) => Creature.find({ owner: userId }).exec();
+
