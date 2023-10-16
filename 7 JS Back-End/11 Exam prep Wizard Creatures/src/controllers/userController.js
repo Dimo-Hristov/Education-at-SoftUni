@@ -60,7 +60,8 @@ router.get('/profile', isAuth, async (req, res) => {
     try {
         const userId = req.user?._id
         let myPosts = await postService.findMyPosts(userId)
-        const isEmpty = myPosts.length < 0
+        const isEmpty = myPosts.length < 1
+
 
         myPosts = myPosts.map(post => {
             const plainPost = post.toObject();
