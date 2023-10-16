@@ -30,23 +30,10 @@ router.get('/register', (req, res) => {
 
 
 router.post('/register', async (req, res) => {
-    const {
-        firstName,
-        lastName,
-        email,
-        password,
-        rePassword,
-    } = req.body;
+    const userData = req.body;
 
     try {
-        await userService.register(
-            {
-                firstName,
-                lastName,
-                email,
-                password,
-                rePassword,
-            });
+        await userService.register(userData);
 
         const token = await userService.login(email, password);
         res.cookie('token', token, { httpOnly: true });

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
+
     username: {
         type: String,
         required: [true, 'Username is required'],
@@ -9,8 +10,8 @@ const userSchema = new mongoose.Schema({
         maxLength: 20,
         match: [/^[A-Za-z-0-9]+$/, 'Username should be alpha numberic'],
         unique: true,
-
     },
+
     password: {
         type: String,
         validate: {
