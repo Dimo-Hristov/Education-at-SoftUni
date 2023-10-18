@@ -77,6 +77,21 @@ router.get('/:animalId/delete', async (req, res) => {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('animal/details', { errorMessages });
     }
+});
+
+router.get('/:animalId/edit', async (req, res) => {
+    const animalId = req.params.animalId;
+
+
+    try {
+        const animal = await animalService.getOne(animalId).lean();
+
+        res.render('animal/edit', { animal });
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('animal/details', { errorMessages });
+    }
 })
 
 
