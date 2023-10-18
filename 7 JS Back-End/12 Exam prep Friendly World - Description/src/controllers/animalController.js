@@ -28,6 +28,22 @@ router.post('/create', async (req, res) => {
         res.status(404).render('animal/create', { errorMessages, animalData });
 
     }
+});
+
+router.get('/:animalId/details', async (req, res) => {
+
+    const animalId = req.params.animalId;
+
+    try {
+        const animal = await animalService.getOne(animalId).lean()
+        console.log(animal);
+
+        res.render('animal/details', { animal });
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('dashboard', { errorMessages });
+    }
 })
 
 
