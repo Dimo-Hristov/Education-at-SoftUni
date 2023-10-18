@@ -80,17 +80,30 @@ router.get('/:animalId/delete', async (req, res) => {
 });
 
 router.get('/:animalId/edit', async (req, res) => {
-    const animalId = req.params.animalId;
-
 
     try {
-        const animal = await animalService.getOne(animalId).lean();
+        const animal = await animalService.getOne(req.params.animalId).lean();
 
         res.render('animal/edit', { animal });
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('animal/details', { errorMessages });
+    }
+});
+
+router.post('/:animalId/edit', async (req, res) => {
+    const editedData = req.body;
+    const animalId = req.params.animalId;
+
+    try {
+        await animalService.updateOne(animalId, editedData);
+
+        res.redirect(`/animals/${animalId}/details`)
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('animal/edit', { errorMessages, animal: editedData });
     }
 })
 

@@ -11,4 +11,6 @@ exports.donate = (animalId, userId) => Animal.findByIdAndUpdate(
     { $push: { 'donations': { user: userId } } }
 );
 
-exports.deleteOne = (animalId) => Animal.findByIdAndDelete(animalId)
+exports.deleteOne = (animalId) => Animal.findByIdAndDelete(animalId);
+
+exports.updateOne = (animalId, updatedData) => Animal.findByIdAndUpdate(animalId, updatedData, { runValidators: true })
