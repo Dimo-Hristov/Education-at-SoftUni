@@ -6,8 +6,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Email is requried'],
         unique: true,
+        minLength: [10, 'Email should be at least 10 characters long']
     },
-    password: { type: String, required: [true, 'Password is requried'] },
+    password:
+    {
+        type: String,
+        required: [true, 'Password is requried'],
+        minLength: [10, 'Password should be at least r4 characters long']
+    },
+
 });
 
 userSchema.virtual('rePassword').set(function (value) {
