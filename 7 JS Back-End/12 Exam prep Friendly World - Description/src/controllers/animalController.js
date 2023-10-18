@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { extractErrorMsgs } = require('../utils/errorHandler');
 const animalService = require('../services/animalService');
+const { isGuest, isAuth } = require('../middlewares/authMiddleare');
 
-router.get('/create', (req, res) => {
+router.get('/create', isAuth, (req, res) => {
 
     try {
         res.render('animal/create');
@@ -12,7 +13,7 @@ router.get('/create', (req, res) => {
     }
 });
 
-router.post('/create', async (req, res) => {
+router.post('/create', isAuth, async (req, res) => {
     const owner = req.user._id
     const animalData = { ...req.body, owner }
 
@@ -50,7 +51,7 @@ router.get('/:animalId/details', async (req, res) => {
     }
 });
 
-router.get('/:animalId/donate', async (req, res) => {
+router.get('/:animalId/donate', isAuth, async (req, res) => {
     const animalId = req.params.animalId;
     const userId = req.user?._id
 
@@ -67,12 +68,22 @@ router.get('/:animalId/donate', async (req, res) => {
 });
 
 router.get('/:animalId/delete', async (req, res) => {
-    const animalId = req.params.animalId;
-
     try {
-        await animalService.deleteOne(animalId);
+        const animalId = req.params.animalId;
+        const userId = req.user?._id;
 
-        res.redirect('/dashboard');
+        const animal = await animalService.getOne(animalId).lean();
+        const isOwner = animal.owner.toString() === userId;
+
+
+        if (isOwner) {
+            await animalService.deleteOne(animalId);
+
+            res.redirect('/dashboard');
+        } else {
+            throw new Error('You dont have permisions to delete this page')
+        }
+
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('dashboard', { errorMessages });
@@ -80,11 +91,20 @@ router.get('/:animalId/delete', async (req, res) => {
 });
 
 router.get('/:animalId/edit', async (req, res) => {
-
     try {
-        const animal = await animalService.getOne(req.params.animalId).lean();
+        const animalId = req.params.animalId;
+        const userId = req.user?._id;
 
-        res.render('animal/edit', { animal });
+        const animal = await animalService.getOne(animalId).lean();
+        const isOwner = animal.owner.toString() === userId;
+
+        if (isOwner) {
+            res.render('animal/edit', { animal });
+        } else {
+            throw new Error('You dont have permisions to edit this page')
+        }
+
+
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
@@ -93,13 +113,24 @@ router.get('/:animalId/edit', async (req, res) => {
 });
 
 router.post('/:animalId/edit', async (req, res) => {
-    const editedData = req.body;
-    const animalId = req.params.animalId;
-
     try {
-        await animalService.updateOne(animalId, editedData);
 
-        res.redirect(`/animals/${animalId}/details`)
+        const animalId = req.params.animalId;
+        const userId = req.user?._id;
+
+        const animal = await animalService.getOne(animalId).lean();
+        const isOwner = animal.owner.toString() === userId;
+
+        const editedData = req.body;
+
+        if (isOwner) {
+            await animalService.updateOne(animalId, editedData);
+            res.redirect(`/animals/${animalId}/details`)
+        } else {
+            throw new Error('You dont have permisions to update this page')
+        }
+
+
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
