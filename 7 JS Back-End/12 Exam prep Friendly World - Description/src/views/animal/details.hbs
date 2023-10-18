@@ -30,14 +30,18 @@
                         <p>Description: <span id="details-description">{{animal.description}}</span></p>
                     </div>
 
-                    {{#if isAuthenticated}}
                     <div id="action-buttons">
+                    {{#if isAuthenticated}}
+                        {{#if isOwner}}
                         <a href="/animals/{{animal._id}}/edit" id="edit-btn">Edit</a>
                         <a href="/animals/{{animal._id}}/delete" id="delete-btn">Delete</a>
+                        {{else}}
+                        
                         <a href="/animals/{{animal._id}}/donate" id="donation-btn">Donation</a>
                         <p id="already-donated">You already donated!</p>
-                    </div>
+                        {{/if}}
                     {{/if}}
+                    </div>
                 </div>
             </section>
         </main>
