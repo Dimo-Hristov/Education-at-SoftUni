@@ -39,10 +39,11 @@ router.get('/:animalId/details', async (req, res) => {
 
         const animal = await animalService.getOne(animalId).lean();
         const isOwner = animal.owner.toString() === userId;
-        const hasVoted = animal.donations.some(x => x.toString === userId)
-        console.log(hasVoted);
+        console.log(animal);
+        const hasVoted = animal.donations.some(x => x.user.toString() === userId)
 
-        res.render('animal/details', { animal, isOwner });
+
+        res.render('animal/details', { animal, isOwner, hasVoted });
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
