@@ -8,5 +8,5 @@ exports.getOne = (animalId) => Animal.findById(animalId);
 
 exports.donate = (animalId, userId) => Animal.findByIdAndUpdate(
     animalId,
-    { $push: { 'donations': { votedUser: userId } } }
+    { $push: { 'donations': { user: userId } } }
 );
