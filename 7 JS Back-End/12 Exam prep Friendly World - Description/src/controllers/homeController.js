@@ -42,7 +42,24 @@ router.get('/search', (req, res) => {
     try {
         res.render('search')
     } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('/', { errorMessages });
+    }
+});
 
+router.post('/search', async (req, res) => {
+
+    try {
+        const searchLocation = req.body['searchData'];
+
+        const matchingAnimals = await animalService.searchForLocation(searchLocation).lean();
+        const isEmpty = matchingAnimals.length < 1
+
+
+        res.render('search', { matchingAnimals, isEmpty });
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('search', { errorMessages });
     }
 });
 

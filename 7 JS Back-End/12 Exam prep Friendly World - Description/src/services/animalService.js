@@ -14,3 +14,5 @@ exports.donate = (animalId, userId) => Animal.findByIdAndUpdate(
 exports.deleteOne = (animalId) => Animal.findByIdAndDelete(animalId);
 
 exports.updateOne = (animalId, updatedData) => Animal.findByIdAndUpdate(animalId, updatedData, { runValidators: true });
+
+exports.searchForLocation = (searchedLocation) => Animal.find({ location: { $regex: new RegExp(searchedLocation, 'i') } });
