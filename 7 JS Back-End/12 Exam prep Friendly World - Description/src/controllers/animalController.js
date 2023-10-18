@@ -46,7 +46,7 @@ router.get('/:animalId/details', async (req, res) => {
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('animal/details', { errorMessages });
+        res.status(404).render('/dashbaord', { errorMessages });
     }
 });
 
@@ -61,7 +61,7 @@ router.get('/:animalId/donate', async (req, res) => {
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('animal/details', { errorMessages });
+        res.status(404).render('/dashbaord', { errorMessages });
     }
 
 });
@@ -75,7 +75,7 @@ router.get('/:animalId/delete', async (req, res) => {
         res.redirect('/dashboard');
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('animal/details', { errorMessages });
+        res.status(404).render('dashboard', { errorMessages });
     }
 });
 
@@ -88,7 +88,7 @@ router.get('/:animalId/edit', async (req, res) => {
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('animal/details', { errorMessages });
+        res.status(404).render('animal/edit', { errorMessages });
     }
 });
 
