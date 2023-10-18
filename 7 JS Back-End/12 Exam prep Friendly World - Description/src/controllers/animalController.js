@@ -39,7 +39,6 @@ router.get('/:animalId/details', async (req, res) => {
 
         const animal = await animalService.getOne(animalId).lean();
         const isOwner = animal.owner.toString() === userId;
-        console.log(animal);
         const hasVoted = animal.donations.some(x => x.user.toString() === userId)
 
 
@@ -65,6 +64,19 @@ router.get('/:animalId/donate', async (req, res) => {
         res.status(404).render('animal/details', { errorMessages });
     }
 
+});
+
+router.get('/:animalId/delete', async (req, res) => {
+    const animalId = req.params.animalId;
+
+    try {
+        await animalService.deleteOne(animalId);
+
+        res.redirect('/dashboard');
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('animal/details', { errorMessages });
+    }
 })
 
 
