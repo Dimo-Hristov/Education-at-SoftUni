@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="wrapper">
+
         <header>
             <!-- Navigation -->
             <nav>
@@ -34,6 +34,13 @@
                 {{/if}}
             </nav>
         </header>
+        
+         <div id="wrapper">
+        <div class="error-container">
+            {{#each errorMessages}} 
+                <p> {{this}}</p>
+            {{/each}}
+        </div>
 
            {{{body}}}
 
