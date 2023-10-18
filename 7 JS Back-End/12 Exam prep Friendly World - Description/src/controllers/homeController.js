@@ -35,10 +35,21 @@ router.get('/dashboard', async (req, res) => {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('dashboard', { errorMessages });
     }
-})
+});
+
+router.get('/search', (req, res) => {
+
+    try {
+        res.render('search')
+    } catch (error) {
+
+    }
+});
+
 
 router.get('/404', (req, res) => {
     res.render('404');
-})
+});
+
 
 module.exports = router;
