@@ -2,8 +2,25 @@ const router = require('express').Router();
 const animalService = require('../services/animalService');
 const { extractErrorMsgs } = require('../utils/errorHandler');
 
-router.get('/', (req, res) => {
-    res.render('home');
+router.get('/', async (req, res) => {
+
+    try {
+
+        const animalsList =
+            await animalService.getAll().lean();
+
+        const lastThreeAnimals = animalsList.reverse().slice(0, 3)
+
+
+        const isEmpty = lastThreeAnimals.length < 1
+
+        res.render('home', { lastThreeAnimals, isEmpty });
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('home', { errorMessages });
+    }
+
 });
 
 router.get('/dashboard', async (req, res) => {
