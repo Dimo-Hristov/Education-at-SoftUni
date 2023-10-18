@@ -10,7 +10,6 @@ exports.getOne = (postId) => Creature.findById(postId);
 exports.vote = (postId, userId) => Creature.findByIdAndUpdate(
     postId,
     { $push: { 'votes': { user: userId } } },
-    { new: true }
 );
 
 exports.deleteCreature = (postId) => Creature.findByIdAndDelete(postId);
