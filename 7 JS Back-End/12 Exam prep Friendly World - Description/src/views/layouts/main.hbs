@@ -3,53 +3,43 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
-
-    <link href="/css/style.css" type="text/css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title>Dashboard Page</title>
 </head>
 
 <body>
+    <div id="wrapper">
+        <header>
+            <!-- Navigation -->
+            <nav>
+                <div>
+                    <a href="#">Home</a>
+                    <a href="#">Dashboard</a>
+                    <a href="#">Search</a>
+                </div>
 
+                <!-- Logged-in users -->
+                <div class="user">
+                    <a href="#">Add Animal</a>
+                    <a href="#">Logout</a>
+                </div>
 
-    <div id="box">
-
-
-        <div class="error-container">
-            {{#each errorMessages}} 
-                <p> {{this}}</p>
-            {{/each}}
-        </div>
-
-
-
-
-        <nav>
-            <img src="/img/logo.png" alt="logo">
-
-            <ul class="menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="#">All Posts</a></li>
-                {{#if isAuthenticated}}
-                <!-- Logged users -->
-                <li><a href="#">Create Post</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="/users/logout">Logout</a></li>
-                {{else}}
                 <!-- Guest users -->
-                <li><a href="/users/register">Register</a></li>
-                <li><a href="/users/login">Login</a></li>
-                {{/if}}
-            </ul>
-
-        </nav>
+                <div class="guest">
+                    <a href="#">Login</a>
+                    <a href="#">Register</a>
+                </div>
+            </nav>
+        </header>
 
            {{{body}}}
 
-        <footer>
-            © JS Back-End Exam 2023
+                <footer>
+            <p>@Friendly World</p>
         </footer>
     </div>
-
 </body>
 
 </html>
