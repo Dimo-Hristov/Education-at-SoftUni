@@ -45,7 +45,7 @@ router.post('/register', async (req, res) => {
                 rePassword,
             })
 
-        res.redirect('/users/login');
+        res.redirect('/');
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
