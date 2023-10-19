@@ -21,12 +21,15 @@ const cryptoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    customers: {
+    customers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    },
+    }],
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
 });
+
+const Crypto = mongoose.model('Crypto', cryptoSchema);
+module.exports = Crypto;
