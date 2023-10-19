@@ -16,11 +16,13 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/crypto/crypto-list">All Crypto</a></li>
+                {{#if isAuthenticated}}
                 <li><a href="/search">Search</a></li>
                 <li><a href="/crypto/create">Create Offer</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+                {{/if}}
                 <li><a href="/users/login">Login</a></li>
                 <li><a href="/users/register">Register</a></li>
-                <li><a href="/users/logout">Logout</a></li>
             </ul>
         </nav>
     </header>
