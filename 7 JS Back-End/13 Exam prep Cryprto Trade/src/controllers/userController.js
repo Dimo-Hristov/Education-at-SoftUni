@@ -30,8 +30,7 @@ router.get('/register', (req, res) => {
 
 router.post('/register', async (req, res) => {
     const {
-        firstName,
-        lastName,
+        username,
         email,
         password,
         rePassword,
@@ -40,8 +39,7 @@ router.post('/register', async (req, res) => {
     try {
         await userService.register(
             {
-                firstName,
-                lastName,
+                username,
                 email,
                 password,
                 rePassword,
