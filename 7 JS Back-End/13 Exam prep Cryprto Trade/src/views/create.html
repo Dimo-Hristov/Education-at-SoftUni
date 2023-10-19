@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Page - Gaming Team</title>
+    <title>Create Page</title>
     <link rel="stylesheet" href="./static/css/styles.css" />
 </head>
 
@@ -13,12 +13,11 @@
 
     <header class="header">
         <nav>
-            <img src="./static/images/logo.jpg" class="logo">
+            <img src="./static/images/logo.png" class="logo">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">All Games Code</a></li>
+                <li><a href="#">All Crypto</a></li>
                 <li><a href="#">Search</a></li>
-                <li><a href="#">Create Game Offer</a></li>
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Register</a></li>
                 <li><a href="#">Logout</a></li>
@@ -26,7 +25,7 @@
         </nav>
     </header>
 
-    <main id="create">
+    <main>
         <!-- In case of error, you should display div with class "errorContainer" -->
         <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
 
@@ -37,37 +36,32 @@
         </div> -->
         <section id="create-container">
             <div class="create-container-info">
-                <h1>Create Game Code Offer</h1>
-                <h4>Post your code to sell</h4>
+                <h1>Create Announcement</h1>
+                <h4>Post your coins to sell</h4>
                 <form action="#" method="">
-                    <label>Platform:</label>
-                    <select id="platform" name="">
-                        <option value="">-------</option>
-                        <option value="PC">PC</option>
-                        <option value="Nintendo">Nintendo</option>
-                        <option value="PS4">PS4</option>
-                        <option value="PS5">PS5</option>
-                        <option value="XBOX">XBOX</option>
-                    </select>
                     <label>Name:</label>
-                    <input type="text" id="name" name="">
+                    <input type="text" id="name" name="" placeholder="Bitcoin">
                     <label>Image:</label>
                     <input type="text" id="image" name="" placeholder="http://...">
                     <label>Price:</label>
-                    <input type="number" id="price" name="">
-                    <label>Genre:</label>
-                    <input type="text" id="genre" name="">
+                    <input type="number" id="price" name="" placeholder="31,166.71">
                     <label>Description:</label>
-                    <textarea id="description" name=""></textarea>
-
-                    <input type="submit" id="btn" value="CREATE"></input>
+                    <textarea id="description" name="" placeholder="Introduce your coins..."></textarea>
+                    <label>Payment method:</label>
+                    <select id="payment" name="">
+                        <option value="crypto-wallet">Crypto Wallet</option>
+                        <option value="credit-card">Credit Card</option>
+                        <option value="debit-card">Debit Card</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+                    <input type="submit" id="btn" value="TRADE"></input>
                 </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Back-End 2023</p>
+        <p>Back-End 2022</p>
     </footer>
 
 </body>

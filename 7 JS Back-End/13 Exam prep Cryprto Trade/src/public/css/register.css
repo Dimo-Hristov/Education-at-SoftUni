@@ -1,21 +1,11 @@
-#register {
-    width: 100%;
-    height: 100vh;
-    background-image: url(../images/background-2.jpg);
-    background-position: center;
-    background-size: cover;
-    padding-top: 50px;
-  }
-
 .register-box {
     color: white;
     width: 360px;
     height: 500px;
     margin: auto;
-    background-color: #096BAB;
-    border: 2px solid #2E87CB;
+    background-color: rgba(70, 20, 158, 0.304);
+    border: 2px solid white;
     border-radius: 20px;
-    margin-top: 2%;
 }
 
 .register-box h1 {
@@ -48,7 +38,6 @@
     border: 1px solid gray;
     border-radius: 8px;
     outline: none;
-    color: black;
 }
 
 .register-box input[type="submit"] {
@@ -56,7 +45,7 @@
     height: 35px;
     margin-top: 30px;
     border: none;
-    background-color: #050912;
+    background-color: #49c1a2;
     color: white;
     font-size: 15px;
 }
@@ -69,5 +58,5 @@
 }
 
 .register-box p>a {
-    color: #050912;
+    color: #49c1a2;
 }
