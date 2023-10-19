@@ -3,52 +3,40 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
-
-    <link href="/css/style.css" type="text/css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Crypto Web</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-
-
-    <div id="box">
-
-
-        <div class="error-container">
-            {{#each errorMessages}} 
-                <p> {{this}}</p>
-            {{/each}}
-        </div>
-
-
-
-
+    <header class="header">
         <nav>
-            <img src="/img/logo.png" alt="logo">
-
-            <ul class="menu">
+            <img src="/images/logo.png" class="logo">
+            <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="#">All Posts</a></li>
-                {{#if isAuthenticated}}
-                <!-- Logged users -->
-                <li><a href="#">Create Post</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="/users/logout">Logout</a></li>
-                {{else}}
-                <!-- Guest users -->
-                <li><a href="/users/register">Register</a></li>
+                <li><a href="/crypto/crypto-list">All Crypto</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/crypto/create">Create Offer</a></li>
                 <li><a href="/users/login">Login</a></li>
-                {{/if}}
+                <li><a href="/users/register">Register</a></li>
+                <li><a href="/users/logout">Logout</a></li>
             </ul>
-
         </nav>
+    </header>
+
+            <div class="errorContainer">
+                {{#each errorMessages}} 
+                <p> {{this}}</p>
+                {{/each}}
+            </div>
 
            {{{body}}}
 
-        <footer>
-            © JS Back-End Exam 2023
-        </footer>
-    </div>
+
+    <footer>
+        <p>Back-End 2022</p>
+    </footer>
 
 </body>
 
