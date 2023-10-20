@@ -55,13 +55,16 @@ router.get('/catalog', async (req, res) => {
 });
 
 router.get('/:offerId/details', async (req, res) => {
-    const offerId = req.params.offerId;
 
     try {
+        const currentUserId = req.user?._id.toString()
+        const offerId = req.params.offerId;
         const post = await cryptoService.getOne(offerId).lean();
-        const isOwner = req.user?._id.toString() === post.owner.toString();
+        const isOwner = currentUserId === post.owner.toString();
+        const hasBought = post.customers.some(x => x.toString() === currentUserId);
 
-        res.render('crypto/details', { post, isOwner });
+
+        res.render('crypto/details', { post, isOwner, hasBought });
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
@@ -74,12 +77,10 @@ router.get('/:offerId/buy', async (req, res) => {
 
     try {
         const userId = req.user._id;
-
         const offerId = req.params.offerId;
 
         await cryptoService.buyCrypto(userId, offerId);
-
-
+        res.redirect(`/crypto/${offerId}/details`);
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);

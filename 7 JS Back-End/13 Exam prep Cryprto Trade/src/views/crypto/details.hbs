@@ -25,10 +25,13 @@
 
                             
                         {{else}}
-                            
-                            <a href="/crypto/{{post._id}}/buy" class="btn-buy">Buy</a>
-                            
-                            <p class="buy-message">You already bought these crypto coins.</p>
+
+                            {{#if hasBought}}
+                                <p class="buy-message">You already bought these crypto coins.</p>
+                            {{else}}
+                                <a href="/crypto/{{post._id}}/buy" class="btn-buy">Buy</a>
+                            {{/if}}
+                                
 
                         {{/if}}
 
