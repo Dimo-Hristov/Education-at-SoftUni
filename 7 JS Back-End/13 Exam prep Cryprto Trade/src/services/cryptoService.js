@@ -4,7 +4,9 @@ exports.createOffer = (offerData) => Crypto.create(offerData);
 
 exports.getAllOffers = () => Crypto.find();
 
-exports.getOne = (offerId) => Crypto.findById(offerId).populate();
+exports.getOnePopulated = (offerId) => Crypto.findById(offerId).populate();
+
+exports.getOne = (offerId) => Crypto.findById(offerId);
 
 exports.buyCrypto = (userId, postId) => Crypto.findByIdAndUpdate(postId, {
     $push: { customers: userId }

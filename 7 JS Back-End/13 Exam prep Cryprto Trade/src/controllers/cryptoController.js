@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const cryptoService = require('../services/cryptoService');
 const { extractErrorMsgs } = require('../utils/errorHandler');
+const { getViewOptionsValue } = require('../utils/viewHelpers')
 
 router.get('/create', (req, res) => {
     res.render('crypto/create')
@@ -59,7 +60,7 @@ router.get('/:offerId/details', async (req, res) => {
     try {
         const currentUserId = req.user?._id.toString()
         const offerId = req.params.offerId;
-        const post = await cryptoService.getOne(offerId).lean();
+        const post = await cryptoService.getOnePopulated(offerId).lean();
         const isOwner = currentUserId === post.owner.toString();
         const hasBought = post.customers.some(x => x.toString() === currentUserId);
 
@@ -95,6 +96,23 @@ router.get('/:offerId/delete', async (req, res) => {
 
         await cryptoService.deleteOffer(offerId);
         res.redirect('/crypto/catalog');
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('crypto/catalog', { errorMessages });
+    }
+});
+
+router.get('/:offerId/edit', async (req, res) => {
+
+    try {
+        const offerId = req.params.offerId
+
+        const offer = await cryptoService.getOne(offerId).lean();
+
+        const paymentOptions = getViewOptionsValue(offer.paymentMethod);
+        console.log(paymentOptions);
+        res.render('crypto/edit', { offer, paymentOptions });
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
