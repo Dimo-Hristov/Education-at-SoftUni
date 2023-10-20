@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const cryptoService = require('../services/cryptoService');
 const { extractErrorMsgs } = require('../utils/errorHandler');
-const { getViewOptionsValue } = require('../utils/viewHelpers')
+const { getViewOptionsValue } = require('../utils/viewHelpers');
+const { isGuest, isAuth } = require('../middlewares/authMiddleare');
 
-router.get('/create', (req, res) => {
+router.get('/create', isAuth, (req, res) => {
     res.render('crypto/create')
 });
 
-router.post('/create', async (req, res) => {
+router.post('/create', isAuth, async (req, res) => {
 
 
 
@@ -73,7 +74,7 @@ router.get('/:offerId/details', async (req, res) => {
     }
 });
 
-router.get('/:offerId/buy', async (req, res) => {
+router.get('/:offerId/buy', isAuth, async (req, res) => {
 
 
     try {
@@ -89,7 +90,7 @@ router.get('/:offerId/buy', async (req, res) => {
     }
 });
 
-router.get('/:offerId/delete', async (req, res) => {
+router.get('/:offerId/delete', isAuth, async (req, res) => {
 
     try {
         const offerId = req.params.offerId;
@@ -103,7 +104,7 @@ router.get('/:offerId/delete', async (req, res) => {
     }
 });
 
-router.get('/:offerId/edit', async (req, res) => {
+router.get('/:offerId/edit', isAuth, async (req, res) => {
 
     try {
         const offerId = req.params.offerId
@@ -119,7 +120,7 @@ router.get('/:offerId/edit', async (req, res) => {
     }
 });
 
-router.post('/:offerId/edit', async (req, res) => {
+router.post('/:offerId/edit', isAuth, async (req, res) => {
     const editedData = req.body;
 
     try {
