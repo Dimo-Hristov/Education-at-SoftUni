@@ -39,8 +39,10 @@ router.post('/create', async (req, res) => {
         res.status(404).render('crypto/create', { errorMessages, cryptoData });
 
     }
+});
 
-
+router.get('/catalog', (req, res) => {
+    res.render('crypto/catalog')
 })
 
 
