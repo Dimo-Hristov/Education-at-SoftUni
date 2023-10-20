@@ -2,15 +2,13 @@ const router = require('express').Router();
 const cryptoService = require('../services/cryptoService');
 const { extractErrorMsgs } = require('../utils/errorHandler');
 const { getViewOptionsValue } = require('../utils/viewHelpers');
-const { isGuest, isAuth } = require('../middlewares/authMiddleare');
+const { isAuth } = require('../middlewares/authMiddleare');
 
 router.get('/create', isAuth, (req, res) => {
     res.render('crypto/create')
 });
 
 router.post('/create', isAuth, async (req, res) => {
-
-
 
     try {
         const owner = req.user._id
@@ -92,48 +90,75 @@ router.get('/:offerId/buy', isAuth, async (req, res) => {
 
 router.get('/:offerId/delete', isAuth, async (req, res) => {
 
-    try {
-        const offerId = req.params.offerId;
+    const currentUserId = req.user?._id.toString()
+    const offerId = req.params.offerId;
+    const offer = await cryptoService.getOne(offerId).lean();
+    const isOwner = currentUserId === offer.owner.toString();
 
-        await cryptoService.deleteOffer(offerId);
-        res.redirect('/crypto/catalog');
+    if (isOwner) {
 
-    } catch (error) {
-        const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('crypto/catalog', { errorMessages });
+        try {
+
+            await cryptoService.deleteOffer(offerId);
+            res.redirect('/crypto/catalog');
+
+        } catch (error) {
+            const errorMessages = extractErrorMsgs(error);
+            res.status(404).render('crypto/catalog', { errorMessages });
+        }
     }
+
+    res.redirect('/404');
 });
+
 
 router.get('/:offerId/edit', isAuth, async (req, res) => {
 
-    try {
-        const offerId = req.params.offerId
-        const offer = await cryptoService.getOne(offerId).lean();
-        const paymentOptions = getViewOptionsValue(offer.paymentMethod);
+    const currentUserId = req.user?._id.toString()
+    const offerId = req.params.offerId;
+    const offer = await cryptoService.getOne(offerId).lean();
+    const isOwner = currentUserId === offer.owner.toString();
 
+    if (isOwner) {
 
-        res.render('crypto/edit', { offer, paymentOptions });
+        try {
 
-    } catch (error) {
-        const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('crypto/details', { errorMessages, offer });
+            const paymentOptions = getViewOptionsValue(offer.paymentMethod);
+            res.render('crypto/edit', { offer, paymentOptions });
+
+        } catch (error) {
+            const errorMessages = extractErrorMsgs(error);
+            res.status(404).render('crypto/details', { errorMessages, offer });
+        }
     }
+
+    res.redirect('404');
+
 });
 
 router.post('/:offerId/edit', isAuth, async (req, res) => {
-    const editedData = req.body;
 
-    try {
-        const offerId = req.params.offerId;
+    const currentUserId = req.user?._id.toString()
+    const offerId = req.params.offerId;
+    const offer = await cryptoService.getOne(offerId).lean();
+    const isOwner = currentUserId === offer.owner.toString();
 
-        await cryptoService.editOffer(offerId, editedData);
-        res.redirect(`/crypto/${offerId}/details`);
+    if (isOwner) {
 
-    } catch (error) {
-        const paymentOptions = getViewOptionsValue(editedData.paymentMethod);
-        const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('crypto/edit', { errorMessages, offer: editedData, paymentOptions });
+        const editedData = req.body;
+
+        try {
+
+            await cryptoService.editOffer(offerId, editedData);
+            res.redirect(`/crypto/${offerId}/details`);
+
+        } catch (error) {
+            const paymentOptions = getViewOptionsValue(editedData.paymentMethod);
+            const errorMessages = extractErrorMsgs(error);
+            res.status(404).render('crypto/edit', { errorMessages, offer: editedData, paymentOptions });
+        }
     }
+    res.redirect('/404');
 })
 
 
