@@ -41,9 +41,18 @@ router.post('/create', async (req, res) => {
     }
 });
 
-router.get('/catalog', (req, res) => {
-    res.render('crypto/catalog')
-})
+router.get('/catalog', async (req, res) => {
+    try {
+        const offers = await cryptoService.getAllOffers().lean();
+        const isEmpty = offers.length < 1;
+
+        res.render('crypto/catalog', { offers, isEmpty });
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('crypto/catalog', { errorMessages });
+    }
+});
 
 
 
