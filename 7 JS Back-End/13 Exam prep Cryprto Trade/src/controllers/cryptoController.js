@@ -107,16 +107,31 @@ router.get('/:offerId/edit', async (req, res) => {
 
     try {
         const offerId = req.params.offerId
-
         const offer = await cryptoService.getOne(offerId).lean();
-
         const paymentOptions = getViewOptionsValue(offer.paymentMethod);
-        console.log(paymentOptions);
+
+
         res.render('crypto/edit', { offer, paymentOptions });
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('crypto/catalog', { errorMessages });
+        res.status(404).render('crypto/details', { errorMessages, offer });
+    }
+});
+
+router.post('/:offerId/edit', async (req, res) => {
+    const editedData = req.body;
+
+    try {
+        const offerId = req.params.offerId;
+
+        await cryptoService.editOffer(offerId, editedData);
+        res.redirect(`/crypto/${offerId}/details`);
+
+    } catch (error) {
+        const paymentOptions = getViewOptionsValue(editedData.paymentMethod);
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('crypto/edit', { errorMessages, offer: editedData, paymentOptions });
     }
 })
 
