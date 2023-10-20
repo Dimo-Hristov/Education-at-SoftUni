@@ -54,9 +54,21 @@ router.get('/catalog', async (req, res) => {
     }
 });
 
+router.get('/:offerId/details', async (req, res) => {
+    const offerId = req.params.offerId;
+
+    try {
+        const post = await cryptoService.getOne(offerId).lean();
+
+        res.render('crypto/details', { post });
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('crypto/catalog', { errorMessages });
+    }
+});
 
 
 
 
-
-module.exports = router
+module.exports = router;

@@ -2,16 +2,15 @@
         <section id="details-info">
             <h1>Details</h1>
             <div class="coin-image">
-                <img src="./static/images/bitcoin.png">
+                <img src="{{post.image}}">
             </div>
 
             <div class="coin-info">
                 <div class="coin-text">
-                    <h1 id="name">Bitcoin</h1>
-                    <h3 id="payment">Payment method: paypal</h3>
-                    <p id="price"><span>Price: $31 166.71</span></p>
-                    <p id="description">Bitcoin is a decentralized digital currency that can be transferred on the
-                        peer-to-peer bitcoin network.</p>
+                    <h1 id="name">{{post.name}}</h1>
+                    <h3 id="payment">Payment method: {{post.paymentMethod}}</h3>
+                    <p id="price"><span>Price: ${{post.price}}</span></p>
+                    <p id="description">{{post.description}}</p>
                 </div>
                 <div class="product-btn">
                     <!--Only for registered user and author of the publication -->
