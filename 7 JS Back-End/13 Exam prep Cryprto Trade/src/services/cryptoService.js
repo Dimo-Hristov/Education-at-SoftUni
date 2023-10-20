@@ -9,3 +9,5 @@ exports.getOne = (offerId) => Crypto.findById(offerId).populate();
 exports.buyCrypto = (userId, postId) => Crypto.findByIdAndUpdate(postId, {
     $push: { customers: userId }
 });
+
+exports.deleteOffer = (offerId) => Crypto.findByIdAndDelete(offerId);

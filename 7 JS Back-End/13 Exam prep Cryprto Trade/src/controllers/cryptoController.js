@@ -86,6 +86,20 @@ router.get('/:offerId/buy', async (req, res) => {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('crypto/catalog', { errorMessages });
     }
+});
+
+router.get('/:offerId/delete', async (req, res) => {
+
+    try {
+        const offerId = req.params.offerId;
+
+        await cryptoService.deleteOffer(offerId);
+        res.redirect('/crypto/catalog');
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('crypto/catalog', { errorMessages });
+    }
 })
 
 
