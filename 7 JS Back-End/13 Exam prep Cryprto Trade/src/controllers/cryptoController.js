@@ -59,8 +59,9 @@ router.get('/:offerId/details', async (req, res) => {
 
     try {
         const post = await cryptoService.getOne(offerId).lean();
+        const isOwner = req.user?._id.toString() === post.owner.toString()
 
-        res.render('crypto/details', { post });
+        res.render('crypto/details', { post, isOwner });
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
