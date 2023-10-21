@@ -2,28 +2,28 @@
         <section id="editPage">
             <form id='editForm' action="#" method="">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="" value="Laptop HP EliteBook 820 G4">
+                <input type="text" id="name" name="name" value="{{offer.name}}">
 
                 <label for="type">Type:</label>
-                <input type="text" id="type" name="" value="Laptop">
+                <input type="text" id="type" name="type" value="{{offer.name}}">
 
                 <label for="production">Year of Production:</label>
-                <input type="number" id="production" name="" value="2008">
+                <input type="number" id="production" name="production" value="{{offer.production}}">
 
                 <label for="exploitation">Years of Exploitation:</label>
-                <input type="number" id="exploitation" name="" value="12">
+                <input type="number" id="exploitation" name="exploitation" value="{{offer.exploitation}}">
 
                 <label for="damages">Damages:</label>
-                <input type="text" id="damages" name="" value="The product has minimal signs of use, not affecting its functionality.">
+                <input type="text" id="damages" name="damages" value="{{offer.damages}}">
 
                 <label for="image">Image:</label>
-                <input type="text" id="image" name="" value="https://hop.bg/img/productsimg/55801-55900/%D0%9B%D0%B0%D0%BF%D1%82%D0%BE%D0%BF-hp-elitebook-55852-1-1.webp">
+                <input type="text" id="image" name="image" value="{{offer.image}}">
 
                 <label for="price">Price:</label>
-                <input type="number" id="price" name="" value="153">
+                <input type="number" id="price" name="price" value="{{offer.price}}">
 
                 <label for="description">Description:</label>
-                <input type="text" id="description" name="" value="Intel Core i5-7200U (3M, 2.50 GHz, up to 3.10 GHz), 8GB DDR4, 256GB SSD, Intel HD Graphics 620, 12.5 inches (31.75 cm), 1366x768 HD">                
+                <input type="text" id="description" name="description" value="{{offer.description}}">                
 
                 <input type="submit" class="edit" value="Edit Offer">
             </form>

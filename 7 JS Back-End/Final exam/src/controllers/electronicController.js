@@ -68,8 +68,18 @@ router.get('/:offerId/buy', async (req, res) => {
     }
 });
 
-router.get('/:offerId/edit', (req, res) => {
-    res.render('electronic/edit')
+router.get('/:offerId/edit', async (req, res) => {
+
+    try {
+        const offerId = req.params.offerId;
+        const offer = await electronicService.getOneOffer(offerId).lean();
+
+
+        res.render('electronic/edit', { offer })
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('/', { errorMessages });
+    }
 })
 
 
