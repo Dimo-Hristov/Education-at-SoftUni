@@ -9,12 +9,13 @@
 
 <body>
 
-
+        {{#each errorMessages}}
      <div>
         <div class="errorContainer">
-            <p>Error</p>
+            <p>{{this}}</p>
         </div>
     </div>
+    {{/each}}
 
     <div id="container">
 
