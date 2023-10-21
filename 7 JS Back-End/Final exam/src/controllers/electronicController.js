@@ -108,7 +108,7 @@ router.get('/:offerId/delete', async (req, res) => {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('electronic/catalog', { errorMessages });
     }
-})
+});
 
 
 module.exports = router;
