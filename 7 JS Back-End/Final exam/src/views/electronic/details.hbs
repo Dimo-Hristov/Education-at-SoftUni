@@ -13,7 +13,7 @@
                     <h2>Price: ${{offer.price}}</h2>
                 </div>
 
-                <!--If there is user logged in-->
+                {{#if isAuthenticated}}
                 <div class="buttons">
                     
                     <!--If user is not owner of the toy post-->
@@ -26,5 +26,6 @@
                     <!--If user is not the owner and is bought this toy-->
                     <p><span class="buy">Thank You For Your Purchase</span></p>
                 </div>
+                {{/if}}
             </div>
         </section>
