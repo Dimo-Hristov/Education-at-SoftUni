@@ -19,6 +19,20 @@ router.post('/create', async (req, res) => {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('user/login', { errorMessages });
     }
+});
+
+router.get('/catalog', async (req, res) => {
+
+    try {
+        const offers = await electronicService.getAllOffers().lean();
+        const isEmpty = offers.length < 1;
+
+        res.render('electronic/catalog', { offers, isEmpty })
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('user/login', { errorMessages });
+    }
 })
 
 
