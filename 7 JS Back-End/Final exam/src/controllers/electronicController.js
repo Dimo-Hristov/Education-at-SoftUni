@@ -42,9 +42,7 @@ router.get('/:offerId/details', async (req, res) => {
         const offerId = req.params.offerId;
         const offer = await electronicService.getOneOfferPopulated(offerId).lean();
         const isOwner = offer.owner.toString() === userId;
-        const hasPurchased = offer.buyingList.some(x => x.userId.toString() === userId)
-        console.log(hasPurchased);
-
+        const hasPurchased = offer.buyingList.some(x => x.userId.toString() === userId);
 
         res.render('electronic/details', { offer, isOwner, hasPurchased });
 
@@ -68,6 +66,10 @@ router.get('/:offerId/buy', async (req, res) => {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('/', { errorMessages });
     }
+});
+
+router.get('/:offerId/edit', (req, res) => {
+    res.render('electronic/edit')
 })
 
 
