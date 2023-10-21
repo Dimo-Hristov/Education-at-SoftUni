@@ -3,51 +3,41 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
-
-    <link href="/css/style.css" type="text/css" rel="stylesheet">
+    <title>Second Hand Electronics</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
 
 
-    <div id="box">
-
-
-        <div class="error-container">
-            {{#each errorMessages}} 
-                <p> {{this}}</p>
-            {{/each}}
+     <div>
+        <div class="errorContainer">
+            <p>Error</p>
         </div>
+    </div>
 
-
-
+    <div id="container">
 
         <nav>
-            <img src="/img/logo.png" alt="logo">
+            <ul>
+                <!--For all users-->
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Catalog</a></li>
+                <!--For loggin users-->
+                <li><a href="#">Create Offer</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Logout</a></li>
+                <!--For guest user-->
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
 
-            <ul class="menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="#">All Posts</a></li>
-                {{#if isAuthenticated}}
-                <!-- Logged users -->
-                <li><a href="#">Create Post</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="/users/logout">Logout</a></li>
-                {{else}}
-                <!-- Guest users -->
-                <li><a href="/users/register">Register</a></li>
-                <li><a href="/users/login">Login</a></li>
-                {{/if}}
             </ul>
 
         </nav>
 
            {{{body}}}
 
-        <footer>
-            © JS Back-End Exam 2023
-        </footer>
+        <footer>@SoftUni - JS Back-End - Second Hand Electronics 2023</footer>
     </div>
 
 </body>
