@@ -41,10 +41,22 @@ const electronicSchema = new mongoose.Schema({
     exploitation: {
         type: Number,
         required: [true, 'Exploitation is required'],
+        validate: {
+            validator: (value) => {
+                return value > 0;
+            },
+            message: 'Exploitation must be a positive number.'
+        }
     },
     price: {
         type: Number,
-        requried: true
+        requried: [true, 'Price is required'],
+        validate: {
+            validator: (value) => {
+                return value > 0;
+            },
+            message: 'Price must be a positive number.'
+        }
     },
     buyingList: [
         {

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const electronicService = require('../services/electronicService');
 const { extractErrorMsgs } = require('../utils/errorHandler');
-const { isGuest, isAuth } = require('../middlewares/authMiddleare');
+const { isAuth } = require('../middlewares/authMiddleare');
 
 router.get('/create', isAuth, (req, res) => {
     res.render('electronic/create')
@@ -18,7 +18,7 @@ router.post('/create', isAuth, async (req, res) => {
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('home', { errorMessages });
+        res.status(404).render('electronic/create', { errorMessages, eletronicData });
     }
 });
 
