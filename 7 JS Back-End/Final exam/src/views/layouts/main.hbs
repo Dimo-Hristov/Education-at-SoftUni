@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Second Hand Electronics</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -22,17 +22,17 @@
             <ul>
 
                 <!--For all users-->
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Catalog</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/offers/catalog">Catalog</a></li>
                 <!--For loggin users-->
                 {{#if isAuthenticated}}
-                <li><a href="#">Create Offer</a></li>
-                <li><a href="#">Search</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="/offers/create">Create Offer</a></li>
+                <li><a href="/offers/search">Search</a></li>
+                <li><a href="/users/logout">Logout</a></li>
                 <!--For guest user-->
                 {{else}}
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/register">Register</a></li>
                 {{/if}}
 
             </ul>
