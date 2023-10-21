@@ -13,7 +13,7 @@ router.post('/create', async (req, res) => {
         const ownerId = req.user._id;
         eletronicData['owner'] = ownerId;
         await electronicService.addOffer(eletronicData);
-        res.redirect('/eletronics/catalog')
+        res.redirect('/electronics/catalog')
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
@@ -83,22 +83,32 @@ router.get('/:offerId/edit', async (req, res) => {
 });
 
 router.post('/:offerId/edit', async (req, res) => {
+    const updatedData = req.body;
 
     try {
         const offerId = req.params.offerId;
-        const updatedData = req.body;
-
         await electronicService.updateOffer(offerId, updatedData);
-
 
         res.redirect(`/electronics/${offerId}/details`);
     } catch (error) {
-        const updatedData = req.body;
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('electronic/edit', { errorMessages, offer: updatedData });
     }
-
 });
+
+router.get('/:offerId/delete', async (req, res) => {
+
+    try {
+        const offerId = req.params.offerId;
+        await electronicService.deleteOffer(offerId);
+
+        res.redirect('/electronics/catalog');
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('electronic/catalog', { errorMessages });
+    }
+})
 
 
 module.exports = router;

@@ -11,3 +11,5 @@ exports.getOneOffer = (offerId) => Electronic.findById(offerId).populate();
 exports.buyEletronic = (offerId, userId) => Electronic.findByIdAndUpdate(offerId, { $push: { 'buyingList': { userId } } });
 
 exports.updateOffer = (offerId, updatedData) => Electronic.findByIdAndUpdate(offerId, updatedData, { runValidators: true });
+
+exports.deleteOffer = (offerId) => Electronic.findByIdAndDelete(offerId);
