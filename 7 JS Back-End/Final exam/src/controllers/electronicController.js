@@ -17,7 +17,7 @@ router.post('/create', async (req, res) => {
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('/', { errorMessages });
+        res.status(404).render('home', { errorMessages });
     }
 });
 
@@ -31,7 +31,7 @@ router.get('/catalog', async (req, res) => {
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('/', { errorMessages });
+        res.status(404).render('home', { errorMessages });
     }
 });
 
@@ -48,7 +48,7 @@ router.get('/:offerId/details', async (req, res) => {
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('/', { errorMessages });
+        res.status(404).render('home', { errorMessages });
     }
 
 });
@@ -64,7 +64,7 @@ router.get('/:offerId/buy', async (req, res) => {
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('/', { errorMessages });
+        res.status(404).render('home', { errorMessages });
     }
 });
 
@@ -78,9 +78,27 @@ router.get('/:offerId/edit', async (req, res) => {
         res.render('electronic/edit', { offer })
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
-        res.status(404).render('/', { errorMessages });
+        res.status(404).render('electronic/edit', { errorMessages, offer });
     }
-})
+});
+
+router.post('/:offerId/edit', async (req, res) => {
+
+    try {
+        const offerId = req.params.offerId;
+        const updatedData = req.body;
+
+        await electronicService.updateOffer(offerId, updatedData);
+
+
+        res.redirect(`/electronics/${offerId}/details`);
+    } catch (error) {
+        const updatedData = req.body;
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('electronic/edit', { errorMessages, offer: updatedData });
+    }
+
+});
 
 
 module.exports = router;
