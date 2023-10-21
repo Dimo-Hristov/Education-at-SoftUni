@@ -1,3 +1,3 @@
 const Electronic = require('../models/Electronic');
 
-exports.addPost = (eletronicData) => Electronic.create(eletronicData);
+exports.addOffer = (eletronicData) => Electronic.create(eletronicData);

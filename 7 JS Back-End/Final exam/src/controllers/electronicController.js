@@ -1,11 +1,24 @@
 const router = require('express').Router();
+const electronicService = require('../services/electronicService');
+const { extractErrorMsgs } = require('../utils/errorHandler')
 
 router.get('/create', (req, res) => {
     res.render('electronic/create')
 });
 
-router.post('/create', (req, res) => {
-    console.log(req.body);
+router.post('/create', async (req, res) => {
+    const eletronicData = req.body;
+
+    try {
+        const ownerId = req.user._id;
+        eletronicData['owner'] = ownerId;
+        await electronicService.addOffer(eletronicData);
+        res.redirect('/eletronics/catalog')
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('user/login', { errorMessages });
+    }
 })
 
 
