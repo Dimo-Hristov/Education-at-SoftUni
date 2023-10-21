@@ -35,8 +35,19 @@ router.get('/catalog', async (req, res) => {
     }
 });
 
-router.get('/:electronicId/details', (req, res) => {
-    res.render('electronic/details')
+router.get('/:offerId/details', async (req, res) => {
+
+    try {
+        const offerId = req.params.offerId;
+        const offer = await electronicService.getOneOffer(offerId).lean()
+
+        res.render('electronic/details', { offer });
+
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render('user/login', { errorMessages });
+    }
+
 });
 
 
