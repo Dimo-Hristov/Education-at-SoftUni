@@ -20,10 +20,13 @@
                     <a href="/electronics/{{offer._id}}/edit" class="edit-btn">Edit</a>
                     <a href="/electronics/{{offer._id}}/delete" class="delete-btn">Delete</a>
                     {{else}}
-                    <a href="/electronics/{{offer._id}}/buy" class="buy-btn">Buy</a>
+                        {{#if hasPurchased}}
+                            <p><span class="buy">Thank You For Your Purchase</span></p>
+                        {{else}}
+                            <a href="/electronics/{{offer._id}}/buy" class="buy-btn">Buy</a>
+                        {{/if}}
                     {{/if}}
 
-                    <p><span class="buy">Thank You For Your Purchase</span></p>
                 </div>
                 {{/if}}
             </div>

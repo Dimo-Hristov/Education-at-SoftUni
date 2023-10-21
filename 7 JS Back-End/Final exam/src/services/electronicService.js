@@ -4,4 +4,8 @@ exports.addOffer = (eletronicData) => Electronic.create(eletronicData);
 
 exports.getAllOffers = () => Electronic.find();
 
-exports.getOneOffer = (offerId) => Electronic.findById(offerId)
+exports.getOneOfferPopulated = (offerId) => Electronic.findById(offerId)
+
+exports.getOneOffer = (offerId) => Electronic.findById(offerId).populate();
+
+exports.buyEletronic = (offerId, userId) => Electronic.findByIdAndUpdate(offerId, { $push: { 'buyingList': { userId } } })
