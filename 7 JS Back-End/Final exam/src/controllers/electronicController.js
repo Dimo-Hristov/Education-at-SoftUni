@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const electronicService = require('../services/electronicService');
-const { extractErrorMsgs } = require('../utils/errorHandler')
+const { extractErrorMsgs } = require('../utils/errorHandler');
+const { isGuest, isAuth } = require('../middlewares/authMiddleare');
 
-router.get('/create', (req, res) => {
+router.get('/create', isAuth, (req, res) => {
     res.render('electronic/create')
 });
 
-router.post('/create', async (req, res) => {
+router.post('/create', isAuth, async (req, res) => {
     const eletronicData = req.body;
 
     try {
@@ -53,11 +54,18 @@ router.get('/:offerId/details', async (req, res) => {
 
 });
 
-router.get('/:offerId/buy', async (req, res) => {
+router.get('/:offerId/buy', isAuth, async (req, res) => {
 
     try {
         const offerId = req.params.offerId;
         const userId = req.user?._id;
+
+        const offer = await electronicService.getOneOffer(offerId).lean();
+        const isOwner = offer.owner.toString() === userId;
+
+        if (isOwner) {
+            throw new Error('Creators cannot buy their own eletronics!')
+        }
 
         await electronicService.buyEletronic(offerId, userId);
         res.redirect(`/electronics/${offerId}/details`)
@@ -68,41 +76,59 @@ router.get('/:offerId/buy', async (req, res) => {
     }
 });
 
-router.get('/:offerId/edit', async (req, res) => {
+router.get('/:offerId/edit', isAuth, async (req, res) => {
 
     try {
         const offerId = req.params.offerId;
         const offer = await electronicService.getOneOffer(offerId).lean();
+        const isOwner = offer.owner.toString() === userId;
 
+        if (isOwner) {
+            res.render('electronic/edit', { offer })
+        }
+        throw new Error('You dont have privileges to edit this offer');
 
-        res.render('electronic/edit', { offer })
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('electronic/edit', { errorMessages, offer });
     }
 });
 
-router.post('/:offerId/edit', async (req, res) => {
+router.post('/:offerId/edit', isAuth, async (req, res) => {
     const updatedData = req.body;
 
     try {
         const offerId = req.params.offerId;
-        await electronicService.updateOffer(offerId, updatedData);
 
-        res.redirect(`/electronics/${offerId}/details`);
+        const offer = await electronicService.getOneOffer(offerId).lean();
+        const isOwner = offer.owner.toString() === userId;
+
+        if (isOwner) {
+            await electronicService.updateOffer(offerId, updatedData);
+            res.redirect(`/electronics/${offerId}/details`);
+        }
+
+        throw new Error('You dont have privileges to edit this offer')
+
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('electronic/edit', { errorMessages, offer: updatedData });
     }
 });
 
-router.get('/:offerId/delete', async (req, res) => {
+router.get('/:offerId/delete', isAuth, async (req, res) => {
 
     try {
         const offerId = req.params.offerId;
-        await electronicService.deleteOffer(offerId);
+        const offer = await electronicService.getOneOffer(offerId).lean();
+        const isOwner = offer.owner.toString() === userId;
 
-        res.redirect('/electronics/catalog');
+        if (isOwner) {
+            await electronicService.deleteOffer(offerId);
+            res.redirect('/electronics/catalog');
+        }
+
+        throw new Error('You dont have privileges to delete this offer');
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);
