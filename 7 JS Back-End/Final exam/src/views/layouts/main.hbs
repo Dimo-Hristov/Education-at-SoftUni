@@ -20,16 +20,20 @@
 
         <nav>
             <ul>
+
                 <!--For all users-->
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Catalog</a></li>
                 <!--For loggin users-->
+                {{#if isAuthenticated}}
                 <li><a href="#">Create Offer</a></li>
                 <li><a href="#">Search</a></li>
                 <li><a href="#">Logout</a></li>
                 <!--For guest user-->
+                {{else}}
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Register</a></li>
+                {{/if}}
 
             </ul>
 
