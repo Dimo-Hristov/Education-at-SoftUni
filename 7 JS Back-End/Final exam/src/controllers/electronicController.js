@@ -33,7 +33,11 @@ router.get('/catalog', async (req, res) => {
         const errorMessages = extractErrorMsgs(error);
         res.status(404).render('user/login', { errorMessages });
     }
-})
+});
+
+router.get('/:electronicId/details', (req, res) => {
+    res.render('electronic/details')
+});
 
 
 module.exports = router;
