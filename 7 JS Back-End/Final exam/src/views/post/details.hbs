@@ -1,60 +1,66 @@
-        <main>
+<!DOCTYPE html>
+<html lang="en">
 
-            <section id="details-page">
+<head>
+    <meta charset="UTF-8">
+    <title>Second Hand Electronics</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
 
-                <div class="main_card">
-                    <div class="card_left">
-                        <div class="card_datails">
+<body>
 
-                            <h1>Name: Thestral</h1>
-                            <h3>Created by an author: Alex Smith</h3>
-                            <div class="card_character">
-                                <p class="card-species">Species: Beast</p>
-                                <p class="card-skin">Skin colour: Black</p>
-                                <p class="card-eye">Eye Colour: White</p>
-                            </div>
+    <div id="container">
 
-                            <p class="disc">Description: Thestrals are an elusive, carnivorous species of winged horse, visible only to those who have witnessed and embraced a death, and described as having "blank, white, shining eyes," a "dragonish face," "long, black manes," "great leathery wings," and the "skeletal body of a great, black, winged horse"; also described by Hagrid as "dead clever an' useful", and also by Harry as "reptilian".</p>
+        <nav>
+            <ul>
+                <!--For all users-->
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Catalog</a></li>
+                <!--For loggin users-->
+                <li><a href="#">Create Offer</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Logout</a></li>
+                <!--For guest user-->
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
 
-                            <!-- If there is no registered user, do not display buttons-->
-                            <div class="social-btn">
-                                <!-- Only for registered user and author of the post -->
-                                <a href="#" class="edit-btn">Edit</a>
-                                <a href="#" class="del-btn">Delete</a>
-                                <!-- logged in users, who have not yet voted-->
-                                <a href="#" class="vote-up">Vote</a>
+            </ul>
 
-                                <!-- logged in user who has already voted-->
-                                <p class="thanks-for-vote">Thanks For Voting</p>
+        </nav>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_right">
-                        <img src="./static/img/Thestral.jpeg"
-                            alt="image">
-                    </div>
+        <section id="detailsPage">
+            <div id="detailsInfo">
+                <h1>Name: Laptop HP EliteBook 820 G4</h1>
+                <div class="info"><img src="./image/laptop.webp"></div>
+
+                <div class="info">
+                    <h3>Type: Laptop</h3>
+                    <h3>Year of Production: 2008</h3>
+                    <h3>Years of Exploitation: 12</h3>
+                    <h3>Damages: The product has minimal signs of use, not affecting its functionality.</h3>
+                    <h3>Description: Intel Core i5-7200U (3M, 2.50 GHz, up to 3.10 GHz), 8GB DDR4, 256GB SSD, Intel HD Graphics 620, 12.5 inches (31.75 cm), 1366x768 HD</h3>
+                    <h2>Price: $153</h2>
                 </div>
 
-            </section>
+                <!--If there is user logged in-->
+                <div class="buttons">
+                    
+                    <!--If user is not owner of the toy post-->
+                    <a href="#" class="buy-btn">Buy</a>
 
-            <section id="votes">
-                <div class="vote-info">
-                    <div class="card_left">
-                        <div class="card_datails">
-                            <h1>Votes</h1>
-                            <div class="card_vote">
-                                <!-- Show the rating of votes, if there are no votes yet, the number must be 0. -->
-                                <p class="PV">Total rating of votes: 0</p>
-                            </div>
-                            <!-- If there are already people who have cast their vote for the post, separate their emails with a comma and a space ", " -->
-                            <!-- <p class="disc">People who voted for the post - alex@gmai.com, petar@gmail.com, petq@gmail.com</p>-->
+                    <!--If user is owner-->
+                    <a href="#" class="edit-btn">Edit</a>
+                    <a href="#" class="delete-btn">Delete</a>
 
-                            <!-- If not display: -->
-                            <p class="disc">People who voted for the post - No one has voted yet.</p>
-                        </div>
-                    </div>
+                    <!--If user is not the owner and is bought this toy-->
+                    <p><span class="buy">Thank You For Your Purchase</span></p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-        </main>
+        <footer>@SoftUni - JS Back-End - Second Hand Electronics 2023</footer>
+    </div>
+
+</body>
+
+</html>

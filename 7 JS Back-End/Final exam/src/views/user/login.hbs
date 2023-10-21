@@ -1,29 +1,48 @@
-        <main>
-            <section id="login-page">
+<!DOCTYPE html>
+<html lang="en">
 
-                <div class="loginSection">
-                    <div class="info">
-                        <h2>"Hearing voices no one else can hear isn't a good sign, even in the wizarding world."</h2>
-                    </div>
-                    <form method="POST" class="loginForm">
-                        <h2>Login</h2>
-                        <ul class="noBullet">
-                            <li>
-                                <label for="email">Email:</label>
-                                <input type="text" class="inputFields" id="email" name="email" placeholder="alex@gmail.com" />
-                            </li>
-                            <li>
-                                <label for="password">Password:</label>
-                                <input type="password" class="inputFields" id="password" name="password" placeholder="*******" />
-                            </li>
+<head>
+    <meta charset="UTF-8">
+    <title>Second Hand Electronics</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
 
-                            <li id="center-btn">
-                                <button id="login-btn">Login</button>
-                            </li>
-                        </ul>
-                    </form>
-                </div>
+<body>
 
-            </section>
+    <div id="container">
 
-        </main>
+        <nav>
+            <ul>
+                <!--For all users-->
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Catalog</a></li>
+                <!--For loggin users-->
+                <li><a href="#">Create Offer</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Logout</a></li>
+                <!--For guest user-->
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+
+            </ul>
+
+        </nav>
+
+        <section id="loginPage">
+            <form id='loginForm' action="#" method="">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="" placeholder="Email">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="" placeholder="Password">
+
+                <input type="submit" class="register" value="Login">
+            </form>
+        </section>
+
+        <footer>@SoftUni - JS Back-End - Second Hand Electronics 2023</footer>
+    </div>
+
+</body>
+
+</html>
