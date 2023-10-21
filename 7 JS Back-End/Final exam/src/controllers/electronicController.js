@@ -38,10 +38,12 @@ router.get('/catalog', async (req, res) => {
 router.get('/:offerId/details', async (req, res) => {
 
     try {
+        const userId = req.user?._id;
         const offerId = req.params.offerId;
-        const offer = await electronicService.getOneOffer(offerId).lean()
+        const offer = await electronicService.getOneOffer(offerId).lean();
+        const isOwner = offer.owner.toString() === userId;
 
-        res.render('electronic/details', { offer });
+        res.render('electronic/details', { offer, isOwner });
 
     } catch (error) {
         const errorMessages = extractErrorMsgs(error);

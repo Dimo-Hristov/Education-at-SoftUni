@@ -14,16 +14,15 @@
                 </div>
 
                 {{#if isAuthenticated}}
-                <div class="buttons">
-                    
-                    <!--If user is not owner of the toy post-->
-                    <a href="/electronics/{{offer._id}}/buy" class="buy-btn">Buy</a>
+                <div class="buttons">                  
 
-                    <!--If user is owner-->
+                    {{#if isOwner}}
                     <a href="/electronics/{{offer._id}}/edit" class="edit-btn">Edit</a>
                     <a href="/electronics/{{offer._id}}/delete" class="delete-btn">Delete</a>
+                    {{else}}
+                    <a href="/electronics/{{offer._id}}/buy" class="buy-btn">Buy</a>
+                    {{/if}}
 
-                    <!--If user is not the owner and is bought this toy-->
                     <p><span class="buy">Thank You For Your Purchase</span></p>
                 </div>
                 {{/if}}
