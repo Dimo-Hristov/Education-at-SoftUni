@@ -14,7 +14,7 @@ const electronicSchema = new mongoose.Schema({
     damages: {
         type: String,
         required: [true, 'Damages is required'],
-        minLength: [10, 'Damages should be at lest 3 characters long'],
+        minLength: [10, 'Damages should be at lest 10 characters long'],
     },
     image: {
         type: String,
@@ -36,7 +36,7 @@ const electronicSchema = new mongoose.Schema({
         type: Number,
         required: true,
         min: [1900, 'Production should be between 1900 and 2023'],
-        max: [1900, 'Production should be between 1900 and 2023'],
+        max: [2023, 'Production should be between 1900 and 2023'],
     },
     exploitation: {
         type: Number,

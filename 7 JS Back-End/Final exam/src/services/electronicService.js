@@ -13,3 +13,5 @@ exports.buyEletronic = (offerId, userId) => Electronic.findByIdAndUpdate(offerId
 exports.updateOffer = (offerId, updatedData) => Electronic.findByIdAndUpdate(offerId, updatedData, { runValidators: true });
 
 exports.deleteOffer = (offerId) => Electronic.findByIdAndDelete(offerId);
+
+exports.search = (query) => Electronic.find(query);
