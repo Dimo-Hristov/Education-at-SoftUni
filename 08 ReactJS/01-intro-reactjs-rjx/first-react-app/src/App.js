@@ -1,61 +1,14 @@
 import './App.css';
+import Head from './components/head';
+import Navigation from './components/navigation';
 
 function App() {
   return (
     <html lang="en">
-      <head>
-
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Meetup is a free responsive single page bootstrap template by designerdada.com" />
-        <meta name="author" content="Akash Bhadange" />
-        <title>Meetup: Free Responsive One Page Bootstrap Template</title>
-
-
-        <link href="css/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/style.css" rel="stylesheet" />
-        <link href="css/themify-icons.css" rel="stylesheet" />
-        <link href='css/dosis-font.css' rel='stylesheet' type='text/css' />
-
-
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-      </head>
+      <Head />
 
       <body id="page-top" data-spy="scroll" data-target=".side-menu">
-        <nav className="side-menu">
-          <ul>
-            <li className="hidden active">
-              <a className="page-scroll" href="/page-top">ass</a>
-            </li>
-            <li>
-              <a href="/home" className="page-scroll">
-                <span className="menu-title">Home</span>
-                <span className="dot"></span>
-              </a>
-            </li>
-            <li>
-              <a href="/speakers" className="page-scroll">
-                <span className="menu-title">Speakers</span>
-                <span className="dot"></span>
-              </a>
-            </li>
-            <li>
-              <a href="/tickets" className="page-scroll">
-                <span className="menu-title">Buy Tickets</span>
-                <span className="dot"></span>
-              </a>
-            </li>
-            <li>
-              <a href="/schedule" className="page-scroll">
-                <span className="menu-title">Schedule</span>
-                <span className="dot"></span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <Navigation />
         <div className="container-fluid">
 
           <div className="row hero-header" id="home">
