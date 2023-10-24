@@ -1,6 +1,9 @@
 import './App.css';
+import EventContriner from './components/eventContainer';
 import Head from './components/head';
 import Navigation from './components/navigation';
+import SpeakersContainer from './components/speakerscontainer';
+import TicketsContainer from './components/ticketsContainer';
 
 function App() {
   return (
@@ -9,130 +12,16 @@ function App() {
 
       <body id="page-top" data-spy="scroll" data-target=".side-menu">
         <Navigation />
-        <div className="container-fluid">
 
-          <div className="row hero-header" id="home">
-            <div className="col-md-7">
-              <img src="img/meetup-logo.png" className="logo" alt="pic" />
-              <h1>Attend the most awaited Conference of 2015</h1>
-              <h3>to start you up with your business!</h3>
-              <h4>20<sup>th</sup> to 22<sup>nd</sup>  October, 2015</h4>
-              <a href="/" className="btn btn-lg btn-red">Buy Tickets Now <span className="ti-arrow-right"></span></a>
-
-            </div>
-            <div className="col-md-5 hidden-xs">
-              <img src="img/rocket.png" className="rocket animated bounce" alt="pic" />
-            </div>
-          </div>
-
-        </div>
         <div className="container">
 
-          <div className="row me-row content-ct">
-            <h2 className="row-title">Why This Event Is Super Cool?</h2>
-            <div className="col-md-4 feature">
-              <span className="ti-ticket"></span>
-              <h3>Buy Early Bird Tickets</h3>
-              <p>Super cool discounts if you purchase early bird tickets now. Limited tickets available with some awesome perks and goodies!</p>
-            </div>
-            <div className="col-md-4 feature">
-              <span className="ti-microphone"></span>
-              <h3>Expert Speakers</h3>
-              <p>Best in className expert speakers who have extensive knowledge of the topic. All speakers are curated by the panel of experts.</p>
-            </div>
-            <div className="col-md-4 feature">
-              <span className="ti-world"></span>
-              <h3>People around the globe!</h3>
-              <p>Meet the people attending this event around the globe. This will be the best opportunity to meet and greet people from your industry.</p>
-            </div>
-          </div>
-
-
-
-          <div className="row me-row content-ct speaker" id="speakers">
-            <h2 className="row-title">Meet the Speakers</h2>
-            <div className="col-md-4 col-sm-6 feature">
-              <img src="img/speaker-1.png" className="speaker-img" alt="pic" />
-              <h3>Simon Collins</h3>
-              <p>Simon is designer and partner at Fictivekin and has worked in a variety of situations for bands, record labels, governments, polar explorers, and most other things...</p>
-              <ul className="speaker-social">
-                <li><a href="/"><span className="ti-facebook"></span></a></li>
-                <li><a href="/"><span className="ti-twitter-alt"></span></a></li>
-                <li><a href="/"><span className="ti-linkedin"></span></a></li>
-              </ul>
-            </div>
-            <div className="col-md-4 col-sm-6 feature">
-              <img src="img/speaker-2.png" className="speaker-img" alt="pic" />
-              <h3>Stephanie Troeth</h3>
-              <p>Stephie is a user experience researcher and designer. In over 15 years of working on the web, she has worn many hats, including a product lead for a tech startup in publishing...</p>
-              <ul className="speaker-social">
-                <li><a href="/"><span className="ti-facebook"></span></a></li>
-                <li><a href="/"><span className="ti-twitter-alt"></span></a></li>
-                <li><a href="/"><span className="ti-linkedin"></span></a></li>
-              </ul>
-            </div>
-            <div className="col-md-4 col-sm-6 feature">
-              <img src="img/speaker-3.png" className="speaker-img" alt="pic" />
-              <h3>Harry Roberts</h3>
-              <p>Harry is a freelance designer, developer, writer, speaker and front-end architect from the UK, previously working as Senior UI Developer for Sky. He Tweets at...</p>
-              <ul className="speaker-social">
-                <li><a href="/"><span className="ti-facebook"></span></a></li>
-                <li><a href="/"><span className="ti-twitter-alt"></span></a></li>
-                <li><a href="/"><span className="ti-linkedin"></span></a></li>
-              </ul>
-            </div>
-            <div className="col-md-4 col-sm-6 feature">
-              <img src="img/speaker-4.png" className="speaker-img" alt="pic" />
-              <h3>Geri Coady</h3>
-              <p>Harry is a freelance designer, developer, writer, speaker and front-end architect from the UK, previously working as Senior UI Developer for Sky. He Tweets at...</p>
-              <ul className="speaker-social">
-                <li><a href="/"><span className="ti-facebook"></span></a></li>
-                <li><a href="/"><span className="ti-twitter-alt"></span></a></li>
-                <li><a href="/"><span className="ti-linkedin"></span></a></li>
-              </ul>
-            </div>
-            <div className="col-md-4 col-sm-6 feature">
-              <img src="img/speaker-5.png" className="speaker-img" alt="pic" />
-              <h3>Andy Budd</h3>
-              <p>Harry is a freelance designer, developer, writer, speaker and front-end architect from the UK, previously working as Senior UI Developer for Sky. He Tweets at...</p>
-              <ul className="speaker-social">
-                <li><a href="/"><span className="ti-facebook"></span></a></li>
-                <li><a href="/"><span className="ti-twitter-alt"></span></a></li>
-                <li><a href="/"><span className="ti-linkedin"></span></a></li>
-              </ul>
-            </div>
-            <div className="col-md-4 col-sm-6 feature">
-              <img src="img/speaker-6.png" className="speaker-img" alt="pic" />
-              <h3>Christian Lauke</h3>
-              <p>Harry is a freelance designer, developer, writer, speaker and front-end architect from the UK, previously working as Senior UI Developer for Sky. He Tweets at...</p>
-              <ul className="speaker-social">
-                <li><a href="/"><span className="ti-facebook"></span></a></li>
-                <li><a href="/"><span className="ti-twitter-alt"></span></a></li>
-                <li><a href="/"><span className="ti-linkedin"></span></a></li>
-              </ul>
-            </div>
-          </div>
+          <EventContriner />
+          <SpeakersContainer />
 
         </div>
 
 
-        <div className="container-fluid tickets" id="tickets">
-          <div className="row me-row content-ct">
-            <h2 className="row-title">Buy Tickets</h2>
-            <div className="col-md-4 col-sm-6 col-md-offset-2">
-              <h3>Early Bird Ticket</h3>
-              <p className="price">$399</p>
-              <p>All days entry pass for all the events.</p>
-              <a href="/" className="btn btn-lg btn-red">Buy <small>(6 remaining)</small></a>
-            </div>
-            <div className="col-md-4 col-sm-6">
-              <h3>Workshop Pass</h3>
-              <p className="price">$199</p>
-              <p>Entry pass for each workshop</p>
-              <a href="/" className="btn btn-lg btn-red">Buy <small>(42 remaining)</small></a>
-            </div>
-          </div>
-        </div>
+        <TicketsContainer />
 
 
 
@@ -342,7 +231,7 @@ function App() {
               <h3 className="content-ct"><span className="ti-email"></span> Contact Form</h3>
               <form className="form-horizontal" data-toggle="validator" >
                 <div className="form-group">
-                  <label for="name" className="col-sm-3 control-label">Name<sup>*</sup></label>
+                  <label htmlFor="name" className="col-sm-3 control-label">Name<sup>*</sup></label>
                   <div className="col-sm-9">
                     <input type="text" className="form-control" id="name" placeholder="John Doe" required />
                     <div className="help-block with-errors pull-right"></div>
@@ -350,7 +239,7 @@ function App() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label for="email" className="col-sm-3 control-label">Email<sup>*</sup></label>
+                  <label htmlFor="email" className="col-sm-3 control-label">Email<sup>*</sup></label>
                   <div className="col-sm-9">
                     <input type="email" className="form-control" id="email" placeholder="you@youremail.com" required />
                     <div className="help-block with-errors pull-right"></div>
@@ -358,7 +247,7 @@ function App() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label for="message" className="col-sm-3 control-label">Your Message<sup>*</sup></label>
+                  <label htmlFor="message" className="col-sm-3 control-label">Your Message<sup>*</sup></label>
                   <div className="col-sm-9">
                     <textarea id="message" className="form-control" rows="3" required></textarea>
                     <div className="help-block with-errors pull-right"></div>

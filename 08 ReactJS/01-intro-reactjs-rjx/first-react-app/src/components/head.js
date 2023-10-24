@@ -2,8 +2,8 @@ export default function Head() {
     return (
         <head>
 
-            <meta charset="utf-8" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta charSet="utf-8" />
+            <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="description" content="Meetup is a free responsive single page bootstrap template by designerdada.com" />
             <meta name="author" content="Akash Bhadange" />
