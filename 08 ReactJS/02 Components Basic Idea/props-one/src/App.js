@@ -8,6 +8,7 @@ function App() {
       <Movie
         title="Man of Steel"
         year="2008"
+        cast={5 + 4}
       />
     </div>
   );
