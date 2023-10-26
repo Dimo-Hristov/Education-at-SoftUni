@@ -1,6 +1,6 @@
 import Movie from './Movie';
 const MovieList = (props) => {
-
+    console.log('Render movie list');
     return (
         <div>
             <h1>Movie List</h1>

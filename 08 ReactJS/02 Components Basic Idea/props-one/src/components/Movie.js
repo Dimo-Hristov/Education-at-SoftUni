@@ -1,4 +1,5 @@
 function Movie(props) {
+    console.log(`Reder movie`);
     return (
         <article>
             <h2>{props.title}</h2>

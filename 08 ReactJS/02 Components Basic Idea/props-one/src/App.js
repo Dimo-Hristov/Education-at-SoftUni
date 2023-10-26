@@ -1,5 +1,6 @@
 import './App.css';
 import MovieList from './components/MovieList';
+import Timer from './components/Times';
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
 
   return (
     <div className="App">
+      <h2>React Demo</h2>
+      <Timer start={5} />
       <MovieList movies={movies} />
     </div>
   );
