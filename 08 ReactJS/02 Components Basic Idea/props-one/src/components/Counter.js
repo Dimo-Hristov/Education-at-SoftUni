@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 const Counter = (props) => {
-    const [counter, setcounter] = useState(0);
+    const [counter, setCounter] = useState(0);
 
     const onButtonClick = (e) => {
-        console.log('Clicked');
+        setCounter(oldCounter => oldCounter + 1)
     };
 
     return (
