@@ -3,10 +3,13 @@ import React from 'react';
 const Timer = (props) => {
     const [seconds, setSeconds] = React.useState(props.start);
 
-    console.log(`Seconds = ${seconds}`);
 
+    // not good practice, useEffect is better.
     setTimeout(() => {
-        setSeconds(seconds + 1);
+        // Set value whateven was the previous
+        // setSeconds(seconds + 1);
+        // Set value based on previous value
+        setSeconds(state => state + 1)
     }, 1000)
 
     return (
