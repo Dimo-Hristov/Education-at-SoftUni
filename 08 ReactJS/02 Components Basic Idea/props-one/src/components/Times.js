@@ -1,13 +1,12 @@
 import React from 'react';
 
 const Timer = (props) => {
-    const [seconds, setSeconds] = React.useState(0);
+    const [seconds, setSeconds] = React.useState(props.start);
 
-    console.log(`Seconds - ${seconds}`);
+    console.log(`Seconds = ${seconds}`);
 
     setTimeout(() => {
-        setSeconds(6);
-        console.log(seconds);
+        setSeconds(seconds + 1);
     }, 1000)
 
     return (
