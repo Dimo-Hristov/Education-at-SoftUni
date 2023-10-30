@@ -1,0 +1,10 @@
+.movie-list {
+    background-color: rgb(220, 240, 233);
+    border-bottom: 2px solid black;
+    padding-bottom: 16px;
+    list-style-type: none;
+}
+
+.movie-list img {
+    width: 600px;
+}

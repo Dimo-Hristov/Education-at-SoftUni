@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Movie from './Movie';
 
+
 export default function MovieList() {
 
     const [movies, setMovies] = useState([]);
@@ -16,7 +17,7 @@ export default function MovieList() {
     return (
         <div className="movies">
             <h1>MovieList</h1>
-            <ul>
+            <ul >
                 {movies.map(movie => <Movie key={movie.ID} movie={movie} />)}
             </ul>
         </div>

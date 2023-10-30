@@ -21,7 +21,7 @@
         "imdbID": "tt0499549",
         "Type": "movie",
         "Response": "True",
-        "Images": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg"
+        "Image": "https://people.com/thmb/Gc2bEAXZusNxPVlhuK8IZRdgQX8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(1159x347:1161x349)/avatar-2-way-of-the-water-trailer-110222-3-7fcc8ab436204e46ab9ab7bb007b5fbe.jpg"
       },
       {
         "ID": 2,
@@ -45,7 +45,7 @@
         "imdbID": "tt0816692",
         "Type": "movie",
         "Response": "True",
-        "Images": "http://ia.media-imdb.com/images/M/MV5BMjE5MjE2MTQ3Nl5BMl5BanBnXkFtZTgwMzY0NTE4NjE@@._V1_SX300.jpg"
+        "Image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ36TVUeDYPmKu19QCsTosHyQbMhgtHHp-wXw&usqp=CAU"
       },
       {
         "ID": 3,
@@ -69,7 +69,7 @@
         "imdbID": "tt1375666",
         "Type": "movie",
         "Response": "True",
-        "Images": "http://ia.media-imdb.com/images/M/MV5BMTYxNDA3ODg1Nl5BMl5BanBnXkFtZTcwNzEwNDg1Nw@@._V1_SY317_CR0,0,214,317_AL_.jpg"
+        "Image": "https://m.media-amazon.com/images/S/pv-target-images/26677df38123a3a1553d704477c100af81b641e1d539bc1991f99f89935f18b0.jpg"
       }
 ]
   
