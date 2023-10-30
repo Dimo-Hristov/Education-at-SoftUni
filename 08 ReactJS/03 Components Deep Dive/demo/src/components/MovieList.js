@@ -17,12 +17,17 @@ export default function MovieList() {
         setMovies(state => state.filter(x => x.ID !== id))
     }
 
-    console.log(movies);
+    const onSelect = (id) => {
+        setMovies(state => state.map(x => ({ ...x, selected: x.ID === id })))
+    }
+
+
+
     return (
         <div className="movies">
             <h1>MovieList</h1>
             <ul >
-                {movies.map(movie => <Movie key={movie.ID} movie={movie} onMovieDelete={onMovieDelete} />)}
+                {movies.map(movie => <Movie key={movie.ID} movie={movie} onMovieDelete={onMovieDelete} onSelect={onSelect} />)}
             </ul>
         </div>
     );

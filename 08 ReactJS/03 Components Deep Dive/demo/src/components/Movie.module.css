@@ -8,3 +8,7 @@
 .movie-list img {
     width: 600px;
 }
+
+.movie-list h4{
+    background-color: green;
+}
