@@ -1,5 +1,6 @@
 import './App.css'
-import * as userService from './services/userService'
+import * as userService from './services/userService';
+import { useState, useEffect } from 'react';
 import Header from "./components/Header";
 import Footer from "./components/footer";
 import Search from "./components/Search";
@@ -8,9 +9,14 @@ import UserList from './components/UserList';
 
 
 function App() {
-  const getUsers = async () => {
-    return await userService.getAll();
-  }
+
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    userService.getAll()
+      .then(setUsers)
+      .catch(err => console.log(err.message))
+  }, []);
 
   return (
     <>
@@ -20,7 +26,7 @@ function App() {
 
         <section className="card users-container>">
           <Search />
-          <UserList users={getUsers} />
+          <UserList users={users} />
 
         </section>
 
