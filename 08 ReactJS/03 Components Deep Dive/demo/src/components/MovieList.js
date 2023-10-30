@@ -13,12 +13,16 @@ export default function MovieList() {
             .catch(err => console.log(err.message))
     }, []);
 
+    const onMovieDelete = (id) => {
+        setMovies(state => state.filter(x => x.ID !== id))
+    }
+
     console.log(movies);
     return (
         <div className="movies">
             <h1>MovieList</h1>
             <ul >
-                {movies.map(movie => <Movie key={movie.ID} movie={movie} />)}
+                {movies.map(movie => <Movie key={movie.ID} movie={movie} onMovieDelete={onMovieDelete} />)}
             </ul>
         </div>
     );
