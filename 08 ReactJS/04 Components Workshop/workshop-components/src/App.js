@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Footer from "./components/footer";
-
+import './App.css'
 
 
 function App() {
@@ -8,8 +8,10 @@ function App() {
     <>
       <Header />
 
-      <main>
+      <main className="main">
+        <section className="card users-container>">
 
+        </section>
 
       </main>
 
