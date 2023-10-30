@@ -1,3 +1,5 @@
+import formatDate from '../utils/dateformater'
+
 export default function User({
     firstName,
     lastName,
@@ -20,7 +22,7 @@ export default function User({
             <td>{lastName}</td>
             <td>{email}</td>
             <td>{phoneNumber}</td>
-            <td>{createdAt}</td>
+            <td>{formatDate(createdAt)}</td>
 
             <td className="actions">
                 <button className="btn edit-btn" title="Edit">
