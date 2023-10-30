@@ -1,11 +1,17 @@
 import './App.css'
+import * as userService from './services/userService'
 import Header from "./components/Header";
 import Footer from "./components/footer";
 import Search from "./components/Search";
 import UserList from './components/UserList';
 
 
+
 function App() {
+  const getUsers = async () => {
+    return await userService.getAll();
+  }
+
   return (
     <>
       <Header />
@@ -14,7 +20,7 @@ function App() {
 
         <section className="card users-container>">
           <Search />
-          <UserList />
+          <UserList users={getUsers} />
 
         </section>
 
