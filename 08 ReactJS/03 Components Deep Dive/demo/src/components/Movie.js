@@ -7,9 +7,6 @@ export default function Movie({
     onSelect
 }) {
 
-    useEffect(() => {
-        console.log(` selected`);
-    }, [])
 
     return (
         <li key={movie.ID} className={styles['movie-list']}>
