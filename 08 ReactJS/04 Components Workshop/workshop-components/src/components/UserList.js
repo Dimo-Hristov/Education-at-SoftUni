@@ -10,9 +10,13 @@ export default function UserList({ users }) {
         setSelectedUser(users.find(x => x._id === userId))
     }
 
+    const onInfoRemove = () => {
+        setSelectedUser(null)
+    }
+
     return (
         <>
-            {selectedUser && <UserDetails {...selectedUser} />}
+            {selectedUser && <UserDetails {...selectedUser} onInfoRemove={onInfoRemove} />}
             <div className="table-wrapper">
 
                 {/* <div className="loading-shade">
