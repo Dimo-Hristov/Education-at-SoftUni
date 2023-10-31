@@ -1,8 +1,18 @@
 import User from "./User";
+import { useState } from 'react';
+import UserDetails from "./UserDetails";
 
 export default function UserList({ users }) {
+
+    const [selectedUser, setSelectedUser] = useState(null);
+
+    const onInfoClick = (userId) => {
+        setSelectedUser(userId)
+    }
+    console.log(selectedUser);
     return (
         <>
+            {selectedUser && <UserDetails />}
             <div className="table-wrapper">
 
                 {/* <div className="loading-shade">
@@ -167,13 +177,13 @@ export default function UserList({ users }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(user => <User key={user._id} {...user} />)}
+                        {users.map(user => <User key={user._id} {...user} onInfoClick={onInfoClick} />)}
 
                     </tbody>
                 </table>
             </div>
 
-            <button className="btn-add btn">Add new user</button>
+            {/* <button className="btn-add btn">Add new user</button> */}
         </>
 
     )

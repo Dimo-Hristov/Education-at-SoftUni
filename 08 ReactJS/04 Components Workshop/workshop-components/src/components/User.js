@@ -7,7 +7,8 @@ export default function User({
     imageUrl,
     phoneNumber,
     _id,
-    createdAt
+    createdAt,
+    onInfoClick
 }) {
     return (
         <tr>
@@ -59,7 +60,7 @@ export default function User({
                         ></path>
                     </svg>
                 </button>
-                <button className="btn info-btn" title="Info">
+                <button className="btn info-btn" title="Info" onClick={() => onInfoClick(_id)}>
                     <svg
                         aria-hidden="true"
                         focusable="false"
