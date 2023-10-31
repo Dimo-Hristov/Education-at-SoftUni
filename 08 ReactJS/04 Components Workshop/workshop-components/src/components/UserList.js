@@ -7,12 +7,12 @@ export default function UserList({ users }) {
     const [selectedUser, setSelectedUser] = useState(null);
 
     const onInfoClick = (userId) => {
-        setSelectedUser(userId)
+        setSelectedUser(users.find(x => x._id === userId))
     }
-    console.log(selectedUser);
+
     return (
         <>
-            {selectedUser && <UserDetails />}
+            {selectedUser && <UserDetails {...selectedUser} />}
             <div className="table-wrapper">
 
                 {/* <div className="loading-shade">
