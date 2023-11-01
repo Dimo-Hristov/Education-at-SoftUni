@@ -3,7 +3,11 @@ import { useState } from 'react';
 import UserDetails from "./UserDetails";
 import { getOne } from "../services/userService";
 import UserForm from "./UserForm";
-export default function UserList({ users }) {
+
+export default function UserList({
+    users,
+    createUserHandler
+}) {
 
     const [selectedUser, setSelectedUser] = useState(null);
     const [formClick, setformClick] = useState(null)
@@ -24,20 +28,17 @@ export default function UserList({ users }) {
         setformClick(null);
     }
 
-    const createUserHandler = (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(e.currentTarget);
-
-        const data = Object.fromEntries(formData)
-        console.log(data);
+    const onUserCreateSubmitHandler = (e) => {
+        createUserHandler(e);
+        setformClick(false);
     }
+
 
 
     return (
         <>
             {selectedUser && <UserDetails {...selectedUser} onInfoRemove={onInfoRemove} />}
-            {formClick && <UserForm onFormRemove={onFormRemove} createUserHandler={createUserHandler} />}
+            {formClick && <UserForm onFormRemove={onFormRemove} onUserCreateSubmitHandler={onUserCreateSubmitHandler} />}
 
             <div className="table-wrapper">
 

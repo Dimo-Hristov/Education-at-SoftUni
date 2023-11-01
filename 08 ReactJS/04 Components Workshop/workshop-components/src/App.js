@@ -10,31 +10,50 @@ import UserList from './components/UserList';
 
 function App() {
 
-  const [users, setUsers] = useState([])
+    const [users, setUsers] = useState([])
 
-  useEffect(() => {
-    userService.getAll()
-      .then(setUsers)
-      .catch(err => console.log(err.message))
-  }, []);
+    useEffect(() => {
+        userService.getAll()
+            .then(setUsers)
+            .catch(err => console.log(err.message))
+    }, []);
 
-  return (
-    <>
-      <Header />
+    const createUserHandler = async (e) => {
+        e.preventDefault();
 
-      <main className="main">
+        const formData = new FormData(e.currentTarget);
 
-        <section className="card users-container>">
-          <Search />
-          <UserList users={users} />
+        const data = Object.fromEntries(formData)
 
-        </section>
+        try {
+            const user = await userService.createUser(data);
+            setUsers((state) => [...state, user])
+            //  i want to modily the setFormClick state from here
+        } catch (error) {
+            console.log(error.message);
+        }
 
-      </main>
 
-      <Footer />
-    </>
-  );
+    }
+
+
+    return (
+        <>
+            <Header />
+
+            <main className="main">
+
+                <section className="card users-container>">
+                    <Search />
+                    <UserList users={users} createUserHandler={createUserHandler} />
+
+                </section>
+
+            </main>
+
+            <Footer />
+        </>
+    );
 }
 
 export default App;
