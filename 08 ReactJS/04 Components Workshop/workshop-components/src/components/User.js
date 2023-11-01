@@ -1,4 +1,4 @@
-import formatDate from '../utils/dateformater'
+import formatDate from '../utils/dateformater';
 
 export default function User({
     firstName,

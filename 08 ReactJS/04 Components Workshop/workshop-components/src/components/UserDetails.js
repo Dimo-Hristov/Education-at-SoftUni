@@ -1,3 +1,5 @@
+import formatDate from '../utils/dateformater';
+
 export default function UserDetails({
     firstName,
     lastName,
@@ -7,7 +9,8 @@ export default function UserDetails({
     _id,
     createdAt,
     updatedAt,
-    onInfoRemove
+    onInfoRemove,
+    address,
 }) {
     return (
         <div className="overlay">
@@ -40,11 +43,11 @@ export default function UserDetails({
                             <p>Phone Number: <strong>{phoneNumber}</strong></p>
                             <p>
                                 Address:
-                                <strong> Bulgaria, Sofia, Aleksandar Malinov 78 </strong>
+                                <strong> {address.country}, {address.city}, {address.street} {address.streetNumber} </strong>
                             </p>
 
-                            <p>Created on: <strong>{createdAt}</strong></p>
-                            <p>Modified on: <strong>{updatedAt}</strong></p>
+                            <p>Created on: <strong>{formatDate(createdAt)}</strong></p>
+                            <p>Modified on: <strong>{formatDate(updatedAt)}</strong></p>
                         </div>
                     </div>
                 </div>

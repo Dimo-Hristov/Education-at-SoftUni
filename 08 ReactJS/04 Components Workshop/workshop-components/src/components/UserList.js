@@ -1,13 +1,15 @@
 import User from "./User";
 import { useState } from 'react';
 import UserDetails from "./UserDetails";
-
+import { getOne } from "../services/userService";
 export default function UserList({ users }) {
 
     const [selectedUser, setSelectedUser] = useState(null);
 
-    const onInfoClick = (userId) => {
-        setSelectedUser(users.find(x => x._id === userId))
+    const onInfoClick = async (userId) => {
+        const data = await getOne(userId);
+
+        setSelectedUser(data.user);
     }
 
     const onInfoRemove = () => {
@@ -187,7 +189,7 @@ export default function UserList({ users }) {
                 </table>
             </div>
 
-            {/* <button className="btn-add btn">Add new user</button> */}
+            <button className="btn-add btn">Add new user</button>
         </>
 
     )
