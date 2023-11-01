@@ -1,5 +1,6 @@
 export default function UserForm({
     onFormRemove,
+    createUserHandler
 }) {
     return (
         <div className="overlay">
@@ -17,7 +18,7 @@ export default function UserForm({
                             </svg>
                         </button>
                     </header>
-                    <form>
+                    <form onSubmit={createUserHandler}>
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="firstName">First name</label>

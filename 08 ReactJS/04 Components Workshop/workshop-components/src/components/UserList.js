@@ -6,7 +6,7 @@ import UserForm from "./UserForm";
 export default function UserList({ users }) {
 
     const [selectedUser, setSelectedUser] = useState(null);
-    const [infoClick, setInfoClick] = useState(null)
+    const [formClick, setformClick] = useState(null)
 
     const onInfoClick = async (userId) => {
         const data = await getOne(userId);
@@ -18,17 +18,21 @@ export default function UserList({ users }) {
     }
 
     const onFormClick = () => {
-        setInfoClick(true);
+        setformClick(true);
     }
     const onFormRemove = () => {
-        setInfoClick(null);
+        setformClick(null);
+    }
+
+    const createUserHandler = (e) => {
+        e.preventDefault();
     }
 
 
     return (
         <>
             {selectedUser && <UserDetails {...selectedUser} onInfoRemove={onInfoRemove} />}
-            {infoClick && <UserForm onFormRemove={onFormRemove} />}
+            {formClick && <UserForm onFormRemove={onFormRemove} createUserHandler={createUserHandler} />}
 
             <div className="table-wrapper">
 
