@@ -2,23 +2,34 @@ import User from "./User";
 import { useState } from 'react';
 import UserDetails from "./UserDetails";
 import { getOne } from "../services/userService";
+import UserForm from "./UserForm";
 export default function UserList({ users }) {
 
     const [selectedUser, setSelectedUser] = useState(null);
+    const [infoClick, setInfoClick] = useState(null)
 
     const onInfoClick = async (userId) => {
         const data = await getOne(userId);
 
         setSelectedUser(data.user);
     }
-
     const onInfoRemove = () => {
         setSelectedUser(null)
     }
 
+    const onFormClick = () => {
+        setInfoClick(true);
+    }
+    const onFormRemove = () => {
+        setInfoClick(null);
+    }
+
+
     return (
         <>
             {selectedUser && <UserDetails {...selectedUser} onInfoRemove={onInfoRemove} />}
+            {infoClick && <UserForm onFormRemove={onFormRemove} />}
+
             <div className="table-wrapper">
 
                 {/* <div className="loading-shade">
@@ -189,7 +200,7 @@ export default function UserList({ users }) {
                 </table>
             </div>
 
-            <button className="btn-add btn">Add new user</button>
+            <button className="btn-add btn" onClick={onFormClick}>Add new user</button>
         </>
 
     )
