@@ -2,14 +2,20 @@ import './App.css';
 import { useState } from 'react'
 
 function App() {
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('')
 
   const usernameChangeHandler = (e) => {
     setUsername(e.target.value)
   }
 
+  const passwordChangeHandler = (e) => {
+    setPassword(e.target.value)
+  }
+
   const submitHandler = (e) => {
-    e.predentDefault()
+    e.preventDefault();
+    console.log(`username: ${username} , password: ${password}`);
   }
 
   return (
@@ -18,7 +24,7 @@ function App() {
         <label htmlFor="username">Username</label>
         <input type="text" htmlFor="username" name="username" value={username} onChange={usernameChangeHandler} />
         <label htmlFor="password">Password</label>
-        <input type="text" htmlFor="password" name="password" />
+        <input type="text" htmlFor="password" name="password" value={password} onChange={passwordChangeHandler} />
 
         <input type="submit" value="Submit" />
       </form>
