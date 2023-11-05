@@ -36,6 +36,12 @@ function App() {
 
     }
 
+    const onUserDelete = async (userId) => {
+        await userService.removeUser(userId);
+
+        setUsers(state => state.filter(x => x._id !== userId))
+    }
+
 
     return (
         <>
@@ -45,7 +51,11 @@ function App() {
 
                 <section className="card users-container>">
                     <Search />
-                    <UserList users={users} createUserHandler={createUserHandler} />
+                    <UserList
+                        users={users}
+                        createUserHandler={createUserHandler}
+                        onUserDelete={onUserDelete}
+                    />
 
                 </section>
 

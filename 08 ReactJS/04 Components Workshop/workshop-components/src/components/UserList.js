@@ -3,10 +3,12 @@ import { useState } from 'react';
 import UserDetails from "./UserDetails";
 import { getOne } from "../services/userService";
 import UserForm from "./UserForm";
+import DeleteUser from "./DeleteUser";
 
 export default function UserList({
     users,
-    createUserHandler
+    createUserHandler,
+    onUserDelete,
 }) {
 
     const [selectedUser, setSelectedUser] = useState(null);
@@ -33,12 +35,30 @@ export default function UserList({
         setformClick(false);
     }
 
+    const [showDeleteUser, setShowDeleteUser] = useState(null);
+
+    const onDeleteClick = (userId) => {
+        setSelectedUser({ _id: userId })
+        setShowDeleteUser(true);
+    }
+
+    const onClose = () => {
+        setShowDeleteUser(null)
+    }
+
+    const onDeleteHandler = () => {
+        onUserDelete(setSelectedUser._id)
+        onClose()
+    }
+
+
 
 
     return (
         <>
             {selectedUser && <UserDetails {...selectedUser} onInfoRemove={onInfoRemove} />}
             {formClick && <UserForm onFormRemove={onFormRemove} onUserCreateSubmitHandler={onUserCreateSubmitHandler} />}
+            {showDeleteUser && <DeleteUser onClose={onClose} onDelete={onDeleteHandler} />}
 
             <div className="table-wrapper">
 
@@ -204,7 +224,13 @@ export default function UserList({
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map(user => <User key={user._id} {...user} onInfoClick={onInfoClick} />)}
+                        {users.map(user =>
+                            <User
+                                {...user}
+                                key={user._id}
+                                onInfoClick={onInfoClick}
+                                onDeleteClick={onDeleteClick}
+                            />)}
 
                     </tbody>
                 </table>
