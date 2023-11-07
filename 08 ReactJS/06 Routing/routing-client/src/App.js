@@ -4,6 +4,8 @@ import { Home } from './Home';
 import { Navigation } from './Navigation';
 import { About } from './About';
 import { CharacterList } from './CharacterList';
+import { CharacterDetails } from './CharacterDetail';
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/characters' element={<CharacterList />} />
+          <Route path='/characters/:characterId' element={<CharacterDetails />} />
         </Routes>
       </header>
     </div>
