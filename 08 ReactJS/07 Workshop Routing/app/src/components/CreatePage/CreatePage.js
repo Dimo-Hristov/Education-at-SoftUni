@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import * as gameService from '../../services/gameService';
 
-export const CreatePage = () => {
+export const CreatePage = ({
+    onCreateGameSubmit
+}) => {
 
     const [data, setData] = useState({
         title: '',
@@ -16,20 +17,11 @@ export const CreatePage = () => {
         setData((state) => ({ ...state, [elementName]: e.target.value }))
     }
 
-    const onSubmit = async (e) => {
-        e.preventDefault();
 
-        try {
-            await gameService.createGame(data);
-        } catch (error) {
-            console.log(error.message);
-        }
-
-    }
 
     return (
         <section id="create-page" className="auth">
-            <form id="create" onSubmit={onSubmit} >
+            <form id="create" onSubmit={(e) => onCreateGameSubmit(e, data)} >
                 <div className="container">
                     <h1>Create Game</h1>
                     <label htmlFor="leg-title">Legendary title:</label>

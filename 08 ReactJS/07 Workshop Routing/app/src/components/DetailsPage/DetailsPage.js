@@ -4,7 +4,7 @@ export const DetailsPage = () => {
             <h1>Game Details</h1>
             <div className="info-section">
                 <div className="game-header">
-                    <img className="game-img" src="images/MineCraft.png" />
+                    <img className="game-img" src="images/MineCraft.png" alt="" />
                     <h1>Bright</h1>
                     <span className="levels">MaxLevel: 4</span>
                     <p className="type">Action, Crime, Fantasy</p>
