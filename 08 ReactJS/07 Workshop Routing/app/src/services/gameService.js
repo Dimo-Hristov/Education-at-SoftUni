@@ -13,3 +13,8 @@ export const getGamesList = async () => {
 
     return Object.values(result)
 }
+
+export const getOneGame = async (gameId) => {
+    const result = await requester.get(`${baseUrl}/${gameId}`)
+    return result;
+}
