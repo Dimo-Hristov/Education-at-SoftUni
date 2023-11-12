@@ -1,11 +1,11 @@
-import { CatalogPage } from "./CatalogPage/CatalogPage";
-import { CreatePage } from "./CreatePage/CreatePage";
-import { DetailsPage } from "./DetailsPage/DetailsPage";
-import { EditPage } from "./EditPage/EditPage";
-import { Register } from "./Register/Register";
-import { Login } from "./Login/Login";
-import { Header } from "./Header/Header";
-import { HomePage } from "./HomePage/HomePage";
+import { CatalogPage } from "./components/CatalogPage/CatalogPage";
+import { CreatePage } from "./components/CreatePage/CreatePage";
+import { DetailsPage } from "./components/DetailsPage/DetailsPage";
+import { EditPage } from "./components/EditPage/EditPage";
+import { Register } from "./components/Register/Register";
+import { Login } from "./components/Login/Login";
+import { Header } from "./components/Header/Header";
+import { HomePage } from "./components/HomePage/HomePage";
 import { Route, Routes } from 'react-router-dom'
 
 function App() {

@@ -1,3 +1,4 @@
+
 export const HomePage = () => {
     return (
         <section id="welcome-world">
@@ -5,13 +6,13 @@ export const HomePage = () => {
                 <h2>ALL new games are</h2>
                 <h3>Only in GamesPlay</h3>
             </div>
-            <img src="./images/four_slider_img01.png" alt="hero" />
+            <img src="../images/four_slider_img01.png" alt="hero" />
             <div id="home-page">
                 <h1>Latest Games</h1>
                 {/* Display div: with information about every game (if any) */}
                 <div className="game">
                     <div className="image-wrap">
-                        <img src="./images/CoverFire.png" />
+                        <img src="../images/CoverFire.png" alt="img" />
                     </div>
                     <h3>Cover Fire</h3>
                     <div className="rating">
@@ -29,7 +30,7 @@ export const HomePage = () => {
                 </div>
                 <div className="game">
                     <div className="image-wrap">
-                        <img src="./images/ZombieLang.png" />
+                        <img src="../images/ZombieLang.png" alt="img" />
                     </div>
                     <h3>Zombie Lang</h3>
                     <div className="rating">
@@ -47,7 +48,7 @@ export const HomePage = () => {
                 </div>
                 <div className="game">
                     <div className="image-wrap">
-                        <img src="./images/MineCraft.png" />
+                        <img src="../images/MineCraft.png" alt="img" />
                     </div>
                     <h3>MineCraft</h3>
                     <div className="rating">
