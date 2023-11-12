@@ -1,4 +1,20 @@
+import { useState } from 'react';
+
 export const CreatePage = () => {
+
+    const [data, setData] = useState({
+        title: '',
+        category: '',
+        maxLevel: '',
+        imageUrl: '',
+        summary: 'summary',
+    });
+
+    const onChange = (e) => {
+        const elementName = e.target.name
+        setData((state) => ({ ...state, [elementName]: e.target.value }))
+    }
+
     return (
         <section id="create-page" className="auth">
             <form id="create">
@@ -10,6 +26,8 @@ export const CreatePage = () => {
                         id="title"
                         name="title"
                         placeholder="Enter game title..."
+                        value={data.title}
+                        onChange={onChange}
                     />
                     <label htmlFor="category">Category:</label>
                     <input
@@ -17,6 +35,8 @@ export const CreatePage = () => {
                         id="category"
                         name="category"
                         placeholder="Enter game category..."
+                        value={data.category}
+                        onChange={onChange}
                     />
                     <label htmlFor="levels">MaxLevel:</label>
                     <input
@@ -25,6 +45,8 @@ export const CreatePage = () => {
                         name="maxLevel"
                         min={1}
                         placeholder={1}
+                        value={data.maxLevel}
+                        onChange={onChange}
                     />
                     <label htmlFor="game-img">Image:</label>
                     <input
@@ -32,9 +54,11 @@ export const CreatePage = () => {
                         id="imageUrl"
                         name="imageUrl"
                         placeholder="Upload a photo..."
+                        value={data.imageUrl}
+                        onChange={onChange}
                     />
                     <label htmlFor="summary">Summary:</label>
-                    <textarea name="summary" id="summary" defaultValue={""} />
+                    <textarea name="summary" id="summary" value={data.summary} onChange={onChange} />
                     <input className="btn submit" type="submit" defaultValue="Create Game" />
                 </div>
             </form>
