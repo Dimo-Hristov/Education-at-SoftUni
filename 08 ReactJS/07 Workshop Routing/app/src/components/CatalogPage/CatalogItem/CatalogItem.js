@@ -3,8 +3,6 @@ import { Link } from "react-router-dom"
 export const CartalogItem = ({
     category,
     imageUrl,
-    maxLevel,
-    summary,
     title,
     _id
 }) => {
@@ -14,7 +12,7 @@ export const CartalogItem = ({
                 <img src={imageUrl} alt={title} />
                 <h6>{category}</h6>
                 <h2>{title}</h2>
-                <Link to={`/details/:${_id}`} className="details-button">
+                <Link to={`/details/${_id}`} className="details-button">
                     Details
                 </Link>
             </div>
