@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as gameService from '../../services/gameService';
 
 export const CreatePage = () => {
 
@@ -7,7 +8,7 @@ export const CreatePage = () => {
         category: '',
         maxLevel: '',
         imageUrl: '',
-        summary: 'summary',
+        summary: '',
     });
 
     const onChange = (e) => {
@@ -15,9 +16,20 @@ export const CreatePage = () => {
         setData((state) => ({ ...state, [elementName]: e.target.value }))
     }
 
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            await gameService.createGame(data);
+        } catch (error) {
+            console.log(error.message);
+        }
+
+    }
+
     return (
         <section id="create-page" className="auth">
-            <form id="create">
+            <form id="create" onSubmit={onSubmit} >
                 <div className="container">
                     <h1>Create Game</h1>
                     <label htmlFor="leg-title">Legendary title:</label>
