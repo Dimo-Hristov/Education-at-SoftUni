@@ -30,6 +30,8 @@ function App() {
     navigate('/catalog');
   }
 
+
+
   const onLoginSubmit = async (data) => {
     try {
       const result = await authService.login(data);
@@ -43,8 +45,18 @@ function App() {
 
   }
 
+  const context = {
+    onLoginSubmit,
+    userId: auth._id,
+    token: auth.accessToken,
+    userEmail: auth.email,
+    isAuthenticated() {
+      return !!auth.accessToen
+    }
+  }
+
   return (
-    <authContext.Provider value={{ onLoginSubmit }}>
+    <authContext.Provider value={context}>
       <div id="box">
         <Header />
         <main id="main-content">
