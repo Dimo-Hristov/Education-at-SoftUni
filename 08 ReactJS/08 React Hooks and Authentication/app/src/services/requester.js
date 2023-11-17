@@ -14,17 +14,20 @@ const request = async (method, url, data) => {
     }
 
     const response = await fetch(url, options);
+
+
+    if (response.status === 204) {
+        return {};
+    }
+
+    const result = await response.json();
+
     if (!response.ok) {
         const result = await response.json();
         return result;
     }
 
-    try {
-        const result = await response.json();
-        return result
-    } catch (error) {
-        return {};
-    }
+    return result;
 }
 
 export const get = request.bind(null, 'GET');
