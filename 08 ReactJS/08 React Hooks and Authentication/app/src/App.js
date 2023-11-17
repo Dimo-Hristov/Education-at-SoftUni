@@ -10,10 +10,12 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import { useEffect, useState, } from 'react';
 import * as gameService from './services/gameService'
 import { authContext } from "./contexts/authContext";
+import * as authService from './services/authService'
 
 function App() {
   const navigate = useNavigate();
   const [gamesList, setGamesList] = useState([])
+  const [auth, setAuth] = useState({});
 
   useEffect(() => {
     gameService.getGamesList()
@@ -29,7 +31,16 @@ function App() {
   }
 
   const onLoginSubmit = async (data) => {
-    console.log(data)
+    try {
+      const result = await authService.login(data);
+      setAuth(result);
+
+      navigate('/catalog')
+    } catch (error) {
+      alert(error.message)
+    }
+
+
   }
 
   return (
