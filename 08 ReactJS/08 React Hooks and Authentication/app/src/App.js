@@ -30,6 +30,23 @@ function App() {
     navigate('/catalog');
   }
 
+  const onRegisterSubmit = async (values) => {
+    const { confirmPassword, ...registerData } = values;
+    if (confirmPassword !== registerData.password) {
+      alert('Passwords missmatch');
+      return
+    }
+
+    try {
+      const result = await authService.register(registerData);
+
+      setAuth(result);
+      navigate('/catalog')
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
 
 
   const onLoginSubmit = async (data) => {
@@ -47,6 +64,7 @@ function App() {
 
   const context = {
     onLoginSubmit,
+    onRegisterSubmit,
     userId: auth._id,
     token: auth.accessToken,
     userEmail: auth.email,
