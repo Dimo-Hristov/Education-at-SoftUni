@@ -9,6 +9,7 @@ import { HomePage } from "./components/HomePage/HomePage";
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { useEffect, useState, } from 'react';
 import * as gameService from './services/gameService'
+import { authContext } from "./contexts/authContext";
 
 function App() {
   const navigate = useNavigate();
@@ -27,22 +28,29 @@ function App() {
     navigate('/catalog');
   }
 
-  return (
-    <div id="box">
-      <Header />
-      <main id="main-content">
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/catalog' element={<CatalogPage gamesList={gamesList} />} />
-          <Route path='/create' element={<CreatePage onCreateGameSubmit={onCreateGameSubmit} />} />
-          <Route path='/details/:gameId' element={<DetailsPage />} />
-          <Route path='/edit' element={<EditPage />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-        </Routes>
-      </main>
+  const onLoginsubmit = async (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(e.target))
+    console.log(formData);
+  }
 
-    </div>
+  return (
+    <authContext.Provider value={{ onLoginsubmit }}>
+      <div id="box">
+        <Header />
+        <main id="main-content">
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/catalog' element={<CatalogPage gamesList={gamesList} />} />
+            <Route path='/create' element={<CreatePage onCreateGameSubmit={onCreateGameSubmit} />} />
+            <Route path='/details/:gameId' element={<DetailsPage />} />
+            <Route path='/edit' element={<EditPage />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+          </Routes>
+        </main>
+      </div>
+    </authContext.Provider>
   );
 }
 
