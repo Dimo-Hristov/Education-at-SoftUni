@@ -50,9 +50,8 @@ function App() {
     userId: auth._id,
     token: auth.accessToken,
     userEmail: auth.email,
-    isAuthenticated() {
-      return !!auth.accessToen
-    }
+    isAuthenticated: !!auth.accessToken
+
   }
 
   return (
