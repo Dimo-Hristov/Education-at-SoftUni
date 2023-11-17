@@ -28,14 +28,12 @@ function App() {
     navigate('/catalog');
   }
 
-  const onLoginsubmit = async (e) => {
-    e.preventDefault();
-    const formData = Object.fromEntries(new FormData(e.target))
-    console.log(formData);
+  const onLoginSubmit = async (data) => {
+    console.log(data)
   }
 
   return (
-    <authContext.Provider value={{ onLoginsubmit }}>
+    <authContext.Provider value={{ onLoginSubmit }}>
       <div id="box">
         <Header />
         <main id="main-content">

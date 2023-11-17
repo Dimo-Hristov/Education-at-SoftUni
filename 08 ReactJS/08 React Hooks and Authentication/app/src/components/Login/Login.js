@@ -1,13 +1,24 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { authContext } from "../../contexts/authContext";
+import { useForm } from "../../hooks/useForm";
+
+const LoginFormKeys = {
+    Email: 'email',
+    Password: 'password',
+}
+
 
 export const Login = () => {
-    const { onLoginsubmit } = useContext(authContext);
+    const { onLoginSubmit } = useContext(authContext);
+    const { values, changeHandler, onSubmit } = useForm({
+        [LoginFormKeys.Email]: '',
+        [LoginFormKeys.Password]: ''
+    }, onLoginSubmit)
 
     return (
         <section id="login-page" className="auth">
-            <form id="login" onSubmit={onLoginsubmit}>
+            <form id="login" onSubmit={onSubmit}>
                 <div className="container">
                     <div className="brand-logo" />
                     <h1>Login</h1>
@@ -15,12 +26,20 @@ export const Login = () => {
                     <input
                         type="email"
                         id="email"
-                        name="email"
+                        name={LoginFormKeys.Email}
+                        value={values[LoginFormKeys.Email]}
                         placeholder="Sokka@gmail.com"
                         autoComplete="email"
+                        onChange={changeHandler}
                     />
                     <label htmlFor="login-pass">Password:</label>
-                    <input type="password" id="login-password" name="password" autoComplete="current-password" />
+                    <input type="password"
+                        id={LoginFormKeys.Password}
+                        name="password"
+                        autoComplete="current-password"
+                        value={values[LoginFormKeys.Password]}
+                        onChange={changeHandler}
+                    />
                     <input type="submit" className="btn submit" defaultValue="Login" />
                     <p className="field">
                         <span>
