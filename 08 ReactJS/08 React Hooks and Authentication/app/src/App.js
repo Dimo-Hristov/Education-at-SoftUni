@@ -11,6 +11,7 @@ import { useEffect, useState, } from 'react';
 import * as gameService from './services/gameService'
 import { authContext } from "./contexts/authContext";
 import * as authService from './services/authService'
+import { Logout } from "./components/Logout";
 
 function App() {
   const navigate = useNavigate();
@@ -58,13 +59,17 @@ function App() {
     } catch (error) {
       alert(error.message)
     }
+  }
 
-
+  const onLogout = async () => {
+    // TODO: authorized logout
+    setAuth({})
   }
 
   const context = {
     onLoginSubmit,
     onRegisterSubmit,
+    onLogout,
     userId: auth._id,
     token: auth.accessToken,
     userEmail: auth.email,
@@ -85,6 +90,7 @@ function App() {
             <Route path='/edit' element={<EditPage />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/logout' element={<Logout />} />
           </Routes>
         </main>
       </div>
